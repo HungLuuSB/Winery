@@ -1,7 +1,7 @@
 ﻿.navbar-sticky { 
     position: sticky;
     top: 0;
-    oveflow: hidden;
+    overflow: hidden;
     background-color: #333;
 }
 .navbar-sticky li {
@@ -12,5 +12,39 @@
     padding: 14px;
     text-decoration: none;
 }
+.product-wrapper {
+    background-color: white;
+    width: 500px;
+    height: 500px;
+}
+
+.product-thumbnail {
+    width: 50%;
+    height: 50%;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.product-name {
+    text-align: center;
+}
+
+.product-details {
+    width: 50%;
+    height: 50%;
+    float: right;
+}
+
+.product-buy {
+    text-align: center;
+}
+
+.product-price {
+    text-align: center;
+}
+
 
 
