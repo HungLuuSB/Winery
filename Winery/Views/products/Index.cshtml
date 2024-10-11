@@ -4,55 +4,28 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="~/Content/styles.css" rel="stylesheet" type="text/css">
+<div class="product-result">
+        @foreach (var item in Model)
+        {
+            <div class="product-wrapper" style="border: 1px solid black;">
+                <div class="product-thumbnail">
+                    <div class="product-image">
+                        <img src="https://www.amathusdrinks.com/media/klevu_images/200X200/h/a/handpicked_wines_yarra_valley_chardonnay.png" />
+                    </div>
+                    <div class="product-name">
+                        <h2>@item.product_name</h2>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <div class="product-buy">
+                        <a href="https://www.amathusdrinks.com/media/klevu_images/200X200/h/a/handpicked_wines_yarra_valley_chardonnay.png">ADD TO CART</a>
+                    </div>
+                    <div class="product-price">
+                        <h4>$@item.product_price</h4>
+                    </div>
+                </div>
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.product_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.product_desc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.product_price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.pruduct_capacity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.product_origin)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.product_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.product_desc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.product_price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.pruduct_capacity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.product_origin)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.product_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.product_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.product_id })
-        </td>
-    </tr>
-}
-
-</table>
+            </div>
+        }
+</div>
