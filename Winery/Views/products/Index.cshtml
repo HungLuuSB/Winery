@@ -9,23 +9,27 @@
         @foreach (var item in Model)
         {
             <div class="product-wrapper" style="border: 1px solid black;">
+                <div class="product-wrapper-background-effect"></div>
                 <div class="product-thumbnail">
-                    <div class="product-image">
-                        <img src="https://www.amathusdrinks.com/media/klevu_images/200X200/h/a/handpicked_wines_yarra_valley_chardonnay.png" />
-                    </div>
-                    <div class="product-name">
-                        <h2>@item.product_name</h2>
+                    <div class="product-content-wrapper">
+                        <div class="product-image">
+                            <img src="https://wyine.wpengine.com/wp-content/uploads/2023/04/shop-1.1-2.png" />
+                        </div>
+                        <div class="product-name">
+                            <h2>@item.product_name</h2>
+                        </div>
                     </div>
                 </div>
                 <div class="product-details">
-                    <div class="product-buy">
-                        <a href="https://www.amathusdrinks.com/media/klevu_images/200X200/h/a/handpicked_wines_yarra_valley_chardonnay.png">ADD TO CART</a>
-                    </div>
-                    <div class="product-price">
-                        <h4>$@item.product_price</h4>
+                    <div class="product-content-wrapper">
+                        <div class="product-buy">
+                            <a href="https://wyine.wpengine.com/wp-content/uploads/2023/04/shop-1.1-2.png">ADD TO CART</a>
+                        </div>
+                        <div class="product-price">
+                            <h4>$@item.product_price</h4>
+                        </div>
                     </div>
                 </div>
-
             </div>
         }
 </div>
