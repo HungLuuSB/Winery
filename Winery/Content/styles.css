@@ -1,17 +1,26 @@
-﻿.navbar-sticky {
-    position: sticky;
-    top: 0;
-    overflow: hidden;
-    background-color: #333;
-}
+﻿.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+    height: 75px;
+    background-color: #535446;
 
-.navbar-sticky li {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px;
-    text-decoration: none;
+}
+.nav-section {
+    display: flex;
+    margin: 10px;
+    gap: 20px;
+}
+.nav-section a {
+    color: white;
+
+}
+.nav-section.center span{
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
 }
 .product-result {
     width: 100%;

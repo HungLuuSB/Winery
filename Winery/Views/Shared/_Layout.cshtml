@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <link href="~/Content/styles.css" rel="stylesheet" type="text/css">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
@@ -8,18 +9,21 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="navbar-sticky">
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Shop", "Index", "Products", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
-                <div style="color: white;">
-                    <h2>Winery</h2>
-                </div>
-            </div>
+    <nav class="navbar">
+        <div class="nav-section left">
+            <a href="@Url.Action("Index","Home")">Home</a>
+            <a href="@Url.Action("Index","Products")">Shop</a>
+            <a href="@Url.Action("About","Home")">About</a>
+        </div>
+
+        <div class="nav-section center">
+            <span>Winery</span>
+        </div>
+
+        <div class="nav-section right">
+            <a href="#">Log In</a>
+            <a href="#">Account</a>
+            <a href="#">Settings</a>
         </div>
     </nav>
     <div class="container body-content">
