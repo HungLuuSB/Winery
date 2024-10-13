@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Winery.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/styles.css" rel="stylesheet" type="text/css">
+<div class="product-result">
+    @foreach (var item in Model)
+    {
+        <div class="product-display-item-container">
+            <div class="product-purchase-wrapper">
+                <div class="product-purchase">
+                    <div class="product-display top">
+                        <div class="product-image">
+                            <img src="https://wyine.wpengine.com/wp-content/uploads/2023/04/shop-1.1-2.png" />
+                        </div>
+                    </div>
+                    <hr class="hr-product-seperator" />
+                    <div class="product-display bottom">
+                        <div class="product-info-wrapper">
+                            <div class="product-capacity">
+                                <span>@item.ProductCapacity</span>
+                            </div>
+                            <div class="product-name">
+                                <span>@item.ProductName</span>
+                            </div>
+                            <div class="product-desc">
+                                <span>@item.ProductDesc</span>
+                            </div>
+                            <div class="product-price">
+                                <span>$@item.ProductPrice</span>
+                            </div>
+                        </div>
+
+                        <div class="product-purchase-button">
+                            <button>Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
