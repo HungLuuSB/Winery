@@ -13,10 +13,10 @@ namespace Winery.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WineryDatabase : DbContext
+    public partial class WineryDatabaseEntity : DbContext
     {
-        public WineryDatabase()
-            : base("name=WineryDatabase")
+        public WineryDatabaseEntity()
+            : base("name=WineryDatabaseEntity")
         {
         }
     
@@ -28,7 +28,6 @@ namespace Winery.Models
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<product1> products1 { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

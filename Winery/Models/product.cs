@@ -12,13 +12,17 @@ namespace Winery.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class product
+    public partial class Product
     {
-        public int product_id { get; set; }
-        public string product_name { get; set; }
-        public string product_desc { get; set; }
-        public float product_price { get; set; }
-        public int pruduct_capacity { get; set; }
-        public string product_origin { get; set; }
+        public int ProductID { get; set; }
+        public string ProductName { get; set; }
+        public string ProductDesc { get; set; }
+        public int ProductYearAging { get; set; }
+        public float ProductPrice { get; set; }
+        public int ProductCapacity { get; set; }
+        public string ProductOrigin { get; set; }
+        public int ProductCategoryID { get; set; }
+    
+        public virtual Category Category { get; set; }
     }
 }

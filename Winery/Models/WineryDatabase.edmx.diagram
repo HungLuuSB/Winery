@@ -4,11 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="99ac18bc943d44918f22f6490e8aa6f2" Name="Diagram1">
+      <Diagram DiagramId="d38a5e2561f745aa9037a56f78441329" Name="Diagram1">
         <EntityTypeShape EntityType="WineryModel.Address" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="WineryModel.Category" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="WineryModel.Product" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="WineryModel.product1" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WineryModel.User" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="WineryModel.FK__Address__UserID__571DF1D5" ManuallyRouted="false" />
         <AssociationConnector Association="WineryModel.FK__Product__Product__4D94879B" ManuallyRouted="false" />
