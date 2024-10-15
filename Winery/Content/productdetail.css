@@ -82,14 +82,15 @@
     font-family: 'Cormorant Upright';
 }
 
-    .add-to-cart-button:hover {
-        background-color: #535446;
-    }
+.add-to-cart-button:hover {
+    background-color: #535446;
+}
 
 .product-purchase-buttons {
     margin-bottom: 100px;
     
 }
+
 .hr-product-purchase-seperator {
     border: 2px solid #A3664F;
     width: 100%;
