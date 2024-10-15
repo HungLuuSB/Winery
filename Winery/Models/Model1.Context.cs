@@ -13,10 +13,10 @@ namespace Winery.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WineryEntities1 : DbContext
+    public partial class WineryEntities2 : DbContext
     {
-        public WineryEntities1()
-            : base("name=WineryEntities1")
+        public WineryEntities2()
+            : base("name=WineryEntities2")
         {
         }
     
@@ -25,6 +25,9 @@ namespace Winery.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<product> products { get; set; }
+        public virtual DbSet<Address> Address { get; set; }
+        public virtual DbSet<Category> Category { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }

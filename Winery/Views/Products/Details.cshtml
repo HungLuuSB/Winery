@@ -1,0 +1,47 @@
+﻿@model Winery.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@functions {
+    public static string ParseItemNameIntoPNGFileName(string name)
+    {
+        string temp = name.ToLower().Replace(' ', '_') + ".png";
+        return temp;
+    }
+}
+
+<head>
+    <link href="~/Content/productdetail.css" rel="stylesheet">
+</head>
+<body>
+    <div class="product-purchase-wrapper">
+        <div class="product-purchase">
+            <div class="product-display left">
+                <div class="product-image">
+                    <img src="~/Content/Images/wine/@ParseItemNameIntoPNGFileName(Model.ProductName)" />
+                </div>
+            </div>
+            <div class="product-display right">
+                <div class="product-capacity">
+                    <span>@Model.ProductCapacity<span>ml</span></span>
+                </div>
+                <div class="product-name">
+                    <h2>@Model.ProductName</h2>
+                </div>
+                
+                <div class="product-desc">
+                    <p>@Model.ProductDesc</p>
+                </div>
+                <div class="product-price">
+                    <span>$@Model.ProductPrice</span>
+                </div>
+                <div class="product-purchase-buttons">
+                    <button class="add-to-cart-button">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
