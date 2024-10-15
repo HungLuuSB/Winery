@@ -7,6 +7,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/styles.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar-content">
@@ -25,6 +26,7 @@
             <a href="#">Account</a>
             <a href="#">Settings</a>
         </div>
+
     </nav>
     <div class="container body-content">
         @RenderBody()
@@ -35,7 +37,7 @@
                     Winery
                 </a>
 
-                
+
             </div>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>

@@ -19,8 +19,12 @@
     color: white;
 
 }
-.nav-section.center span{
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    transition: 0.3s ease;
 }
+
+
+
