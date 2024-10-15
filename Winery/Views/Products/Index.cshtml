@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Winery.Models.Product>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Shop";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -50,7 +50,7 @@
 
                                     </div>
                                     <div class="product-price">
-                                        <span>£@item.ProductPrice</span>
+                                        <span>£@item.ProductPrice.ToString("F2")</span>
                                     </div>
                                     <div class="product-purchase-button">
                                         <button>Add to cart</button>
