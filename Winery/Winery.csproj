@@ -182,8 +182,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Images\footer_img.jpg" />
+    <Content Include="Content\Images\Home img.jpg" />
     <Content Include="Content\Images\HomeImg.png" />
     <Content Include="Content\Images\item_display_background_img.png" />
+    <Content Include="Content\Images\winery-footer-img.png" />
     <Content Include="Content\Images\wine\chateau_musar.png" />
     <Content Include="Content\Images\wine\handpicked_wines_yarra_valley_pinot_noir.png" />
     <Content Include="Content\Images\wine\la_rioja_alta_904_gran_reserva_2015.png" />

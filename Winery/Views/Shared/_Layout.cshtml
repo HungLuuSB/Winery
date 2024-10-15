@@ -28,16 +28,23 @@
         </div>
 
     </nav>
-    <div class="container body-content">
+    <div>
         @RenderBody()
         <hr />
         <footer class="footer">
             <div class="footer-wrapper">
-                <a>
-                    Winery
-                </a>
-
-
+                <div class="footer-newsletter" style="position:relative; text-align: center; color: white;">
+                    <img src="~/Content/Images/footer_img.jpg" style="width: 100%; height: auto" />
+                    <div style="position:absolute; top:50%; left: 20%; transform: translate(-50%, -50%)">
+                        <h1>NEWSLETTER</h1>
+                        <h6>Sign up for exclusive offers, masterclasses, launches and the latest news</h6>
+                    </div>
+                </div>
+                <div>
+                    <a>
+                        Winery
+                    </a>
+                </div>
             </div>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
