@@ -53,10 +53,9 @@
                                         <span>£@item.ProductPrice.ToString("F2")</span>
                                     </div>
                                     <div class="product-purchase-button">
-                                        <button>Add to cart</button>
+                                        <button onclick="location.href='@Url.Action("Details","Products", new { id = item.ProductID })'">Add to cart</button>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

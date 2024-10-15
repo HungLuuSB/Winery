@@ -3,15 +3,15 @@
 }
 
 <main>
-
-    <div class="row" style="position:relative; text-align: center; color: white;">
-        <img src="~/Content/Images/Home img.jpg" style="width: 100%; height: auto;" />
-        <div style="position:absolute; top:30%; left: 50%; transform: translate(-50%, -50%); padding-bottom: 50px;">
+    <link href="~/Content/home-index-styles.css" rel="stylesheet">
+    <div class="row">
+        <img class="welcome-img" src="~/Content/Images/Home img.jpg"/>
+        <div class="welcome-content">
             <div>
-                <h5 style="font-size: 50px; color: #535446;">PERFECT WINE WITH A AMAZING GRAPES</h5>
+                <h5 class="welcome-slogan">PERFECT WINE WITH AMAZING GRAPES</h5>
             </div>
             <div>
-                <button type="button">
+                <button class="shop-now-button" type="button" onclick="location.href='@Url.Action("Index","Products")'">
                     <div>
                         <span>SHOP NOW</span>
                     </div>

@@ -1,0 +1,33 @@
+﻿.row {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.welcome-img {
+    width: 100%;
+    height: auto;
+}
+.welcome-content {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-bottom: 50px;
+}
+.welcome-slogan {
+    font-size: 50px;
+    color: #535446;
+}
+.shop-now-button {
+    background-color: #995c40;
+    color: white;
+    width: 200px;
+    height: 50px;
+    border: 0;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    font-family: 'Cormorant Upright';
+}
+    .shop-now-button:hover {
+        background-color: #535446;
+    }
