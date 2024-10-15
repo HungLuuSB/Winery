@@ -115,3 +115,12 @@
 .hr-product-seperator {
     border: 1px solid #b2b2b2;
 }
+
+.product-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+.product-price {
+    font-size: 20px;
+    font-weight: bold;
+}

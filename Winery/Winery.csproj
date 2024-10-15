@@ -190,6 +190,7 @@
     <Content Include="Content\Images\wine\opus_one_2014.png" />
     <Content Include="Content\Images\wine\yarra_yering_dry_red_wine_no_1.png" />
     <Content Include="Content\Images\wine\yarra_yering_dry_red_wine_no_2.png" />
+    <Content Include="Content\layout-style.css" />
     <Content Include="Content\product-index-styles.css" />
     <Content Include="Content\productdetail.css" />
     <Content Include="Content\styles.css" />
@@ -219,6 +220,11 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\Fonts\CormorantUpright-Bold.ttf" />
+    <Content Include="Content\Fonts\CormorantUpright-Light.ttf" />
+    <Content Include="Content\Fonts\CormorantUpright-Medium.ttf" />
+    <Content Include="Content\Fonts\CormorantUpright-Regular.ttf" />
+    <Content Include="Content\Fonts\CormorantUpright-SemiBold.ttf" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />

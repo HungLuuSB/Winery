@@ -1,0 +1,28 @@
+﻿.navbar-content {
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+    height: 75px;
+    background-color: #535446;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-section {
+    display: flex;
+    margin: 10px;
+    gap: 20px;
+}
+
+    .nav-section a {
+        color: white;
+    }
+
+    .nav-section.center span {
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+    }
