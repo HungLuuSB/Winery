@@ -5,49 +5,64 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<link href="~/Content/styles.css" rel="stylesheet" type="text/css">
-<div class="product-result">
-    <ul class="product-result-list">
-        @foreach (var item in Model)
-        {
-            <li class="product-result-list-item">
-                <div class="product-display-item-container">
-                    <div class="product-purchase-wrapper">
-                        <div class="product-purchase">
-                            <div class="product-display top">
-                                <div class="product-image">
-                                    <img src="https://wyine.wpengine.com/wp-content/uploads/2023/04/shop-1.1-2.png" />
+@functions {
+    public static string ParseItemNameIntoPNGFileName(string name)
+    {
+        string temp = name.ToLower().Replace(' ', '_') + ".png";
+        return temp;
+    }
+}
+<head>
+    <link href="~/Content/product-index-styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="product-result">
+        <ul class="product-result-list">
+            @foreach (var item in Model)
+            {
+                <li class="product-result-list-item">
+                    <div class="product-display-item-container">
+                        <div class="product-purchase-wrapper">
+                            <div class="product-purchase">
+                                <div class="product-display top">
+                                    <div class="product-image">
+                                        <a href="@Url.Action("Details", "Products", new { id = item.ProductID })">
+                                            <img src="~/Content/Images/wine/@ParseItemNameIntoPNGFileName(item.ProductName)" />
+                                        </a>
+
+                                    </div>
                                 </div>
-                            </div>
-                            <hr class="hr-product-seperator" />
-                            <div class="product-display bottom">
-                                <div class="product-info-wrapper">
-                                    <div class="product-capacity">
-                                        <span>@item.ProductCapacity<span>ml</span></span>
+                                <hr class="hr-product-seperator" />
+                                <div class="product-display bottom">
+                                    <div class="product-info-wrapper">
+                                        <div class="product-capacity">
+                                            <span>@item.ProductCapacity<span>ml</span></span>
+                                        </div>
+                                        <div class="product-name">
+                                            <span>@item.ProductName</span>
+                                        </div>
+                                        <div class="product-desc">
+                                            <span>@item.ProductDesc</span>
+                                        </div>
+
                                     </div>
-                                    <div class="product-name">
-                                        <span>@item.ProductName</span>
-                                    </div>
-                                    <div class="product-desc">
-                                        <span>@item.ProductDesc</span>
+                                    <div class="product-info-spacer">
+
                                     </div>
                                     <div class="product-price">
                                         <span>$@item.ProductPrice</span>
                                     </div>
+                                    <div class="product-purchase-button">
+                                        <button>Add to cart</button>
+                                    </div>
                                 </div>
-                                <div class="product-info-spacer">
 
-                                </div>
-                                <div class="product-purchase-button">
-                                    <button>Add to cart</button>
-                                </div>
                             </div>
-                            
                         </div>
                     </div>
-                </div>
-            </li>
-        }
-    </ul>
-    
-</div>
+                </li>
+            }
+        </ul>
+    </div>
+</body>
+
