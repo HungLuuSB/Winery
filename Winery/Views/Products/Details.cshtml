@@ -1,7 +1,7 @@
 ﻿@model Winery.Models.Product
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Model.ProductName;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -31,12 +31,15 @@
                 <div class="product-name">
                     <h2>@Model.ProductName</h2>
                 </div>
-                
+                <hr class="hr-product-purchase-seperator"/>
                 <div class="product-desc">
                     <p>@Model.ProductDesc</p>
                 </div>
+                <div class="product-display-filler">
+
+                </div>
                 <div class="product-price">
-                    <span>£@Model.ProductPrice</span>
+                    <span>£@Model.ProductPrice.ToString("F2")</span>
                 </div>
                 <div class="product-purchase-buttons">
                     <button class="add-to-cart-button">ADD TO CART</button>
