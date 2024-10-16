@@ -22,6 +22,13 @@
           <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="PermissionId" />
+          </Key>
+          <Property Name="PermissionId" Type="int" Nullable="false" />
+          <Property Name="PermissionName" Type="text" Nullable="false" />
+        </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ProductID" />
@@ -59,6 +66,16 @@
           <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
           <Property Name="DateOfBirth" Type="date" />
           <Property Name="PhoneNumber" Type="varchar" MaxLength="11" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'E:\VISUAL STUDIO PROJECTS\WINERY\WINERY\APP_DATA\WINERY.MDF.dbo.UserPermission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="UserPermission">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="PermissionId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="PermissionId" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK__Address__UserID__571DF1D5">
           <End Role="User" Type="Self.User" Multiplicity="1" />
@@ -108,12 +125,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__UserPermi__Permi__76969D2E">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="1" />
+          <End Role="UserPermission" Type="Self.UserPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="PermissionId" />
+            </Principal>
+            <Dependent Role="UserPermission">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPermi__UserI__75A278F5">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserPermission" Type="Self.UserPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserPermission">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="WineryModelStoreContainer">
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserPermission" EntityType="Self.UserPermission" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UserPermission].[UserId] AS [UserId], 
+    [UserPermission].[PermissionId] AS [PermissionId]
+    FROM [dbo].[UserPermission] AS [UserPermission]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__Address__UserID__571DF1D5" Association="Self.FK__Address__UserID__571DF1D5">
             <End Role="User" EntitySet="User" />
             <End Role="Address" EntitySet="Address" />
@@ -129,6 +177,14 @@
           <AssociationSet Name="FK__Review__UserID__6FE99F9F" Association="Self.FK__Review__UserID__6FE99F9F">
             <End Role="User" EntitySet="User" />
             <End Role="Review" EntitySet="Review" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPermi__Permi__76969D2E" Association="Self.FK__UserPermi__Permi__76969D2E">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="UserPermission" EntitySet="UserPermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPermi__UserI__75A278F5" Association="Self.FK__UserPermi__UserI__75A278F5">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserPermission" EntitySet="UserPermission" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -184,6 +240,7 @@
           <Property Name="PhoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Address" Relationship="Self.FK__Address__UserID__571DF1D5" FromRole="User" ToRole="Address" />
           <NavigationProperty Name="Review" Relationship="WineryModel.FK__Review__UserID__6FE99F9F" FromRole="User" ToRole="Review" />
+          <NavigationProperty Name="Permission" Relationship="WineryModel.UserPermission" FromRole="User" ToRole="Permission" />
         </EntityType>
         <Association Name="FK__Address__UserID__571DF1D5">
           <End Role="User" Type="Self.User" Multiplicity="1" />
@@ -231,6 +288,11 @@
             <End Role="User" EntitySet="User" />
             <End Role="Review" EntitySet="Review" />
           </AssociationSet>
+          <EntitySet Name="Permission" EntityType="WineryModel.Permission" />
+          <AssociationSet Name="UserPermission" Association="WineryModel.UserPermission">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Review">
           <Key>
@@ -268,6 +330,18 @@
               <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="PermissionId" />
+          </Key>
+          <Property Name="PermissionId" Type="Int32" Nullable="false" />
+          <Property Name="PermissionName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="WineryModel.UserPermission" FromRole="Permission" ToRole="User" />
+        </EntityType>
+        <Association Name="UserPermission">
+          <End Type="WineryModel.Permission" Role="Permission" Multiplicity="*" />
+          <End Type="WineryModel.User" Role="User" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -335,6 +409,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Permission">
+            <EntityTypeMapping TypeName="WineryModel.Permission">
+              <MappingFragment StoreEntitySet="Permission">
+                <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="UserPermission" TypeName="WineryModel.UserPermission" StoreEntitySet="UserPermission">
+            <EndProperty Name="User">
+              <ScalarProperty Name="UserID" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="Permission">
+              <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
