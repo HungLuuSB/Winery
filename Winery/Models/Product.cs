@@ -14,15 +14,23 @@ namespace Winery.Models
     
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            this.Review = new HashSet<Review>();
+        }
+    
         public int ProductID { get; set; }
         public string ProductName { get; set; }
         public string ProductDesc { get; set; }
-        public int ProductYearAging { get; set; }
+        public Nullable<int> ProductYearAging { get; set; }
         public float ProductPrice { get; set; }
-        public int ProductCapacity { get; set; }
+        public Nullable<int> ProductCapacity { get; set; }
         public string ProductOrigin { get; set; }
         public int ProductCategoryID { get; set; }
     
         public virtual Category Category { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Review> Review { get; set; }
     }
 }

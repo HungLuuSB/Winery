@@ -11,6 +11,9 @@
         <EntityTypeShape EntityType="WineryModel.User" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="WineryModel.FK__Address__UserID__571DF1D5" ManuallyRouted="false" />
         <AssociationConnector Association="WineryModel.FK__Product__Product__5CD6CB2B" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WineryModel.Review" Width="1.5" PointX="5.25" PointY="3.25" />
+        <AssociationConnector Association="WineryModel.FK__Review__ProductI__70DDC3D8" />
+        <AssociationConnector Association="WineryModel.FK__Review__UserID__6FE99F9F" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
