@@ -1,9 +1,11 @@
 ﻿.product-purchase-wrapper {
-    width: 1300px;
-    height: 800px;
+    width: 100%;
+    height: 100%;
     position: relative;
     left: 50%;
     transform: translate(-50%, 0%);
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .product-purchase {
