@@ -1,7 +1,9 @@
-﻿.navbar-content {
+﻿
+
+.navbar-content {
     position: sticky;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 10px 20px;
     width: 100%;
@@ -15,14 +17,43 @@
     display: flex;
     margin: 10px;
     gap: 20px;
+    flex: 0 33%;
+    align-items: center;
 }
 
     .nav-section a {
         color: white;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .nav-section.left {
+        justify-content: flex-end;
+    }
+@media only screen and (max-width: 520px) {
+    .nav-section {
+        display: none; /* Hide all nav items */
+    }
+
+        .nav-section.center {
+            display: flex; /* Show only the center item */
+        }
+}
+    .nav-section.center {
+        justify-content: center;
+    }
+
+    .nav-section.right {
+        justify-content: flex-start;
     }
 
     .nav-section.center span {
         font-size: 30px;
         font-weight: bold;
         color: white;
+    }
+
+    .nav-section a .nav-menu-item-text {
+        font-family: 'Cormorant Upright';
+        font-size: 20px;
     }

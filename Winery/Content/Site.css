@@ -1,4 +1,11 @@
-﻿/* Set padding to keep content from hitting the edges */
+﻿@font-face {
+    font-family: 'Cormorant Upright';
+    src: url('Fonts/CormorantUpright-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Set padding to keep content from hitting the edges */
 .body-content {
     margin-top: 15px;
     padding-left: 15px;

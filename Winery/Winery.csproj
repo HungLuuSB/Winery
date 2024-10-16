@@ -193,6 +193,8 @@
     <Content Include="Content\Images\Home img.jpg" />
     <Content Include="Content\Images\HomeImg.png" />
     <Content Include="Content\Images\item_display_background_img.png" />
+    <Content Include="Content\Images\product-item-shop-display-grape-background.png" />
+    <Content Include="Content\Images\product-item-shop-display-plant-background.png" />
     <Content Include="Content\Images\winery-footer-img.png" />
     <Content Include="Content\Images\wine\chateau_musar.png" />
     <Content Include="Content\Images\wine\handpicked_wines_yarra_valley_pinot_noir.png" />
