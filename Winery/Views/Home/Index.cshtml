@@ -1,9 +1,29 @@
-﻿@{
+﻿@model IEnumerable<Winery.Models.Product>
+@{
     ViewBag.Title = "Home Page";
 }
 
+@functions {
+    public static string ParseItemNameIntoPNGFileName(string name)
+    {
+        string temp = name.ToLower().Replace(' ', '_') + ".png";
+        return temp;
+    }
+    public static int? GetAgingYearFromNow(int? year)
+    {
+        if (year == null)
+            return 0;
+        return DateTime.Now.Year - year;
+    }
+}
+
+@{
+    var mainProduct = Model.First();
+} 
+
 <main>
     <link href="~/Content/home-index-styles.css" rel="stylesheet">
+    <link href="~/Content/home-index-premium-wines-styles.css" rel="stylesheet">
     <div class="row">
         <div class="welcome-content background-overlay">
             <div class="background-overlay">
@@ -23,7 +43,89 @@
             </div>
         </div>
     </div>
-    <div class="row"></div>
+    <div class="row">
+        <div class="premium-wines-container">
+            <!-- Left Section: Product Display -->
+            <div class="premium-wines-container left">
+                <div class="main-product-wrapper">
+                    <div class="main-product-content left">
+                        <div class="product-content-display-properties thumbnail">
+                            <img src="~/Content/Images/wine/@ParseItemNameIntoPNGFileName(mainProduct.ProductName)" alt="Product Image">
+                        </div>
+                        <div class="product-content-display-properties product-name">
+                            <p>@mainProduct.ProductName</p>
+                        </div>
+                        <div class="product-content-display-properties product-buy-button">
+                            <button>
+                                <span>BUY NOW</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="main-product-content right">
+                        <div class="product-content-display-properties product-category">
+                            <p class="product-content-header-properties-category product-capacity">Capacity</p>
+                            <p class="product-content-display-properties-category product-capacity">@mainProduct.ProductCapacity</p>
+                        </div>
+                        <div class="product-content-display-properties product-capacity">
+                            <p class="product-content-header-properties-category product-category">Catergory</p>
+                            <p class="product-content-display-properties-category product-category">@mainProduct.Category.CategoryName</p>
+                        </div>
+                        <div class="product-content-display-properties product-origin">
+                            <p class="product-content-header-properties-category product-origin">Origin</p>
+                            <p class="product-content-display-properties-category product-origin">@mainProduct.ProductOrigin</p>
+                        </div>
+                        <div class="product-content-display-properties product-aging">
+                            <p class="product-content-header-properties-category product-aging">Aging</p>
+                            <p class="product-content-display-properties-category product-aging">@GetAgingYearFromNow(@mainProduct.ProductYearAging)</p>
+                        </div>
+                        <div class="product-content-display-properties product-price">
+                            <p class="product-content-header-properties-category product-price">Price</p>
+                            <p class="product-content-display-properties-category product-price">£@mainProduct.ProductPrice.ToString("F2")</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Section: 2x2 Product Grid -->
+            
+            <div class="premium-wines-container right">
+                @{
+                    foreach (var item in Model)
+                    {
+                        if (Model.First() != item)
+                        {
+                            <div class="product-card">
+                                <div class="product-card-wrapper">
+                                    <div class="product-card-content left">
+                                        <div class="thumbnail">
+                                            <img src="~/Content/Images/wine/@ParseItemNameIntoPNGFileName(item.ProductName)" alt="Italian Red Wine">
+                                        </div>
+                                        <div class="product-card-content-display-properties product-name">
+                                            <p>@item.ProductName</p>
+                                        </div>
+                                    </div>
+                                    <div class="product-card-content right">
+                                        <div class="product-card-content-display-properties product-buy-button">
+                                            <a href="">
+                                                <p>Add to cart</p>
+                                            </a>
+                                        </div>
+                                        <div style="flex: 0 0 10%">
+
+                                        </div>
+                                        <div class="product-card-content-display-properties product-price">
+                                            <p>£@item.ProductPrice.ToString("F2")</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    }
+                }
+            </div>
+        </div>
+    </div>
     <div class="row">
 
     </div>

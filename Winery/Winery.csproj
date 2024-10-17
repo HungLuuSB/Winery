@@ -188,11 +188,13 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\home-index-premium-wines-styles.css" />
     <Content Include="Content\home-index-styles.css" />
     <Content Include="Content\Images\footer_img.jpg" />
     <Content Include="Content\Images\Home img.jpg" />
     <Content Include="Content\Images\HomeImg.png" />
     <Content Include="Content\Images\item_display_background_img.png" />
+    <Content Include="Content\Images\item_display_background_img_2.png" />
     <Content Include="Content\Images\product-item-shop-display-grape-background.png" />
     <Content Include="Content\Images\product-item-shop-display-plant-background.png" />
     <Content Include="Content\Images\winery-footer-img.png" />
