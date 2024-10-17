@@ -1,18 +1,24 @@
 ﻿
 
 .navbar-content {
-    position: sticky;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px 20px;
     width: 100%;
     height: 75px;
-    background-color: #535446;
+    /*
+        background-color: #535446;
+    */ 
+    background-color: transparent;
     top: 0;
     z-index: 1000;
+    transition: 0.3s ease;
 }
-
+    .navbar-content.scrolled {
+        background-color: #535446;
+    }
 .nav-section {
     display: flex;
     margin: 10px;
@@ -22,7 +28,7 @@
 }
 
     .nav-section a {
-        color: white;
+        color: #c6c5b3;
         text-decoration: none;
         cursor: pointer;
     }
@@ -47,13 +53,13 @@
         justify-content: flex-start;
     }
 
-    .nav-section.center span {
-        font-size: 30px;
-        font-weight: bold;
-        color: white;
-    }
+.nav-section.center span {
+    font-size: 40px;
+    font-weight: bold;
+    color: #c6c5b3;
+}
 
     .nav-section a .nav-menu-item-text {
         font-family: 'Cormorant Upright';
-        font-size: 20px;
+        font-size: 30px;
     }
