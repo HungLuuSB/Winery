@@ -1,4 +1,4 @@
-﻿@model Winery.Models.UserLoginModel
+﻿@model Winery.Models.User
 @{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,7 +11,7 @@
             <h1>Retail Customer Sign-in & Registration</h1>
         </div>
         <div class="main-content">
-            @using (Html.BeginForm("SubmitForm", "Home", FormMethod.Post))
+            @using (Html.BeginForm("Login", "Login", FormMethod.Post))
             {
                 <div class="columns">
                     <div class="columns main">
@@ -28,7 +28,7 @@
                                     </div>
                                     <div>
                                         <label for="email">Password:</label>
-                                        @Html.TextBoxFor(m => m.Password, new { required = "required", id = "password" })
+                                        @Html.TextBoxFor(m => m.Password, new { required = "required", id = "password", type = "password" })
                                     </div>
                                     <div class="option show-password">
                                         <input id="show-password-check-box" type="checkbox" onchange="onShowPasswordChange(this)" />
@@ -41,19 +41,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <label for="username">Username:</label>
-                    @Html.TextBoxFor(m => m.Email, new { required = "required" })
-                </div>
-
-                <div>
-                    <label for="email">Password:</label>
-                    @Html.TextBoxFor(m => m.Password, new { required = "required" })
-                </div>
-
-                <div style="margin-top: 10px;">
-                    <button type="submit">Submit</button>
                 </div>
             }
         </div>
