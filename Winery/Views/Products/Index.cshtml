@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Winery.Models.Product>
-
+@using Winery.Ultilities;
 @{
     ViewBag.Title = "Shop";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -27,7 +27,7 @@
                                 <div class="product-display top">
                                     <div class="product-image">
                                         <a href="@Url.Action("Details", "Products", new { id = item.ProductID })">
-                                            <img src="~/Content/Images/wine/@ParseItemNameIntoPNGFileName(item.ProductName)" />
+                                            <img src="~/Content/Images/wine/@WineryUtilities.ParseItemNameIntoPNGFileName(item.ProductName)" />
                                         </a>
 
                                     </div>
