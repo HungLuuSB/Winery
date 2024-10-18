@@ -5,13 +5,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@functions {
-    public static string ParseItemNameIntoPNGFileName(string name)
-    {
-        string temp = name.ToLower().Replace(' ', '_') + ".png";
-        return temp;
-    }
-}
 
 <head>
     <link href="~/Content/product-detail.css" rel="stylesheet">
