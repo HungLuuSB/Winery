@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/access-login-styles.css" rel="stylesheet">
+<body>
+    <div class="row">
+        <div class="main-content">
+            <div class="page-title-wrapper">
+                <h1>Retail Customer Sign-in & Registration</h1>
+            </div>
+            <div class="columns">
+                <div class="columns main">
+                    <div class="login-container">
+                        <div class="login-container-section customer-login-container">
+                            <div class="block-title">
+                                <strong>Retail Customer</strong>
+                            </div>
+                            <fieldset class="fieldset login">
+                                <div class="field email required">
+                                    <label class="fieldset label">
+                                        <span>Email</span>
+                                    </label>
+                                    <div class="fieldset control">
+                                        <input class="input-text" name="login" autocomplete="off" id="email" type="email" />
+                                    </div>
+                                </div>
+                                <div class="field password required">
+                                    <label class="fieldset label">
+                                        <span>Password</span>
+                                    </label>
+                                    <div class="fieldset control">
+                                        <input class="input-text" name="login" autocomplete="off" id="password" type="password" />
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="login-container-section customer-register-container">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
