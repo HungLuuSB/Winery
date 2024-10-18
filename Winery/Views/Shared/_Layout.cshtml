@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <link href="~/Content/layout-style.css" rel="stylesheet" type="text/css">
@@ -27,7 +32,7 @@
             <button style="background-color: transparent; border: 0;" onclick="location.href='@Url.Action("Index", "Home")'">
                 <span>Winery</span>
             </button>
-            
+
         </div>
 
         <div class="nav-section right">
@@ -38,6 +43,24 @@
 
     </nav>
     <div>
+        @{
+            if (currentController == "Home")
+            {
+                if (currentAction != "Index")
+                {
+                    <div class="title-thumbnail">
+                        <img class="thumbnail-img" src="~/Content/Images/title_thumbnail.png" />
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="title-thumbnail">
+                    <img class="thumbnail-img" src="~/Content/Images/title_thumbnail.png" />
+                </div>
+            }
+        }
+
         @RenderBody()
         <hr />
         <footer class="footer">
@@ -94,7 +117,7 @@
             <div class="footer-infomation-copyright">
                 <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
             </div>
-            
+
         </footer>
     </div>
 
