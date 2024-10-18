@@ -10,16 +10,18 @@
     height: 75px;
     /*
         background-color: #535446;
-    */ 
+    */
     background-color: transparent;
     top: 0;
     z-index: 1000;
     transition: 0.3s ease;
 }
+
     .navbar-content.scrolled {
         background-color: #535446;
         position: fixed;
     }
+
 .nav-section {
     display: flex;
     margin: 10px;
@@ -37,6 +39,7 @@
     .nav-section.left {
         justify-content: flex-end;
     }
+
 @media only screen and (max-width: 520px) {
     .nav-section {
         display: none; /* Hide all nav items */
@@ -46,13 +49,14 @@
             display: flex; /* Show only the center item */
         }
 }
-    .nav-section.center {
-        justify-content: center;
-    }
 
-    .nav-section.right {
-        justify-content: flex-start;
-    }
+.nav-section.center {
+    justify-content: center;
+}
+
+.nav-section.right {
+    justify-content: flex-start;
+}
 
 .nav-section.center span {
     font-size: 40px;
@@ -60,7 +64,74 @@
     color: #c6c5b3;
 }
 
-    .nav-section a .nav-menu-item-text {
-        font-family: 'Cormorant Upright';
-        font-size: 30px;
+.nav-section a .nav-menu-item-text {
+    font-family: 'Cormorant Upright';
+    font-size: 30px;
+}
+
+.footer-infomation-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: #535446;
+    font-family: 'Cormorant Upright';
+    color: #c6c5b3;
+}
+
+    .footer-infomation-wrapper.footer-infomation {
+        display: flex;
+        flex-direction: column;
+        flex: 0 25%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
     }
+
+.footer-infomation {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+    .footer-infomation.the-company a, h4 {
+        flex: 1;
+        height: 100%;
+        width: 100%;
+    }
+
+    .footer-infomation.help-centre a, h4 {
+        flex: 1;
+        height: 100%;
+        width: 100%;
+    }
+
+    .footer-infomation.legal a, h4 {
+        flex: 1;
+        height: 100%;
+        width: 100%;
+    }
+
+    .footer-infomation.the-company h4 {
+        font-weight: bold;
+    }
+
+    .footer-infomation.help-centre h4 {
+        font-weight: bold;
+    }
+
+    .footer-infomation.legal h4 {
+        font-weight: bold;
+    }
+
+.footer-infomation-copyright {
+    background-color: #535446;
+    font-family: 'Cormorant Upright';
+    color: #c6c5b3;
+}
+.footer-newsletter img {
+
+}
