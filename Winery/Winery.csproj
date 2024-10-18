@@ -199,6 +199,7 @@
     <Content Include="Content\Images\item_display_background_img_2.png" />
     <Content Include="Content\Images\product-item-shop-display-grape-background.png" />
     <Content Include="Content\Images\product-item-shop-display-plant-background.png" />
+    <Content Include="Content\Images\title_thumbnail.png" />
     <Content Include="Content\Images\winery-footer-img.png" />
     <Content Include="Content\Images\wine\chateau_musar.png" />
     <Content Include="Content\Images\wine\handpicked_wines_yarra_valley_pinot_noir.png" />
@@ -207,6 +208,7 @@
     <Content Include="Content\Images\wine\yarra_yering_dry_red_wine_no_1.png" />
     <Content Include="Content\Images\wine\yarra_yering_dry_red_wine_no_2.png" />
     <Content Include="Content\layout-style.css" />
+    <Content Include="Content\product-home-title.css" />
     <Content Include="Content\product-index-styles.css" />
     <Content Include="Content\product-detail.css" />
     <Content Include="Content\styles.css" />
