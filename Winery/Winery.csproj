@@ -207,7 +207,7 @@
     <Content Include="Content\Images\wine\yarra_yering_dry_red_wine_no_2.png" />
     <Content Include="Content\layout-style.css" />
     <Content Include="Content\product-index-styles.css" />
-    <Content Include="Content\productdetail.css" />
+    <Content Include="Content\product-detail.css" />
     <Content Include="Content\styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
