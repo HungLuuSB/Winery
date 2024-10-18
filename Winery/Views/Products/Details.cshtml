@@ -1,5 +1,5 @@
 ﻿@model Winery.Models.Product
-
+@using Winery.Ultilities;
 @{
     ViewBag.Title = Model.ProductName;
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -21,7 +21,7 @@
         <div class="product-purchase">
             <div class="product-display left">
                 <div class="product-image">
-                    <img src="~/Content/Images/wine/@ParseItemNameIntoPNGFileName(Model.ProductName)" />
+                    <img src="~/Content/Images/wine/@WineryUtilities.ParseItemNameIntoPNGFileName(Model.ProductName)" />
                 </div>
             </div>
             <div class="product-display right">
@@ -31,7 +31,7 @@
                 <div class="product-name">
                     <h2>@Model.ProductName</h2>
                 </div>
-                <hr class="hr-product-purchase-seperator"/>
+                <hr class="hr-product-purchase-seperator" />
                 <div class="product-desc">
                     <p>@Model.ProductDesc</p>
                 </div>
