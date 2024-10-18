@@ -5,19 +5,6 @@
     ViewBag.Title = "Home Page";
 }
 
-@functions {
-    public static string ParseItemNameIntoPNGFileName(string name)
-    {
-        string temp = name.ToLower().Replace(' ', '_') + ".png";
-        return temp;
-    }
-    public static int? GetAgingYearFromNow(int? year)
-    {
-        if (year == null)
-            return 0;
-        return DateTime.Now.Year - year;
-    }
-}
 
 @{
     var mainProduct = Model.First();
@@ -78,7 +65,7 @@
                         </div>
                         <div class="product-content-display-properties product-aging">
                             <p class="product-content-header-properties-category product-aging">Aging</p>
-                            <p class="product-content-display-properties-category product-aging">@GetAgingYearFromNow(@mainProduct.ProductYearAging)</p>
+                            <p class="product-content-display-properties-category product-aging">@WineryUtilities.GetAgingYearFromNow(@mainProduct.ProductYearAging)</p>
                         </div>
                         <div class="product-content-display-properties product-price">
                             <p class="product-content-header-properties-category product-price">Price</p>
@@ -100,7 +87,7 @@
                                 <div class="product-card-wrapper">
                                     <div class="product-card-content left">
                                         <div class="thumbnail">
-                                            <img src="~/Content/Images/wine/@ParseItemNameIntoPNGFileName(item.ProductName)" alt="Italian Red Wine">
+                                            <img src="~/Content/Images/wine/@WineryUtilities.ParseItemNameIntoPNGFileName(item.ProductName)" alt="Italian Red Wine">
                                         </div>
                                         <div class="product-card-content-display-properties product-name">
                                             <p>@item.ProductName</p>
