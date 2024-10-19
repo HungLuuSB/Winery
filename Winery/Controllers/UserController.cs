@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Winery.Models;
+using Winery.Ultilities;
 
 namespace Winery.Controllers
 {
@@ -23,16 +24,48 @@ namespace Winery.Controllers
         // GET: User/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (WineryUtilities.IsUserLoggedIn())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (WineryUtilities.DoesUserHasPermission(WineryUtilities.CurrentUser.Username, 1))
+                {
+                }
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }else
+                {
+                    if (id == WineryUtilities.CurrentUser.UserID)
+                    {
+                        User user = db.User.Find(id);
+                        if (user == null)
+                        {
+                            return HttpNotFound();
+                        }
+                        return View(user);
+                    }
+                    else
+                    {
+                        if (WineryUtilities.DoesUserHasPermission(WineryUtilities.CurrentUser.Username, 1))
+                        {
+                            User user = db.User.Find(id);
+                            if (user == null)
+                            {
+                                return HttpNotFound();
+                            }
+                            return View(user);
+                        }
+                        else
+                        {
+                            return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+                        }
+                    }
+                }
             }
-            User user = db.User.Find(id);
-            if (user == null)
+            else
             {
-                return HttpNotFound();
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
-            return View(user);
+            
         }
 
         // GET: User/Create
