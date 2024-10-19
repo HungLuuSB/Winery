@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Winery.Models;
+using Winery.Ultilities;
 
 namespace Winery.Controllers
 {
@@ -16,6 +17,8 @@ namespace Winery.Controllers
         {
             var user = db.User.Where(x => x.Email.Equals(User.Email) && x.Password.Equals(User.Password)).FirstOrDefault();
             if (user != null) {
+                User _user = db.User.Find(user.UserID);
+                WineryUtilities.CurrentUser = _user;
                 Session["username"] = user.Username.ToString();
                 return RedirectToAction("Index", "Home");
             }
