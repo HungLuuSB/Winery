@@ -31,5 +31,6 @@ namespace Winery.Models
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Review> Review { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<UserPermission> UserPermission { get; set; }
     }
 }
