@@ -55,5 +55,19 @@ namespace Winery.Ultilities
                 return false;
             return true;
         }
+        public static bool DoesUserHasPermission(string username, string permissionName)
+        {
+            if (IsUserLoggedIn() == false)
+                return false;
+            var per = db.Permission.Where(x => x.PermissionName == permissionName).FirstOrDefault();
+            if (per != null)
+                return false;
+            var userPer = _currentUser.UserPermission.Where(x => x.UserId == _currentUser.UserID).FirstOrDefault();
+            if (userPer != null)
+                return false;
+            if (userPer.PermissionId > per.PermissionId)
+                return false;
+            return true;
+        }
     }
 }
