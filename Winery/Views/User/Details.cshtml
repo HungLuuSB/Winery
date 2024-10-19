@@ -1,12 +1,11 @@
 ﻿@model Winery.Models.User
-
+@using Winery.Ultilities;
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Details</h2>
-
 <div>
     <h4>User</h4>
     <hr />
@@ -74,7 +73,6 @@
         <dd>
             @Html.DisplayFor(model => model.PhoneNumber)
         </dd>
-
     </dl>
 </div>
 <p>

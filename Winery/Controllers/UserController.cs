@@ -26,32 +26,22 @@ namespace Winery.Controllers
         {
             if (WineryUtilities.IsUserLoggedIn())
             {
-                if (WineryUtilities.DoesUserHasPermission(WineryUtilities.CurrentUser.Username, 1))
-                {
-                }
                 if (id == null)
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                }else
+                }
+                else
                 {
                     if (id == WineryUtilities.CurrentUser.UserID)
                     {
                         User user = db.User.Find(id);
-                        if (user == null)
-                        {
-                            return HttpNotFound();
-                        }
                         return View(user);
                     }
                     else
                     {
-                        if (WineryUtilities.DoesUserHasPermission(WineryUtilities.CurrentUser.Username, 1))
+                        if (WineryUtilities.UserHasPermission(2))
                         {
                             User user = db.User.Find(id);
-                            if (user == null)
-                            {
-                                return HttpNotFound();
-                            }
                             return View(user);
                         }
                         else

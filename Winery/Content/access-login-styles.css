@@ -1,13 +1,19 @@
 ﻿.row {
-    padding: 10px 50px 10px 50px;
+    padding: 20px 15% 20px 15%;
+}
+.page-title-wrapper h1 {
+    font-family: 'Cormorant Upright';
+    font-weight: bold;
 }
 .main-content {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
+    background-color: #eae7e4;
+    font-family: 'Cormorant Upright';
 }
-.form {
+.main-content form {
     display: flex;
     flex: 0 50%;
     height: 100%;
@@ -22,4 +28,35 @@
 }
 .required-marker {
     color: red;
+}
+
+.block-title h3 {
+    font-family: 'Cormorant Upright';
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.control {
+}
+    .option.show-password span,
+    .control label {
+        font-size: 20px;
+        font-weight: bold;
+        color: #8c5a43;
+    }
+
+.action button {
+    font-family: 'Cormorant Upright';
+    font-weight: bold;
+    border: 0;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    background-color: #8c5a43;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.action:hover button {
+    background-color: #58594b;
 }

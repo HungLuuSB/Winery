@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using Winery.Models;
@@ -42,32 +43,40 @@ namespace Winery.Ultilities
         {
             return _currentUser != null;
         }
-        public static bool DoesUserHasPermission(string username, int permissionID) { 
+        public static bool UserHasPermission(int permissionID) { 
             if (IsUserLoggedIn() == false)
                 return false;
             var per = db.Permission.Where(x => x.PermissionId == permissionID).FirstOrDefault();
-            if (per != null)
+            if (per == null)
                 return false;
             var userPer = _currentUser.UserPermission.Where(x => x.UserId == _currentUser.UserID).FirstOrDefault();
-            if (userPer != null)
+            if (userPer == null)
                 return false;
-            if (userPer.PermissionId > permissionID)
+            //Debug.WriteLine($"{userPer.PermissionId} - {per.PermissionId}");
+            if (userPer.PermissionId > per.PermissionId)
                 return false;
             return true;
         }
-        public static bool DoesUserHasPermission(string username, string permissionName)
+        public static bool UserHasPermission(string permissionName)
         {
             if (IsUserLoggedIn() == false)
                 return false;
             var per = db.Permission.Where(x => x.PermissionName == permissionName).FirstOrDefault();
-            if (per != null)
+            if (per == null)
                 return false;
             var userPer = _currentUser.UserPermission.Where(x => x.UserId == _currentUser.UserID).FirstOrDefault();
-            if (userPer != null)
+            if (userPer == null)
                 return false;
+            //Debug.WriteLine($"{userPer.PermissionId} - {per.PermissionId}");
             if (userPer.PermissionId > per.PermissionId)
                 return false;
             return true;
+        }
+        public static bool TestPermission(int permissionId)
+        {
+            return db.UserPermission
+                 .Any(up => up.UserId == CurrentUser.UserID &&
+                            up.Permission.PermissionId == permissionId);
         }
     }
 }

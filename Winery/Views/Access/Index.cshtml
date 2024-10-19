@@ -18,24 +18,26 @@
                         <div class="login-container">
                             <div class="login-container-section customer-login-container">
                                 <div class="block-title">
-                                    <strong>Retail Customer</strong>
+                                    <h3>Retail Customer</h3>
                                     <hr class="field-seperator" />
                                 </div>
                                 <fieldset class="fieldset login">
                                     <div class="control">
                                         <label class="label"for="email">Email:</label>
+                                        <br />
                                         <input class="input-box" id="Email" name="Email" required="required" type="email" />
                                     </div>
-                                    <div>
+                                    <div class="control">
                                         <label class="label" for="password">Password:</label>
+                                        <br />
                                         <input class="input-box" id="password" name="Password" required="required" type="password" />
                                     </div>
                                     <div class="option show-password">
                                         <input id="show-password-check-box" type="checkbox" onchange="onShowPasswordChange(this)" />
                                         <span>Show password</span>
                                     </div>
-                                    <div style="margin-top: 10px;">
-                                        <button type="submit">Submit</button>
+                                    <div class="action" style="margin-top: 10px;">
+                                        <button type="submit">SIGN IN</button>
                                     </div>
                                 </fieldset>
                             </div>
@@ -43,6 +45,26 @@
                     </div>
                 </div>
             }
+
+        <form>
+            <div class="columns">
+                <div class="columns main">
+                    <div class="register-container">
+                        <div class="register-container-section customer-register-container">
+                            <div class="block-title">
+                                <h3>New Retail Customer</h3>
+                                <hr class="field-seperator" />
+                            </div>
+                            <fieldset class="fieldset register">
+                                <button>
+                                    <span>Register</span>
+                                </button>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
         </div>
     </div>
 </body>
