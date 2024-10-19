@@ -9,8 +9,6 @@ namespace Winery.Controllers
 {
     public class AccessController : Controller
     {
-        private WineryEntities2 db = new WineryEntities2();
-
         // GET: Access
         public ActionResult Index()
         {
