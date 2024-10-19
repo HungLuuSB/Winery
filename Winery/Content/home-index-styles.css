@@ -2,6 +2,7 @@
     position: relative;
     text-align: center;
     color: white;
+    margin: 0px;
 }
 .welcome-img {
     width: 100%;
@@ -16,6 +17,8 @@
 }
     .welcome-content.background-overlay {
         position: relative;
+        margin: 0;
+        padding: 0;
     }
     .welcome-content .background-overlay {
         position: absolute;
@@ -57,4 +60,16 @@
 }
 .product-card-wrapper:hover .product-card-content.left .thumbnail img {
     transform: translateX(-10px);
+
+}
+
+.section.header {
+    font-family: 'Cormorant Upright';
+    padding-top: 50px;
+}
+
+.section.header h1 {
+    font-size: 3.5rem;
+    color: black;
+    text-align: center;
 }

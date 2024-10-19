@@ -40,6 +40,9 @@
         justify-content: flex-end;
     }
 
+.thumbnail-img {
+    width: 100%;
+}
 @media only screen and (max-width: 520px) {
     .nav-section {
         display: none; /* Hide all nav items */
@@ -75,10 +78,12 @@
     width: 100%;
     height: 100%;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: center;
     background-color: #535446;
     font-family: 'Cormorant Upright';
     color: #c6c5b3;
+    padding: 50px 100px 50px 100px;
+    gap: 10%;
 }
 
     .footer-infomation-wrapper.footer-infomation {
@@ -88,6 +93,7 @@
         height: 100%;
         align-items: center;
         justify-content: center;
+        
     }
 
 .footer-infomation {
@@ -95,6 +101,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    max-width: 10%;
 }
 
     .footer-infomation.the-company a, h4 {
@@ -126,12 +133,17 @@
     .footer-infomation.legal h4 {
         font-weight: bold;
     }
+    .footer-infomation.logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
 
-.footer-infomation-copyright {
-    background-color: #535446;
-    font-family: 'Cormorant Upright';
-    color: #c6c5b3;
-}
+    .footer-infomation-copyright {
+        background-color: #535446;
+        font-family: 'Cormorant Upright';
+        color: #c6c5b3;
+    }
 .newsletter-background-overlay {
     position: absolute;
     width: 100%;
