@@ -38,12 +38,21 @@
 
 .control {
 }
-    .option.show-password span,
+    .option,
     .control label {
-        font-size: 20px;
+        font-size: 30px;
         font-weight: bold;
         color: #8c5a43;
     }
+
+.control input {
+    max-height: 35px;
+    height: 35px;
+    max-width: 80%;
+    width: 80%;
+}
+
+
 
 .action button {
     font-family: 'Cormorant Upright';

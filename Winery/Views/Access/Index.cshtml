@@ -23,7 +23,7 @@
                                 </div>
                                 <fieldset class="fieldset login">
                                     <div class="control">
-                                        <label class="label"for="email">Email:</label>
+                                        <label class="label" for="email">Email:</label>
                                         <br />
                                         <input class="input-box" id="Email" name="Email" required="required" type="email" />
                                     </div>
@@ -35,6 +35,10 @@
                                     <div class="option show-password">
                                         <input id="show-password-check-box" type="checkbox" onchange="onShowPasswordChange(this)" />
                                         <span>Show password</span>
+                                    </div>
+                                    <div class="option remember-me">
+                                        <input id="remember-me-check-box" type="checkbox" />
+                                        <span>Remember me</span>
                                     </div>
                                     <div class="action" style="margin-top: 10px;">
                                         <button type="submit">SIGN IN</button>
@@ -55,10 +59,8 @@
                                 <h3>New Retail Customer</h3>
                                 <hr class="field-seperator" />
                             </div>
-                            <fieldset class="fieldset register">
-                                <button>
-                                    <span>Register</span>
-                                </button>
+                            <fieldset class="action">
+                                <button>Register</button>
                             </fieldset>
                         </div>
                     </div>
