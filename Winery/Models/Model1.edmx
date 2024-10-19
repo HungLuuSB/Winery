@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WineryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="WineryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="AddressID" />
@@ -67,12 +67,9 @@
           <Property Name="DateOfBirth" Type="date" />
           <Property Name="PhoneNumber" Type="varchar" MaxLength="11" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'E:\VISUAL STUDIO PROJECTS\WINERY\WINERY\APP_DATA\WINERY.MDF.dbo.UserPermission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="UserPermission">
           <Key>
             <PropertyRef Name="UserId" />
-            <PropertyRef Name="PermissionId" />
           </Key>
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="PermissionId" Type="int" Nullable="false" />
@@ -139,7 +136,7 @@ warning 6002: The table/view 'E:\VISUAL STUDIO PROJECTS\WINERY\WINERY\APP_DATA\W
         </Association>
         <Association Name="FK__UserPermi__UserI__75A278F5">
           <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="UserPermission" Type="Self.UserPermission" Multiplicity="*" />
+          <End Role="UserPermission" Type="Self.UserPermission" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="UserID" />
@@ -156,12 +153,7 @@ warning 6002: The table/view 'E:\VISUAL STUDIO PROJECTS\WINERY\WINERY\APP_DATA\W
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UserPermission" EntityType="Self.UserPermission" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [UserPermission].[UserId] AS [UserId], 
-    [UserPermission].[PermissionId] AS [PermissionId]
-    FROM [dbo].[UserPermission] AS [UserPermission]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="UserPermission" EntityType="Self.UserPermission" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Address__UserID__571DF1D5" Association="Self.FK__Address__UserID__571DF1D5">
             <End Role="User" EntitySet="User" />
             <End Role="Address" EntitySet="Address" />
@@ -187,8 +179,7 @@ warning 6002: The table/view 'E:\VISUAL STUDIO PROJECTS\WINERY\WINERY\APP_DATA\W
             <End Role="UserPermission" EntitySet="UserPermission" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WineryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
