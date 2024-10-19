@@ -48,6 +48,11 @@ namespace Winery.Ultilities
             var per = db.Permission.Where(x => x.PermissionId == permissionID).FirstOrDefault();
             if (per != null)
                 return false;
+            var userPer = _currentUser.UserPermission.Where(x => x.UserId == _currentUser.UserID).FirstOrDefault();
+            if (userPer != null)
+                return false;
+            if (userPer.PermissionId > permissionID)
+                return false;
             return true;
         }
     }
