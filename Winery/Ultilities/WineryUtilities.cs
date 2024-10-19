@@ -9,6 +9,15 @@ namespace Winery.Ultilities
     public static class WineryUtilities
     {
         private static WineryEntities2 db = new WineryEntities2();
+        private static User _currentUser = null;
+        public static User CurrentUser
+        {
+            get { return _currentUser; }
+            set
+            {
+                _currentUser = value;
+            }
+        }
         public static string ParseItemNameIntoPNGFileName(string name)
         {
             string temp = name.ToLower().Replace(' ', '_') + ".png";
@@ -28,6 +37,18 @@ namespace Winery.Ultilities
                 return user.UserID;
             }
             return null;
+        }
+        public static bool IsUserLoggedIn()
+        {
+            return _currentUser != null;
+        }
+        public static bool DoesUserHasPermission(string username, int permissionID) { 
+            if (IsUserLoggedIn() == false)
+                return false;
+            var per = db.Permission.Where(x => x.PermissionId == permissionID).FirstOrDefault();
+            if (per != null)
+                return false;
+            return true;
         }
     }
 }

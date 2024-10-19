@@ -4,18 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3584971f5cb54245bbb958b0394c08a6" Name="Diagram1">
-        <EntityTypeShape EntityType="WineryModel.Address" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="WineryModel.Category" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="WineryModel.Product" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="WineryModel.User" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+      <Diagram DiagramId="13326bcf0afe4e66b9ac6694aa3b0a81" Name="Diagram1">
+        <EntityTypeShape EntityType="WineryModel.Address" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WineryModel.Category" Width="1.5" PointX="3.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="WineryModel.Permission" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="WineryModel.Product" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WineryModel.Review" Width="1.5" PointX="8.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WineryModel.User" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
         <AssociationConnector Association="WineryModel.FK__Address__UserID__571DF1D5" ManuallyRouted="false" />
         <AssociationConnector Association="WineryModel.FK__Product__Product__5CD6CB2B" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="WineryModel.Review" Width="1.5" PointX="5.25" PointY="3.25" />
-        <AssociationConnector Association="WineryModel.FK__Review__ProductI__70DDC3D8" />
-        <AssociationConnector Association="WineryModel.FK__Review__UserID__6FE99F9F" />
-        <EntityTypeShape EntityType="WineryModel.Permission" Width="1.5" PointX="7.875" PointY="3.125" />
-        <AssociationConnector Association="WineryModel.UserPermission" />
+        <AssociationConnector Association="WineryModel.FK__Review__ProductI__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="WineryModel.FK__Review__UserID__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="WineryModel.UserPermission" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

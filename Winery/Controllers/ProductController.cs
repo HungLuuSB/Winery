@@ -10,18 +10,18 @@ using Winery.Models;
 
 namespace Winery.Controllers
 {
-    public class ProductsController : Controller
+    public class ProductController : Controller
     {
         private WineryEntities2 db = new WineryEntities2();
 
-        // GET: Products
+        // GET: Product
         public ActionResult Index()
         {
             var product = db.Product.Include(p => p.Category);
             return View(product.ToList());
         }
 
-        // GET: Products/Details/5
+        // GET: Product/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)

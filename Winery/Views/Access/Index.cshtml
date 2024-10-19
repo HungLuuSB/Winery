@@ -22,13 +22,13 @@
                                     <hr class="field-seperator" />
                                 </div>
                                 <fieldset class="fieldset login">
-                                    <div>
-                                        <label for="username">Username:</label>
-                                        @Html.TextBoxFor(m => m.Email, new { required = "required", })
+                                    <div class="control">
+                                        <label class="label"for="email">Email:</label>
+                                        <input class="input-box" id="Email" name="Email" required="required" type="email" />
                                     </div>
                                     <div>
-                                        <label for="email">Password:</label>
-                                        @Html.TextBoxFor(m => m.Password, new { required = "required", id = "password", type = "password" })
+                                        <label class="label" for="password">Password:</label>
+                                        <input class="input-box" id="password" name="Password" required="required" type="password" />
                                     </div>
                                     <div class="option show-password">
                                         <input id="show-password-check-box" type="checkbox" onchange="onShowPasswordChange(this)" />

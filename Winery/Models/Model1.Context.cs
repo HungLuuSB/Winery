@@ -27,9 +27,9 @@ namespace Winery.Models
     
         public virtual DbSet<Address> Address { get; set; }
         public virtual DbSet<Category> Category { get; set; }
-        public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<Review> Review { get; set; }
         public virtual DbSet<Permission> Permission { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<Review> Review { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }
