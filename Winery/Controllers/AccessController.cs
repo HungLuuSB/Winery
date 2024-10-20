@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Winery.Models;
+using Winery.Services;
 
 namespace Winery.Controllers
 {
@@ -12,7 +13,7 @@ namespace Winery.Controllers
         // GET: Access
         public ActionResult Index()
         {
-            if (Session["username"] == null)
+            if (UserSessionService.CurrentUser == null)
             {
                 return View();
             }

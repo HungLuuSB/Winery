@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Winery.Models;
-using Winery.Ultilities;
+using Winery.Services;
 
 namespace Winery.Controllers
 {
@@ -24,7 +24,7 @@ namespace Winery.Controllers
         // GET: User/Details/5
         public ActionResult Details(int? id)
         {
-            if (WineryUtilities.IsUserLoggedIn())
+            if (UserSessionService.IsUserLoggedIn())
             {
                 if (id == null)
                 {
@@ -32,14 +32,14 @@ namespace Winery.Controllers
                 }
                 else
                 {
-                    if (id == WineryUtilities.CurrentUser.UserID)
+                    if (id == UserSessionService.CurrentUser.UserID)
                     {
                         User user = db.User.Find(id);
                         return View(user);
                     }
                     else
                     {
-                        if (WineryUtilities.UserHasPermission(2))
+                        if (PermissionService.UserHasPermission(2))
                         {
                             User user = db.User.Find(id);
                             return View(user);

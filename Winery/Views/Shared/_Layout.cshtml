@@ -1,7 +1,10 @@
 ﻿@using Winery.Ultilities;
+@using Winery.Services;
+@using Winery.Models;
 @{
     var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
     var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+    var currentUser = Session["user"] as User;
 }
 
 <!DOCTYPE html>
@@ -37,10 +40,10 @@
         </div>
 
         <div class="nav-section right">
-            @if (Session["username"] != null)
+            @if (currentUser != null)
             {
-                <a href="@Url.Action("Details", "User", new { id = WineryUtilities.GetUserIDFromName(Session["username"].ToString())})">
-                    <span class="nav-menu-item-text">@Session["username"].ToString()</span>
+                <a href="@Url.Action("Details", "User", new { id = currentUser.UserID })">
+                    <span class="nav-menu-item-text">@currentUser.Username</span>
                 </a>
             }
             else
@@ -52,11 +55,13 @@
             <a href="@Url.Action("Index","Home")">
                 <span class="nav-menu-item-text">CART</span>
             </a>
-            <a href="@Url.Action("About","Home")">
-                <span class="nav-menu-item-text">ABOUT</span>
-            </a>
+            @if (currentUser != null)
+            {
+               <a href="@Url.Action("Logout", "Login", new {})">
+                   <span class="nav-menu-item-text">LOGOUT</span>
+               </a>
+            }
         </div>
-
     </nav>
     <div>
         @{

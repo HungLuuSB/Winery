@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Winery.Models.Product>
-@using Winery.Ultilities;
+@using Winery.Services;
 @{
 
     ViewBag.Title = "Home Page";
@@ -42,7 +42,7 @@
                 <div class="main-product-wrapper">
                     <div class="main-product-content left">
                         <div class="product-content-display-properties thumbnail">
-                            <img src="~/Content/Images/wine/@WineryUtilities.ParseItemNameIntoPNGFileName(mainProduct.ProductName)" alt="Product Image">
+                            <img src="~/Content/Images/wine/@ProductUtilityService.ParseItemNameIntoPNGFileName(mainProduct.ProductName)" alt="Product Image">
                         </div>
                         <div class="product-content-display-properties product-name">
                             <p>@mainProduct.ProductName</p>
@@ -68,7 +68,7 @@
                         </div>
                         <div class="product-content-display-properties product-aging">
                             <p class="product-content-header-properties-category product-aging">Aging</p>
-                            <p class="product-content-display-properties-category product-aging">@WineryUtilities.GetAgingYearFromNow(@mainProduct.ProductYearAging)</p>
+                            <p class="product-content-display-properties-category product-aging">@ProductUtilityService.GetAgingYearFromNow(@mainProduct.ProductYearAging)</p>
                         </div>
                         <div class="product-content-display-properties product-price">
                             <p class="product-content-header-properties-category product-price">Price</p>
@@ -91,7 +91,7 @@
                                     <div class="product-card-wrapper-background-effect"></div>
                                     <div class="product-card-content left">
                                         <div class="thumbnail">
-                                            <img src="~/Content/Images/wine/@WineryUtilities.ParseItemNameIntoPNGFileName(item.ProductName)" alt="Italian Red Wine">
+                                            <img src="~/Content/Images/wine/@ProductUtilityService.ParseItemNameIntoPNGFileName(item.ProductName)" alt="Italian Red Wine">
                                         </div>
                                         <div class="product-card-content-display-properties product-name">
                                             <a href="@Url.Action("Details","Product", new { id = item.ProductID })">@item.ProductName</a>
