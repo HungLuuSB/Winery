@@ -291,6 +291,7 @@
     <Content Include="Views\Access\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Services\" />
     <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
