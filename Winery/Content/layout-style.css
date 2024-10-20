@@ -34,6 +34,8 @@
         color: #c6c5b3;
         text-decoration: none;
         cursor: pointer;
+        
+        
     }
 
     .nav-section.left {
@@ -69,7 +71,8 @@
 
 .nav-section a .nav-menu-item-text {
     font-family: 'Cormorant Upright';
-    font-size: 30px;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .footer-infomation-wrapper {

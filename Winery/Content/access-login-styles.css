@@ -1,5 +1,6 @@
 ﻿.row {
     padding: 20px 15% 20px 15%;
+    width: 100%;
 }
 .page-title-wrapper h1 {
     font-family: 'Cormorant Upright';

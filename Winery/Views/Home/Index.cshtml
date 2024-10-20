@@ -48,7 +48,7 @@
                             <p>@mainProduct.ProductName</p>
                         </div>
                         <div class="product-content-display-properties product-buy-button">
-                            <button>
+                            <button onclick="location.href='@Url.Action("Details", "Product", new { id = mainProduct.ProductID })'" >
                                 <span>BUY NOW</span>
                             </button>
                         </div>
@@ -100,7 +100,7 @@
                                     <div class="product-card-content right">
                                         <div class="product-card-content-display-properties product-buy-button">
                                             <a href="@Url.Action("Details","Product", new { id = item.ProductID })">
-                                                <p>Add to cart</p>
+                                                <p>ADD TO CART</p>
                                             </a>
                                         </div>
                                         <div style="flex: 0 0 10%">
