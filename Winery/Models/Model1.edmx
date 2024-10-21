@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WineryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="WineryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="AddressID" />
@@ -14,6 +14,13 @@
           <Property Name="AddressProvince" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Address" Type="nvarchar(max)" />
           <Property Name="UserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="BrandId" />
+          </Key>
+          <Property Name="BrandId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrandName" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -37,10 +44,13 @@
           <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ProductDesc" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ProductYearAging" Type="int" />
+          <Property Name="ProductABV" Type="real" />
           <Property Name="ProductPrice" Type="real" Nullable="false" />
           <Property Name="ProductCapacity" Type="int" />
+          <Property Name="ProductQuantity" Type="int" Nullable="false" />
           <Property Name="ProductOrigin" Type="nvarchar" MaxLength="50" />
           <Property Name="ProductCategoryID" Type="int" Nullable="false" />
+          <Property Name="ProductBrandID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Review">
           <Key>
@@ -87,7 +97,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Product__Product__5CD6CB2B">
+        <Association Name="FK__Product__Product__19DFD96B">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
@@ -99,7 +109,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Review__ProductI__70DDC3D8">
+        <Association Name="FK__Product__Product__1BC821DD">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductBrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Review__ProductI__1AD3FDA4">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="Review" Type="Self.Review" Multiplicity="*" />
           <ReferentialConstraint>
@@ -149,6 +171,7 @@
         </Association>
         <EntityContainer Name="WineryModelStoreContainer">
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
@@ -159,11 +182,15 @@
             <End Role="User" EntitySet="User" />
             <End Role="Address" EntitySet="Address" />
           </AssociationSet>
-          <AssociationSet Name="FK__Product__Product__5CD6CB2B" Association="Self.FK__Product__Product__5CD6CB2B">
+          <AssociationSet Name="FK__Product__Product__19DFD96B" Association="Self.FK__Product__Product__19DFD96B">
             <End Role="Category" EntitySet="Category" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK__Review__ProductI__70DDC3D8" Association="Self.FK__Review__ProductI__70DDC3D8">
+          <AssociationSet Name="FK__Product__Product__1BC821DD" Association="Self.FK__Product__Product__1BC821DD">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Review__ProductI__1AD3FDA4" Association="Self.FK__Review__ProductI__1AD3FDA4">
             <End Role="Product" EntitySet="Product" />
             <End Role="Review" EntitySet="Review" />
           </AssociationSet>
@@ -180,8 +207,7 @@
             <End Role="UserPermission" EntitySet="UserPermission" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WineryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -226,6 +252,10 @@
           <Property Name="ProductCategoryID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Category" Relationship="Self.FK__Product__Product__5CD6CB2B" FromRole="Product" ToRole="Category" />
           <NavigationProperty Name="Review" Relationship="Self.FK__Review__ProductI__70DDC3D8" FromRole="Product" ToRole="Review" />
+          <Property Name="ProductABV" Type="Single" />
+          <Property Name="ProductQuantity" Type="Int32" Nullable="false" />
+          <Property Name="ProductBrandID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Brand" Relationship="WineryModel.FK__Product__Product__1BC821DD" FromRole="Product" ToRole="Brand" />
         </EntityType>
         <EntityType Name="Review">
           <Key>
@@ -371,7 +401,32 @@
             <End Role="User" EntitySet="User" />
             <End Role="UserPermission" EntitySet="UserPermission" />
           </AssociationSet>
+          <EntitySet Name="Brand" EntityType="WineryModel.Brand" />
+          <AssociationSet Name="FK__Product__Product__1BC821DD" Association="WineryModel.FK__Product__Product__1BC821DD">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="BrandId" />
+          </Key>
+          <Property Name="BrandId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrandName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Product" Relationship="WineryModel.FK__Product__Product__1BC821DD" FromRole="Brand" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK__Product__Product__1BC821DD">
+          <End Type="WineryModel.Brand" Role="Brand" Multiplicity="1" />
+          <End Type="WineryModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductBrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -408,6 +463,9 @@
           <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="WineryModel.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductBrandID" ColumnName="ProductBrandID" />
+                <ScalarProperty Name="ProductQuantity" ColumnName="ProductQuantity" />
+                <ScalarProperty Name="ProductABV" ColumnName="ProductABV" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="ProductDesc" ColumnName="ProductDesc" />
@@ -452,6 +510,14 @@
                 <ScalarProperty Name="UserPermissionId" ColumnName="UserPermissionId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brand">
+            <EntityTypeMapping TypeName="WineryModel.Brand">
+              <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

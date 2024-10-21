@@ -18,6 +18,8 @@
         <AssociationConnector Association="WineryModel.FK__Review__ProductI__70DDC3D8" ManuallyRouted="false" />
         <AssociationConnector Association="WineryModel.FK__Review__UserID__6FE99F9F" ManuallyRouted="false" />
         <AssociationConnector Association="WineryModel.FK__UserPermi__UserI__04E4BC85" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WineryModel.Brand" Width="1.5" PointX="2.625" PointY="11.25" />
+        <AssociationConnector Association="WineryModel.FK__Product__Product__1BC821DD" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
