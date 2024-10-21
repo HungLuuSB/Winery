@@ -16,52 +16,69 @@
     <link href="~/Content/product-index-styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div class="product-result">
-        <ul class="product-result-list">
-            @foreach (var item in Model)
-            {
-                <li class="product-result-list-item">
-                    <div class="product-display-item-container">
-                        <div class="product-purchase-wrapper">
-                            <div class="product-purchase">
-                                <div class="product-display top">
-                                    <div class="product-image">
-                                        <a href="@Url.Action("Details", "Product", new { id = item.ProductID })">
-                                            <img src="~/Content/Images/wine/@WineryUtilities.ParseItemNameIntoPNGFileName(item.ProductName)" />
-                                        </a>
-
-                                    </div>
-                                </div>
-                                <hr class="hr-product-seperator" />
-                                <div class="product-display bottom">
-                                    <div class="product-info-wrapper">
-                                        <div class="product-capacity">
-                                            <span>@item.ProductCapacity<span>ml</span></span>
-                                        </div>
-                                        <div class="product-name">
-                                            <span>@item.ProductName</span>
-                                        </div>
-                                        <div class="product-desc">
-                                            <span>@item.ProductDesc</span>
-                                        </div>
-
-                                    </div>
-                                    <div class="product-info-spacer">
-
-                                    </div>
-                                    <div class="product-price">
-                                        <span>£@item.ProductPrice.ToString("F2")</span>
-                                    </div>
-                                    <div class="product-purchase-button">
-                                        <button onclick="location.href='@Url.Action("Details","Products", new { id = item.ProductID })'">Add to cart</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <div class="content">
+        <div class="content-wrapper">
+            <div class="content-section left">
+                <div class="filter-box">
+                    <div class="field title">
+                        <h5>TITLE</h5>
                     </div>
-                </li>
-            }
-        </ul>
+                    <div class="field values">
+                        <h6>VALUES</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="content-section right">
+                <div class="product-result">
+                    <ul class="product-result-list">
+                        @foreach (var item in Model)
+                        {
+                            <li class="product-result-list-item">
+                                <div class="product-display-item-container">
+                                    <div class="product-purchase-wrapper">
+                                        <div class="product-purchase">
+                                            <div class="product-display top">
+                                                <div class="product-image">
+                                                    <a href="@Url.Action("Details", "Product", new { id = item.ProductID })">
+                                                        <img src="~/Content/Images/wine/@WineryUtilities.ParseItemNameIntoPNGFileName(item.ProductName)" />
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                            <hr class="hr-product-seperator" />
+                                            <div class="product-display bottom">
+                                                <div class="product-info-wrapper">
+                                                    <div class="product-capacity">
+                                                        <span>@item.ProductCapacity<span>ml</span></span>
+                                                    </div>
+                                                    <div class="product-name">
+                                                        <span>@item.ProductName</span>
+                                                    </div>
+                                                    <div class="product-desc">
+                                                        <span>@item.ProductDesc</span>
+                                                    </div>
+
+                                                </div>
+                                                <div class="product-info-spacer">
+
+                                                </div>
+                                                <div class="product-price">
+                                                    <span>£@item.ProductPrice.ToString("F2")</span>
+                                                </div>
+                                                <div class="product-purchase-button">
+                                                    <button onclick="location.href='@Url.Action("Details","Products", new { id = item.ProductID })'">Add to cart</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
+    
 </body>
 

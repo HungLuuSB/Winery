@@ -4,6 +4,40 @@
     font-weight: normal;
     font-style: normal;
 }
+.content {
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+}
+
+.content-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.content-section {
+    display: flex;
+}
+
+.content-section.left {
+    flex: 0 30%;
+    justify-content: flex-start;
+    flex-direction: column;
+    
+}
+
+.field-box {
+    flex: 1;
+}
+
+.content-section.right {
+    flex: 0 70%;
+    border: 1px solid black;
+    border-radius: 5px;
+}
 
 .product-result {
     width: 100%;
