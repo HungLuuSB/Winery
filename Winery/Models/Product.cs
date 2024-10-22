@@ -29,12 +29,12 @@ namespace Winery.Models
         public string ProductOrigin { get; set; }
         public int ProductCategoryID { get; set; }
         public Nullable<float> ProductABV { get; set; }
-        public int ProductQuantity { get; set; }
         public int ProductBrandID { get; set; }
     
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Review> Review { get; set; }
         public virtual Brand Brand { get; set; }
+        public virtual Inventory Inventory { get; set; }
     }
 }

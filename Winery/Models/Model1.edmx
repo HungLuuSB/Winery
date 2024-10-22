@@ -22,12 +22,27 @@
           <Property Name="BrandId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BrandName" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
+        <EntityType Name="BrandCategory">
+          <Key>
+            <PropertyRef Name="BrandID" />
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="BrandID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="CategoryID" />
           </Key>
           <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Permission">
           <Key>
@@ -47,7 +62,6 @@
           <Property Name="ProductABV" Type="real" />
           <Property Name="ProductPrice" Type="real" Nullable="false" />
           <Property Name="ProductCapacity" Type="int" />
-          <Property Name="ProductQuantity" Type="int" Nullable="false" />
           <Property Name="ProductOrigin" Type="nvarchar" MaxLength="50" />
           <Property Name="ProductCategoryID" Type="int" Nullable="false" />
           <Property Name="ProductBrandID" Type="int" Nullable="false" />
@@ -94,6 +108,42 @@
             </Principal>
             <Dependent Role="Address">
               <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BrandCate__Brand__2DE6D218">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
+          <End Role="BrandCategory" Type="Self.BrandCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandId" />
+            </Principal>
+            <Dependent Role="BrandCategory">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BrandCate__Categ__2EDAF651">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="BrandCategory" Type="Self.BrandCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="BrandCategory">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inventory__Produ__2A164134">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="ProductID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -172,7 +222,9 @@
         <EntityContainer Name="WineryModelStoreContainer">
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BrandCategory" EntityType="Self.BrandCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
@@ -181,6 +233,18 @@
           <AssociationSet Name="FK__Address__UserID__571DF1D5" Association="Self.FK__Address__UserID__571DF1D5">
             <End Role="User" EntitySet="User" />
             <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BrandCate__Brand__2DE6D218" Association="Self.FK__BrandCate__Brand__2DE6D218">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="BrandCategory" EntitySet="BrandCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BrandCate__Categ__2EDAF651" Association="Self.FK__BrandCate__Categ__2EDAF651">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="BrandCategory" EntitySet="BrandCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inventory__Produ__2A164134" Association="Self.FK__Inventory__Produ__2A164134">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Inventory" EntitySet="Inventory" />
           </AssociationSet>
           <AssociationSet Name="FK__Product__Product__19DFD96B" Association="Self.FK__Product__Product__19DFD96B">
             <End Role="Category" EntitySet="Category" />
@@ -229,6 +293,7 @@
           <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Product" Relationship="Self.FK__Product__Product__5CD6CB2B" FromRole="Category" ToRole="Product" />
+          <NavigationProperty Name="Brand" Relationship="WineryModel.BrandCategory" FromRole="Category" ToRole="Brand" />
         </EntityType>
         <EntityType Name="Permission">
           <Key>
@@ -253,9 +318,9 @@
           <NavigationProperty Name="Category" Relationship="Self.FK__Product__Product__5CD6CB2B" FromRole="Product" ToRole="Category" />
           <NavigationProperty Name="Review" Relationship="Self.FK__Review__ProductI__70DDC3D8" FromRole="Product" ToRole="Review" />
           <Property Name="ProductABV" Type="Single" />
-          <Property Name="ProductQuantity" Type="Int32" Nullable="false" />
           <Property Name="ProductBrandID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Brand" Relationship="WineryModel.FK__Product__Product__1BC821DD" FromRole="Product" ToRole="Brand" />
+          <NavigationProperty Name="Inventory" Relationship="WineryModel.FK__Inventory__Produ__2A164134" FromRole="Product" ToRole="Inventory" />
         </EntityType>
         <EntityType Name="Review">
           <Key>
@@ -406,6 +471,15 @@
             <End Role="Brand" EntitySet="Brand" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
+          <EntitySet Name="Inventory" EntityType="WineryModel.Inventory" />
+          <AssociationSet Name="FK__Inventory__Produ__2A164134" Association="WineryModel.FK__Inventory__Produ__2A164134">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="BrandCategory" Association="WineryModel.BrandCategory">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Category" EntitySet="Category" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Brand">
           <Key>
@@ -414,6 +488,7 @@
           <Property Name="BrandId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BrandName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Product" Relationship="WineryModel.FK__Product__Product__1BC821DD" FromRole="Brand" ToRole="Product" />
+          <NavigationProperty Name="Category" Relationship="WineryModel.BrandCategory" FromRole="Brand" ToRole="Category" />
         </EntityType>
         <Association Name="FK__Product__Product__1BC821DD">
           <End Type="WineryModel.Brand" Role="Brand" Multiplicity="1" />
@@ -426,6 +501,30 @@
               <PropertyRef Name="ProductBrandID" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="WineryModel.FK__Inventory__Produ__2A164134" FromRole="Inventory" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK__Inventory__Produ__2A164134">
+          <End Type="WineryModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="WineryModel.Inventory" Role="Inventory" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BrandCategory">
+          <End Type="WineryModel.Brand" Role="Brand" Multiplicity="*" />
+          <End Type="WineryModel.Category" Role="Category" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -464,7 +563,6 @@
             <EntityTypeMapping TypeName="WineryModel.Product">
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="ProductBrandID" ColumnName="ProductBrandID" />
-                <ScalarProperty Name="ProductQuantity" ColumnName="ProductQuantity" />
                 <ScalarProperty Name="ProductABV" ColumnName="ProductABV" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
@@ -521,6 +619,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Inventory">
+            <EntityTypeMapping TypeName="WineryModel.Inventory">
+              <MappingFragment StoreEntitySet="Inventory">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="BrandCategory" TypeName="WineryModel.BrandCategory" StoreEntitySet="BrandCategory">
+            <EndProperty Name="Category">
+              <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+            </EndProperty>
+            <EndProperty Name="Brand">
+              <ScalarProperty Name="BrandId" ColumnName="BrandID" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
