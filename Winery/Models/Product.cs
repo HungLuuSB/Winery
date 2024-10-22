@@ -18,6 +18,7 @@ namespace Winery.Models
         public Product()
         {
             this.Review = new HashSet<Review>();
+            this.OrderDetails = new HashSet<OrderDetails>();
         }
     
         public int ProductID { get; set; }
@@ -36,5 +37,7 @@ namespace Winery.Models
         public virtual ICollection<Review> Review { get; set; }
         public virtual Brand Brand { get; set; }
         public virtual Inventory Inventory { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderDetails> OrderDetails { get; set; }
     }
 }

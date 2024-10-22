@@ -20,6 +20,7 @@ namespace Winery.Models
             this.Address = new HashSet<Address>();
             this.Review = new HashSet<Review>();
             this.UserPermission = new HashSet<UserPermission>();
+            this.Order = new HashSet<Order>();
         }
     
         public int UserID { get; set; }
@@ -38,5 +39,7 @@ namespace Winery.Models
         public virtual ICollection<Review> Review { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserPermission> UserPermission { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Order { get; set; }
     }
 }
