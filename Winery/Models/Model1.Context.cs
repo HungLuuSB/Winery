@@ -26,15 +26,15 @@ namespace Winery.Models
         }
     
         public virtual DbSet<Address> Address { get; set; }
+        public virtual DbSet<Brand> Brand { get; set; }
         public virtual DbSet<Category> Category { get; set; }
+        public virtual DbSet<Inventory> Inventory { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderDetails> OrderDetails { get; set; }
         public virtual DbSet<Permission> Permission { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Review> Review { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserPermission> UserPermission { get; set; }
-        public virtual DbSet<Brand> Brand { get; set; }
-        public virtual DbSet<Inventory> Inventory { get; set; }
-        public virtual DbSet<Order> Order { get; set; }
-        public virtual DbSet<OrderDetails> OrderDetails { get; set; }
     }
 }

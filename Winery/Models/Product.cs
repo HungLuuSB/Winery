@@ -17,27 +17,27 @@ namespace Winery.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.Review = new HashSet<Review>();
             this.OrderDetails = new HashSet<OrderDetails>();
+            this.Review = new HashSet<Review>();
         }
     
         public int ProductID { get; set; }
         public string ProductName { get; set; }
         public string ProductDesc { get; set; }
         public Nullable<int> ProductYearAging { get; set; }
+        public Nullable<float> ProductABV { get; set; }
         public float ProductPrice { get; set; }
         public Nullable<int> ProductCapacity { get; set; }
         public string ProductOrigin { get; set; }
         public int ProductCategoryID { get; set; }
-        public Nullable<float> ProductABV { get; set; }
         public int ProductBrandID { get; set; }
     
-        public virtual Category Category { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Review> Review { get; set; }
         public virtual Brand Brand { get; set; }
+        public virtual Category Category { get; set; }
         public virtual Inventory Inventory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetails> OrderDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Review> Review { get; set; }
     }
 }
