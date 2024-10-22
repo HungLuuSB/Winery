@@ -17,7 +17,8 @@ namespace Winery.Controllers
         // GET: Product
         public ActionResult Index()
         {
-            var product = db.Product.Include(p => p.Category);
+            var product = db.Product.Include(p => p.Category)
+                                    .Include(p => p.Brand);
             return View(product.ToList());
         }
 
@@ -74,6 +75,15 @@ namespace Winery.Controllers
                 return HttpNotFound();
             }
             ViewBag.ProductCategoryID = new SelectList(db.Category, "CategoryId", "CategoryName", product.ProductCategoryID);
+            ViewBag.ProductBrandID = new SelectList(db.Brand, "BrandId", "BrandName", product.ProductBrandID);
+            
+            /*
+            ViewBag.ProductBrandID = db.Brand.Select(b => new SelectListItem
+            {
+                Value = b.BrandId.ToString(),
+                Text = b.BrandName
+            }).ToList();
+            */
             return View(product);
         }
 
@@ -91,6 +101,14 @@ namespace Winery.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.ProductCategoryID = new SelectList(db.Category, "CategoryId", "CategoryName", product.ProductCategoryID);
+            ViewBag.ProductBrandID = new SelectList(db.Brand, "BrandID", "BrandName", product.ProductBrandID);
+            /*
+            ViewBag.ProductBrandID = db.Brand.Select(b => new SelectListItem
+            {
+                Value = b.BrandId.ToString(),
+                Text = b.BrandName
+            }).ToList();
+            */
             return View(product);
         }
 
