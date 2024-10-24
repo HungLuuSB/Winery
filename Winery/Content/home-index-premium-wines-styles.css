@@ -67,12 +67,28 @@
     }
 }
 /*Product card*/
-
+.premium-wines-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
 .product-card {
-    width: calc(50%); /* 2 cards per row */
-    border-radius: 8px;
+    /*
+        width: calc(50%);
+        border-radius: 8px;
+        height: 50%;
+        max-height: 50%;
+    */ 
+    flex: 1 0 50%; /* Take 50% width of the container (2 items per row) */
     height: 50%;
-    max-height: 50%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
 }
 
 @media only screen and (max-width: 960px) {

@@ -82,41 +82,44 @@
             <!-- Right Section: 2x2 Product Grid -->
 
             <div class="premium-wines-container right">
-                @{
-                    foreach (var item in Model)
-                    {
-                        if (Model.First() != item)
+                <ul class="premium-wines-list">
+                    @{
+                        foreach (var item in Model)
                         {
-                            <div class="product-card">
-                                <div class="product-card-wrapper">
-                                    <div class="product-card-wrapper-background-effect"></div>
-                                    <div class="product-card-content left">
-                                        <div class="thumbnail">
-                                            <img src="~/Content/Images/wine/@ProductUtilityService.ParseItemNameIntoPNGFileName(item.ProductName)" alt="Italian Red Wine">
+                            if (Model.First() != item)
+                            {
+                                <li class="product-card">
+                                    <div class="product-card-wrapper">
+                                        <div class="product-card-wrapper-background-effect"></div>
+                                        <div class="product-card-content left">
+                                            <div class="thumbnail">
+                                                <img src="~/Content/Images/wine/@ProductUtilityService.ParseItemNameIntoPNGFileName(item.ProductName)" alt="Italian Red Wine">
+                                            </div>
+                                            <div class="product-card-content-display-properties product-name">
+                                                <a href="@Url.Action("Details","Product", new { id = item.ProductID })">@item.ProductName</a>
+                                            </div>
                                         </div>
-                                        <div class="product-card-content-display-properties product-name">
-                                            <a href="@Url.Action("Details","Product", new { id = item.ProductID })">@item.ProductName</a>
-                                        </div>
-                                    </div>
-                                    <div class="product-card-content right">
-                                        <div class="product-card-content-display-properties product-buy-button">
-                                            <a href="@Url.Action("Details","Product", new { id = item.ProductID })">
-                                                <p>ADD TO CART</p>
-                                            </a>
-                                        </div>
-                                        <div style="flex: 0 0 10%">
+                                        <div class="product-card-content right">
+                                            <div class="product-card-content-display-properties product-buy-button">
+                                                <a href="@Url.Action("Details","Product", new { id = item.ProductID })">
+                                                    <p>ADD TO CART</p>
+                                                </a>
+                                            </div>
+                                            <div style="flex: 0 0 10%">
 
-                                        </div>
-                                        <div class="product-card-content-display-properties product-price">
-                                            <p>£@item.ProductPrice.ToString("F2")</p>
+                                            </div>
+                                            <div class="product-card-content-display-properties product-price">
+                                                <p>£@item.ProductPrice.ToString("F2")</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                </li>
+                            }
+
                         }
-
                     }
-                }
+                </ul>
+                
             </div>
         </div>
     </div>
