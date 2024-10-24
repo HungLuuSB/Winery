@@ -15,10 +15,23 @@ namespace Winery.Controllers
         private WineryEntities2 db = new WineryEntities2();
 
         // GET: Product
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult Index(int? style)
         {
-            var product = db.Product.Include(p => p.Category)
+            IQueryable<Product> product;
+            if (style != null)
+            {
+                product = db.Product.Where(p => p.Category.CategoryID == style)
+                                        .Include(p => p.Category)
+                                        .Include(p => p.Brand);
+            }
+            else
+            {
+                product = db.Product.Include(p => p.Category)
                                     .Include(p => p.Brand);
+                
+            }
+            ViewBag.Style = style;
             return View(product.ToList());
         }
 

@@ -1,75 +1,105 @@
 ﻿@model IEnumerable<Winery.Models.Product>
 @using Winery.Ultilities;
+@using Winery.Services;
 @{
     ViewBag.Title = "Shop";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<head>
-    <link href="~/Content/product-index-styles.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-    <div class="content">
-        <div class="content-wrapper">
-            <div class="content-section left">
-                <div class="filter-box">
-                    <div class="field title">
-                        <h5>TITLE</h5>
-                    </div>
-                    <div class="field values">
-                        <h6>VALUES</h6>
+<link href="~/Content/product-index-styles.css" rel="stylesheet" type="text/css">
+<div class="page-wrapper">
+    <main class="page-content" id="maincontent">
+        <div class="category-view">
+            <div class="category-image">
+                <img src="~/Content/Images/category/@CategoryUtilityService.ParseItemNameIntoPNGFileName(ViewBag.Style.ToString())" />
+            </div>
+            <div class="category-description">
+                <p>
+                    Buy brilliant red wines, from bold Australian shiraz to classic Bordeaux or sophisticated pinot noir from Burgundy. Quick Check-Out with Free Delivery for Orders over £100.
+                </p>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content-wrapper">
+                <div class="content-section left">
+                    <div class="filter-box">
+                        <div class="field title">
+                            <h5>TITLE</h5>
+                        </div>
+                        <div class="field values">
+                            <h6>VALUES</h6>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-section right">
-                <div class="product-result">
-                    <ul class="product-result-list">
-                        @foreach (var item in Model)
-                        {
-                            <li class="product-result-list-item">
-                                <div class="product-display-item-container">
-                                    <div class="product-purchase-wrapper">
-                                        <div class="product-purchase">
-                                            <div class="product-display top">
-                                                <div class="product-image">
-                                                    <a href="@Url.Action("Details", "Product", new { id = item.ProductID })">
-                                                        <img src="~/Content/Images/wine/@WineryUtilities.ParseItemNameIntoPNGFileName(item.ProductName)" />
-                                                    </a>
+                <div class="content-section right">
+                    <div class="product-result">
+                        <header class="product-result-header">
+                            <div class="prResultCount">Total: @(Model.ToList().Count) products</div>
+                            <div class="prDropdown prDropSortBy">
+                                <div class="prDropdownLabel">
+                                    Sort by: Best match
+                                </div>
+                                <div class="prDropdownOptions">
+                                    <div class="prDropdownOption prSort" data-sort-option="RELEVANCE" role="option">Best match</div>
+                                    <div class="prDropdownOption prSort" data-sort-option="PRICE-ASC" role="option">Price: Low to High</div>
+                                    <div class="prDropdownOption prSort" data-sort-option="PRICE-DESC" role="option">Price: High to Low</div>
+                                    <div class="prDropdownOption prSort" data-sort-option="NAME-ASC" role="option">Name: A to Z</div>
+                                    <div class="prDropdownOption prSort" data-sort-option="NAME-DESC" role="option">Price: Z to A</div>
+                                </div>
+                            </div>
+                        </header>
+                        <ul class="product-result-list">
+                            @foreach (var item in Model)
+                            {
+                                <li class="product-result-list-item">
+                                    <div class="product-display-item-container">
+                                        <div class="product-purchase-wrapper">
+                                            <div class="product-purchase">
+                                                <div class="product-display top">
+                                                    <div class="product-image">
+                                                        <a href="@Url.Action("Details", "Product", new { id = item.ProductID })">
+                                                            <img src="~/Content/Images/wine/@WineryUtilities.ParseItemNameIntoPNGFileName(item.ProductName)" />
+                                                        </a>
 
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <hr class="hr-product-seperator" />
-                                            <div class="product-display bottom">
-                                                <div class="product-info-wrapper">
-                                                    <div class="product-capacity">
-                                                        <span>@item.ProductCapacity<span>ml</span></span>
-                                                    </div>
-                                                    <div class="product-name">
-                                                        <span>@item.ProductName</span>
-                                                    </div>
-                                                    <div class="product-desc">
-                                                        <span>@item.ProductDesc</span>
-                                                    </div>
+                                                <hr class="hr-product-seperator" />
+                                                <div class="product-display bottom">
+                                                    <div class="product-info-wrapper">
+                                                        <div class="product-capacity">
+                                                            <span>@item.ProductCapacity<span>cl</span></span>
+                                                        </div>
+                                                        <div class="product-name">
+                                                            <span>@item.ProductName</span>
+                                                        </div>
+                                                        <div class="product-desc">
+                                                            <span>@item.ProductDesc</span>
+                                                        </div>
 
-                                                </div>
-                                                <div class="product-info-spacer">
+                                                    </div>
+                                                    <div class="product-info-spacer">
 
-                                                </div>
-                                                <div class="product-price">
-                                                    <span>£@item.ProductPrice.ToString("F2")</span>
-                                                </div>
-                                                <div class="product-purchase-button">
-                                                    <button onclick="location.href='@Url.Action("Details","Products", new { id = item.ProductID })'">Add to cart</button>
+                                                    </div>
+                                                    <div class="product-price">
+                                                        <span>£@item.ProductPrice.ToString("F2")</span>
+                                                    </div>
+                                                    <div class="product-purchase-button">
+                                                        <button onclick="location.href='@Url.Action("Details","Products", new { id = item.ProductID })'">Add to cart</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-                        }
-                    </ul>
+                                </li>
+                            }
+                        </ul>
+                        <footer class="product-result-footer">
+
+                        </footer>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</body>
+    </main>
+    
+</div>
 

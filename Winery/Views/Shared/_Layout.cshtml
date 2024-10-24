@@ -21,15 +21,30 @@
 <body>
     <nav id="navbar-content-main" class="navbar-content">
         <div class="nav-section left">
-            <a href="@Url.Action("Index","Home")">
-                <span class="nav-menu-item-text">HOME</span>
-            </a>
-            <a href="@Url.Action("Index","Product")">
+            <div class="nav-item-container">
+                <a href="@Url.Action("Index","Home")">
+                    <span class="nav-menu-item-text">HOME</span>
+                </a>
+            </div>
+            <div id="nav-item-shop" class="nav-item-container">
                 <span class="nav-menu-item-text">SHOP</span>
-            </a>
-            <a href="@Url.Action("About","Home")">
-                <span class="nav-menu-item-text">ABOUT</span>
-            </a>
+                <div class="shopDropdown shopCategories">
+                    <div class="shopDropdownOptions">
+                        <a href="@Url.Action("Index","Product", new {style = 1})" class="shopDropdownOption shopCategory" data-shop-category="RED" role="option">Red Wine</a>
+                        <a href="@Url.Action("Index","Product", new {style = 2})" class="shopDropdownOption shopCategory" data-shop-category="WHITE" role="option">White Wine</a>
+                        <a href="@Url.Action("Index","Product", new {style = 3})" class="shopDropdownOption shopCategory" data-shop-category="ROSE" role="option">Rosé Wine</a>
+                        <a href="@Url.Action("Index","Product", new {style = 4})" class="shopDropdownOption shopCategory" data-shop-category="SPARKLING" role="option">Sparkling Wine</a>
+                        <a href="@Url.Action("Index","Product", new {style = 5})" class="shopDropdownOption shopCategory" data-shop-category="SPARKLING" role="option">Dessert Wine</a>
+                        <a href="@Url.Action("Index","Product", new {style = 6})" class="shopDropdownOption shopCategory" data-shop-category="FORTIFIED" role="option">Fortified Wine</a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item-container">
+                <a href="@Url.Action("About","Home")">
+                    <span class="nav-menu-item-text">ABOUT</span>
+                </a>
+            </div>
+            
         </div>
 
         <div class="nav-section center">
@@ -42,24 +57,34 @@
         <div class="nav-section right">
             @if (currentUser != null)
             {
-                <a href="@Url.Action("Details", "User", new { id = currentUser.UserID })">
-                    <span class="nav-menu-item-text">@currentUser.Username</span>
-                </a>
+                <div class="nav-item-container">
+                    <a href="@Url.Action("Details", "User", new { id = currentUser.UserID })">
+                        <span class="nav-menu-item-text">@currentUser.Username</span>
+                    </a>
+                </div>
+
             }
             else
             {
-                <a href="@Url.Action("Index","Access")">
-                    <span class="nav-menu-item-text">LOGIN</span>
-                </a>
+                <div class="nav-item-container">
+                    <a href="@Url.Action("Index","Access")">
+                        <span class="nav-menu-item-text">MY ACCOUNT</span>
+                    </a>
+                </div>
             }
-            <a href="@Url.Action("Index","Home")">
-                <span class="nav-menu-item-text">CART</span>
-            </a>
+
+            <div class="nav-item-container">
+                <a href="@Url.Action("Index","Home")">
+                    <span class="nav-menu-item-text">CART</span>
+                </a>
+            </div>
             @if (currentUser != null)
             {
-               <a href="@Url.Action("Logout", "Login", new {})">
-                   <span class="nav-menu-item-text">LOGOUT</span>
-               </a>
+                <div class="nav-item-container">
+                    <a href="@Url.Action("Logout", "Login", new {})">
+                        <span class="nav-menu-item-text">LOGOUT</span>
+                    </a>
+                </div>
             }
         </div>
     </nav>
@@ -133,7 +158,7 @@
                 </div>
             </div>
             <div class="footer-infomation-copyright">
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                <p style="margin: 0; padding: 0;">&copy; @DateTime.Now.Year - My ASP.NET Application</p>
             </div>
 
         </footer>

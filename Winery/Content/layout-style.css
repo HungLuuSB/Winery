@@ -30,12 +30,9 @@
     align-items: center;
 }
 
-    .nav-section a {
-        color: #c6c5b3;
+    .nav-section .nav-item-container a {
         text-decoration: none;
         cursor: pointer;
-        
-        
     }
 
     .nav-section.left {
@@ -69,10 +66,37 @@
     color: #c6c5b3;
 }
 
-.nav-section a .nav-menu-item-text {
+.nav-section .nav-item-container .nav-menu-item-text {
     font-family: 'Cormorant Upright';
     font-size: 1rem;
     font-weight: bold;
+    color: #f5f5f5;
+    transition: 0.3s ease;
+}
+
+.nav-section nav-item-container:hover .nav-menu-item-text {
+    color: lightgray;
+}
+
+/* NAV-ITEMS -> SHOP -> CATEGORY */
+.shopDropdownOptions {
+    position: absolute;
+    display: none;
+    background-color: #efefef;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+#nav-item-shop:hover .shopDropdownOptions {
+    display: block;
+}
+
+.shopDropdownOption {
+    display: block;
+    color: #333;
+    padding: 8px 12px;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .footer-infomation-wrapper {
