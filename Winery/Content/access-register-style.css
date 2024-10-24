@@ -1,0 +1,170 @@
+﻿.row {
+    padding: 20px 15% 20px 15%;
+    width: 100%;
+}
+.page-title-wrapper h1 {
+    font-family: 'Cormorant Upright';
+    font-weight: bold;
+}
+.main-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #eae7e4;
+    font-family: 'Cormorant Upright';
+}
+.main-content form {
+    display: flex;
+    flex-direction:column;
+
+}
+.field-seperator {
+    width: 100%;
+    padding: 0;
+}
+.columns {
+    width: 100%;
+    padding: 10px;
+}
+.required-marker {
+    color: red;
+}
+
+.block-title h3 {
+    font-family: 'Cormorant Upright';
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.control {
+}
+    .option,
+    .control label {
+        font-size: 30px;
+        font-weight: bold;
+        color: #8c5a43;
+    }
+
+.control input {
+    max-height: 35px;
+    height: 35px;
+    max-width: 80%;
+    width: 80%;
+}
+
+
+
+.action button {
+    font-family: 'Cormorant Upright';
+    font-weight: bold;
+    border: 0;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    background-color: #8c5a43;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.action:hover button {
+    background-color: #58594b;
+}
+
+.Front_Create {
+    font-size: 23px;
+    font-family: 'Montserrrat',sans-serif;
+    letter-spacing: 2px;
+    color: #3D3E42;
+}
+
+.front_high {
+    font-family: 'Montserrrat',sans-serif;
+    font-size: 22px;
+    color: #3D3E42;
+}
+
+.front_normal {
+    font-family: 'Montserrrat',sans-serif;
+    font-size: 12px;
+    color: #3D3E42;
+}
+
+.fieldset {
+    border: 0;
+    margin: 0 0 50px;
+    padding: 0;
+    letter-spacing: 1.5px;
+}
+
+.field_choice {
+    padding: 0px 10px 0px;
+    border-bottom: 10px;
+}
+
+.checkbox {
+    margin: 0px;
+}
+
+#input_name {
+    max-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 8px;
+}
+/*CSS RIÊNG*/
+.fieldset > .legend {
+    margin: 0 0 20px;
+    padding: 0 0 10px;
+    width: 100%;
+    box-sizing: border-box;
+    float: left;
+    font-weight: 300;
+    line-height: 1.2;
+    font-size: 1.8rem;
+    border-bottom: 1px solid #3D3E42;
+}
+
+/*Full name*/
+.label_information {
+    margin: 0px 0px 8px;
+}
+
+#input_name {
+    padding: 0 9px;
+    width: 100%;
+    letter-spacing: inherit;
+    height: 37px;
+}
+
+.password_strength_meter {
+    font-family: 'Montserrrat',sans-serif;
+    background-color: #f4f4f4;
+    font-size: small;
+    color: #3D3E42;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 9px;
+    position: relative;
+    z-index: 1;
+}
+
+#fieldset_remember {
+    border: none;
+    padding: 0px;
+}
+
+.action_submit {
+    background-color: #ffb81c;
+    border: 0.5px;
+    margin: 20px 0px 0px 0px;
+    padding: 10px 20px;
+    letter-spacing: 3px;
+    border-radius: 7px;
+}
+    .action_submit:hover {
+        background-color: black;
+        color: white;
+        transform: translate3d(5px);
+        box-shadow: 0 10px 10px 0;
+    }

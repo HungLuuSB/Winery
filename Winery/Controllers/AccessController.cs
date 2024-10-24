@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Antlr.Runtime.Misc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,6 +21,17 @@ namespace Winery.Controllers
             else
             {
                 return RedirectToAction("Index","Home");
+            }
+        }
+        public ActionResult Register()
+        {
+            if (UserSessionService.IsUserLoggedIn() == false)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
             }
         }
     }

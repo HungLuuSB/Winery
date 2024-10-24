@@ -131,6 +131,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -195,6 +196,7 @@
     <Content Include="App_Data\Winery_log.ldf">
       <DependentUpon>Winery.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\access-register-style.css" />
     <Content Include="Content\access-login-styles.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -225,8 +227,11 @@
     <Content Include="Content\Images\title_thumbnail.png" />
     <Content Include="Content\Images\winery-footer-img.png" />
     <Content Include="Content\Images\wine\chateau_musar.png" />
+    <Content Include="Content\Images\wine\gaja_pieve_santa_restituta_brunello_di_montalcino.png" />
+    <Content Include="Content\Images\wine\gaja_sito_moresco_langhe_2017.png" />
     <Content Include="Content\Images\wine\handpicked_wines_yarra_valley_pinot_noir.png" />
     <Content Include="Content\Images\wine\la_rioja_alta_904_gran_reserva_2015.png" />
+    <Content Include="Content\Images\wine\ochoa_calendas_tinto.png" />
     <Content Include="Content\Images\wine\opus_one_2014.png" />
     <Content Include="Content\Images\wine\yarra_yering_dry_red_wine_no_1.png" />
     <Content Include="Content\Images\wine\yarra_yering_dry_red_wine_no_2.png" />
@@ -305,8 +310,11 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Access\Index.cshtml" />
     <Content Include="Views\Login\Logout.cshtml" />
+    <Content Include="Views\Access\Register.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Register\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
     <Content Include="Content\bootstrap.rtl.css.map" />

@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/access-register-style.css" rel="stylesheet">
+<h2>Register</h2>
+
+<body>
+    <div class="row">
+        <div class="page-title-wrapper">
+            <h1>Create New Customer Account</h1>
+        </div>
+        <div class="main-content">
+            @using (Html.BeginForm("Register", "Register", FormMethod.Post))
+            {
+                <fieldset class="fieldset">
+                    <legend class="legend">
+                        <span class="front_high">Personal Information</span>
+                    </legend>
+                    <br />
+                    <input type="hidden" name="success_url" value="0">
+                    <input type="hidden" name="error_url" value="0">
+                    <!--First Name-->
+                    <div id="field_firstname" style="margin: 0px 0px 20px;">
+                        <label class="label_information" for="firstname">
+                            <span class="front_normal">First Name</span>
+                        </label>
+                        <div class="Control">
+                            <input type="text" id="input_name" name="firstname" value title="First Name">
+                        </div>
+                    </div>
+                    <!--Last Name-->
+                    <div class="field_name" style="margin: 0px 0px 20px;">
+                        <label class="label_information" for="firstname">
+                            <span class="front_normal">Last Name</span>
+                        </label>
+                        <div class="Control">
+                            <input type="text" id="input_name" name="lastname" value title="Last Name">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!--***SIGN-IN INFORMATION***-->
+                <fieldset class="fieldset">
+                    <legend class="legend">
+                        <span class="front_high">Sign-in Information</span>
+                    </legend>
+                    <!--Email-->
+                    <div class="field_name" style="margin: 0px 0px 20px;">
+                        <label class="label_information" for="email" style="margin-bottom: 8px;">
+                            <span class="front_normal">Email</span>
+                        </label>
+                        <div class="Control">
+                            <input type="text" id="input_name" name="email" title="Email" placeholder="">
+                        </div>
+                    </div>
+                    <!--Password-->
+                    <div class="field_name" style="margin: 0px 0px 20px;">
+                        <label class="label_information" for="password" style="margin-bottom: 8px;">
+                            <span class="front_normal">Password</span>
+                        </label>
+                        <div class="Control">
+                            <input type="text" id="input_name" name="password" title="Password" placeholder="Enter your password">
+                        </div>
+                        <div class="password_strength_meter" id="password_strength_meter">
+                            Password Strength: <span id="strength_level">No Password</span>
+                        </div>
+                    </div>
+                    <!--Confirm Password-->
+                    <div class="field_name" style="margin: 0px 0px 20px;">
+                        <label class="label_information" for="password" style="margin-bottom: 8px;">
+                            <span class="front_normal">Confirm Password</span>
+                        </label>
+                        <div class="Control">
+                            <input type="text" id="input_name" name="confirmpassword" title="Confirm Password" placeholder="Confirm Password">
+                        </div>
+                    </div>
+                    <div class="field_choice">
+                        <input type="checkbox" name="assistance_allowed_checkbox" title="Allow remote shopping assistance" value="1" id="assistance_allowed_checkbox" class="checkbox" data-gtm-form-interact-field-id="0">
+                        <label for="assistance_allowed_checkbox" style="font-size: 12px;" class="checkbox">
+                            <span class="front_normal">Show Password</span>
+                        </label>
+                        <input type="hidden" name="assistance_allowed" value="">
+                    </div>
+                </fieldset>
+                <!--REMEMBER ME-->
+                <fieldset id="fieldset_remember">
+                    <div>
+                        <div class="field_choice">
+                            <input type="checkbox" name="presistent_remember_me" class="checkbox">
+                            <label for="remember_me">
+                                <span class="front_normal" style="font-size: 15px;">Remember Me</span>
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+                <div id="action_toolbar">
+                    <div class="primary">
+                        <button type="submit" title="Create an Account" class="action_submit">
+                            <span class="front_normal" style="font-size: 16px;">CREATE AN ACCOUNT</span>
+                        </button>
+                    </div>
+                </div>
+            }
+            </div>
+    </div>
+</body>
