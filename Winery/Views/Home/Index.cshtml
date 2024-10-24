@@ -17,7 +17,7 @@
         <div class="welcome-content background-overlay">
             <div class="background-overlay">
             </div>
-                <img class="welcome-img" src="~/Content/Images/Home img.jpg" />
+            <img class="welcome-img" src="~/Content/Images/Home img.jpg" />
         </div>
         <div class="welcome-content">
             <div>
@@ -32,10 +32,11 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="section header">
-            <h1>PREMIUM WINES</h1>
-        </div>
+    <div class="section header">
+        <h1>PREMIUM WINES</h1>
+    </div>
+    <div class="row" style="height: 1200px;">
+
         <div class="premium-wines-container">
             <!-- Left Section: Product Display -->
             <div class="premium-wines-container left">
@@ -48,7 +49,7 @@
                             <p>@mainProduct.ProductName</p>
                         </div>
                         <div class="product-content-display-properties product-buy-button">
-                            <button onclick="location.href='@Url.Action("Details", "Product", new { id = mainProduct.ProductID })'" >
+                            <button onclick="location.href='@Url.Action("Details", "Product", new { id = mainProduct.ProductID })'">
                                 <span>BUY NOW</span>
                             </button>
                         </div>
@@ -79,7 +80,7 @@
             </div>
 
             <!-- Right Section: 2x2 Product Grid -->
-            
+
             <div class="premium-wines-container right">
                 @{
                     foreach (var item in Model)
