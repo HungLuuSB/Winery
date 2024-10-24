@@ -4,7 +4,24 @@
     font-weight: normal;
     font-style: normal;
 }
-
+@font-face {
+    font-family: 'Retro Vibes';
+    src: url('Fonts/RetroVibesPersonalUseRegular-lgEBX.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Morning Vintage';
+    src: url('Fonts/Morning Vintage.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Lucky Skirt';
+    src: url('Fonts/Lucky Skirt (DEMO).ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     margin-top: 15px;

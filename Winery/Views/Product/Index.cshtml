@@ -8,6 +8,14 @@
 <link href="~/Content/product-index-styles.css" rel="stylesheet" type="text/css">
 <div class="page-wrapper">
     <main class="page-content" id="maincontent">
+        <div class="page-title-wrapper">
+            <div class="breadcrumb">
+
+            </div>
+            <h1 class="page-title" id="page-title-heading">
+                RED WINES
+            </h1>
+        </div>
         <div class="category-view">
             <div class="category-image">
                 <img src="~/Content/Images/category/@CategoryUtilityService.ParseItemNameIntoPNGFileName(ViewBag.Style.ToString())" />
@@ -83,7 +91,7 @@
                                                         <span>£@item.ProductPrice.ToString("F2")</span>
                                                     </div>
                                                     <div class="product-purchase-button">
-                                                        <button onclick="location.href='@Url.Action("Details","Products", new { id = item.ProductID })'">Add to cart</button>
+                                                        <button onclick="location.href='@Url.Action("Details","Product", new { id = item.ProductID })'">Add to cart</button>
                                                     </div>
                                                 </div>
                                             </div>

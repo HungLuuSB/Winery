@@ -274,6 +274,9 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\Fonts\RetroVibesPersonalUseRegular-lgEBX.otf" />
+    <Content Include="Content\Fonts\Morning Vintage.ttf" />
+    <Content Include="Content\Fonts\Lucky Skirt %28DEMO%29.ttf" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
