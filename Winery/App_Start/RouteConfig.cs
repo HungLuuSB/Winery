@@ -24,6 +24,11 @@ namespace Winery
                 url: "Product/style/{style}",
                 defaults: new { controller = "Product", action = "Index", style = 0 }
             );
+            routes.MapRoute(
+                name: "ProductByName",
+                url: "Product/{product_name}",
+                defaults: new { controller = "Product", action = "Details" }
+            );
         }
     }
 }

@@ -17,20 +17,20 @@
             </div>
             <div class="product-display right">
                 <div class="product-capacity">
-                    <span>@Model.ProductCapacity<span>ml</span></span>
+                    <span>@(Model.ProductCapacity)cl / @(Model.ProductABV)%</span>
                 </div>
                 <div class="product-name">
-                    <h2>@Model.ProductName</h2>
+                    <h2>@Model.ProductName.ToUpper()</h2>
                 </div>
                 <hr class="hr-product-purchase-seperator" />
+                <div class="product-price">
+                    <span>£@Model.ProductPrice.ToString("F2")</span>
+                </div>
                 <div class="product-desc">
                     <p>@Model.ProductDesc</p>
                 </div>
                 <div class="product-display-filler">
 
-                </div>
-                <div class="product-price">
-                    <span>£@Model.ProductPrice.ToString("F2")</span>
                 </div>
                 <div class="product-purchase-buttons">
                     <button class="add-to-cart-button">ADD TO CART</button>

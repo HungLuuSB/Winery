@@ -49,7 +49,7 @@
                             <p>@mainProduct.ProductName</p>
                         </div>
                         <div class="product-content-display-properties product-buy-button">
-                            <button onclick="location.href='@Url.Action("Details", "Product", new { id = mainProduct.ProductID })'">
+                            <button onclick="location.href='@Url.Action("Details", "Product", new { productName = mainProduct.ProductName })'">
                                 <span>BUY NOW</span>
                             </button>
                         </div>
@@ -96,12 +96,12 @@
                                                 <img src="~/Content/Images/wine/@ProductUtilityService.ParseItemNameIntoPNGFileName(item.ProductName)" alt="Italian Red Wine">
                                             </div>
                                             <div class="product-card-content-display-properties product-name">
-                                                <a href="@Url.Action("Details","Product", new { id = item.ProductID })">@item.ProductName</a>
+                                                <a href="@Url.Action("Details","Product", new { productName = item.ProductName })">@item.ProductName</a>
                                             </div>
                                         </div>
                                         <div class="product-card-content right">
                                             <div class="product-card-content-display-properties product-buy-button">
-                                                <a href="@Url.Action("Details","Product", new { id = item.ProductID })">
+                                                <a href="@Url.Action("Details","Product", new { productName = item.ProductName })">
                                                     <p>ADD TO CART</p>
                                                 </a>
                                             </div>

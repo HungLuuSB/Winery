@@ -39,13 +39,28 @@ namespace Winery.Controllers
         }
 
         // GET: Product/Details/5
-        public ActionResult Details(int? id)
+        /*
+         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Product product = db.Product.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
+        }
+        */
+        public ActionResult Details(string productName)
+        {
+            if (productName == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Product product = db.Product.Where(x => x.ProductName == productName).FirstOrDefault();
             if (product == null)
             {
                 return HttpNotFound();

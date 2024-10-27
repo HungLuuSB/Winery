@@ -22,6 +22,12 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Visby CF';
+    src: url('Fonts/Fontspring-DEMO-visbycf-regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     margin-top: 15px;

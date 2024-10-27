@@ -219,7 +219,11 @@
     <Content Include="Content\home-index-styles.css" />
     <Content Include="Content\Images\category\0.png" />
     <Content Include="Content\Images\category\1.png" />
+    <Content Include="Content\Images\category\2.png" />
+    <Content Include="Content\Images\category\3.png" />
     <Content Include="Content\Images\category\4.png" />
+    <Content Include="Content\Images\category\5.png" />
+    <Content Include="Content\Images\category\6.png" />
     <Content Include="Content\Images\footer_img.jpg" />
     <Content Include="Content\Images\Home img.jpg" />
     <Content Include="Content\Images\HomeImg.png" />
@@ -279,6 +283,7 @@
     <Content Include="Content\Fonts\RetroVibesPersonalUseRegular-lgEBX.otf" />
     <Content Include="Content\Fonts\Morning Vintage.ttf" />
     <Content Include="Content\Fonts\Lucky Skirt %28DEMO%29.ttf" />
+    <Content Include="Content\Fonts\Fontspring-DEMO-visbycf-regular.otf" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
