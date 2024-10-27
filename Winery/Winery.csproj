@@ -217,7 +217,9 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\home-index-premium-wines-styles.css" />
     <Content Include="Content\home-index-styles.css" />
+    <Content Include="Content\Images\category\0.png" />
     <Content Include="Content\Images\category\1.png" />
+    <Content Include="Content\Images\category\4.png" />
     <Content Include="Content\Images\footer_img.jpg" />
     <Content Include="Content\Images\Home img.jpg" />
     <Content Include="Content\Images\HomeImg.png" />

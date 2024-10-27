@@ -13,6 +13,7 @@ namespace Winery
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
@@ -21,7 +22,7 @@ namespace Winery
             routes.MapRoute(
                 name: "ProductByStyle",
                 url: "Product/style/{style}",
-                defaults: new { controller = "Product", action = "Index", style = 1 }
+                defaults: new { controller = "Product", action = "Index", style = 0 }
             );
         }
     }

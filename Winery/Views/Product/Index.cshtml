@@ -1,8 +1,16 @@
 ﻿@model IEnumerable<Winery.Models.Product>
 @using Winery.Ultilities;
 @using Winery.Services;
+@using Winery.Models;
 @{
-    ViewBag.Title = "Shop";
+    if (ViewBag.Category != null)
+    {
+        ViewBag.Title = $"{ViewBag.Category.CategoryName}s | Winery";
+    }
+    else
+    {
+        ViewBag.Title = $"World of Wines | Winery";
+    }
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link href="~/Content/product-index-styles.css" rel="stylesheet" type="text/css">
@@ -13,7 +21,14 @@
 
             </div>
             <h1 class="page-title" id="page-title-heading">
-                RED WINES
+                @if (ViewBag.Category != null)
+                {
+                    <span>@(ViewBag.Category.CategoryName.ToUpper())S</span>
+                }
+                else
+                {
+                    <span>WORLD OF WINES</span>
+                }
             </h1>
         </div>
         <div class="category-view">
@@ -22,7 +37,14 @@
             </div>
             <div class="category-description">
                 <p>
-                    Buy brilliant red wines, from bold Australian shiraz to classic Bordeaux or sophisticated pinot noir from Burgundy. Quick Check-Out with Free Delivery for Orders over £100.
+                    @if (ViewBag.Category != null)
+                    {
+                        <span>@(ViewBag.Category.CategoryDesc.ToString()))</span>
+                    }
+                    else
+                    {
+                        <span>A huge selection of wines from around the world specially selected by our brilliant buyers and Master of Wine. Comprised of a vast range of styles including classic elegant champagnes, bold reds, luxuriously sweet dessert wines, organic and so much more.</span>
+                    }
                 </p>
             </div>
         </div>

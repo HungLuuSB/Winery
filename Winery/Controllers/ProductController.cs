@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Winery.Models;
+using Winery.Services;
 
 namespace Winery.Controllers
 {
@@ -19,14 +20,16 @@ namespace Winery.Controllers
         public ActionResult Index(int? style)
         {
             IQueryable<Product> product;
-            if (style != null)
+            if (style != 0)
             {
+                ViewBag.Category = CategoryUtilityService.GetCategoryByID(style.Value);
                 product = db.Product.Where(p => p.Category.CategoryID == style)
                                         .Include(p => p.Category)
                                         .Include(p => p.Brand);
             }
             else
             {
+                ViewBag.Category = null;
                 product = db.Product.Include(p => p.Category)
                                     .Include(p => p.Brand);
                 
