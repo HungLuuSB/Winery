@@ -27,7 +27,9 @@
                 </a>
             </div>
             <div id="nav-item-shop" class="nav-item-container">
-                <span class="nav-menu-item-text">SHOP</span>
+                <a href="@Url.Action("Index","Product", new {style = 0})">
+                    <span class="nav-menu-item-text">SHOP</span>
+                </a>
                 <div class="shopDropdown shopCategories">
                     <div class="shopDropdownOptions">
                         <a href="@Url.Action("Index","Product", new {style = 1})" class="shopDropdownOption shopCategory" data-shop-category="RED" role="option">Red Wines</a>
