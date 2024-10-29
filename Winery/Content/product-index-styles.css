@@ -247,13 +247,15 @@
 }
 
 .product-name {
-    font-size: 30px;
+    font-size: 1.5rem;
     font-weight: bold;
     color: #535446;
+    min-height: 76px;
 }
 .product-desc {
     /*font-size: 25px;*/
     color: #535446;
+    max-height: 95px;
 }
 .product-price {
     font-size: 25px;
