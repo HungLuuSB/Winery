@@ -217,6 +217,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\CusReviews.css" />
     <Content Include="Content\home-index-premium-wines-styles.css" />
     <Content Include="Content\home-index-styles.css" />
     <Content Include="Content\Images\category\0.png" />
