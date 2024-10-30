@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Winery.Models;
+using Winery.Services;
 
 namespace Winery.Services
 {
     public static class CartService
     {
-        public static List<Product> Cart = new List<Product>();
-
-        public static void LoadCartOfUser()
+        private static List<Order> _orders = new List<Order>();
+        public static List<Order> Orders
         {
-            if (UserSessionService.IsUserLoggedIn())
+            get
             {
-                Cart.Clear();
+                return _orders;
             }
         }
     }
