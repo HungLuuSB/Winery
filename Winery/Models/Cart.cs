@@ -19,7 +19,7 @@ namespace Winery.Models
         {
             get { return items; }
         }
-        public void AddToCart(Product product, int quantity)
+        public void AddToCart(Product product, int quantity = 1)
         {
             var item = items.FirstOrDefault(x => x.Product.ProductID == product.ProductID);
             if (item != null) 
