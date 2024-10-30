@@ -1,0 +1,27 @@
+﻿.container-customers-reviews {
+    color: black;
+    padding: 50px 0 50px 0;
+    background-color: #f3f4f5;
+}
+.container-customers-reviews .container-review {
+    list-style: none;
+    display: inline-flex;
+    flex-direction: column;
+    margin: 0 24px 0 0;
+    padding: 15px;
+    position: relative;
+    width: 250px;
+    height: 100px;
+}
+.container-customers-reviews .container-review .content-wrapper {
+display: flex;
+flex-direction: column;
+
+}
+    .container-customers-reviews .container-review .content-wrapper .text {
+    text-align: left
+    }
+    .container-customers-reviews .container-review .content-wrapper .date-and-user-info-wrapper {
+        display: flex;
+        gap: 5px;
+    }
