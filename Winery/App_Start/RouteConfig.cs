@@ -21,8 +21,8 @@ namespace Winery
             );
             routes.MapRoute(
                 name: "ProductByStyle",
-                url: "Product/style/{style}",
-                defaults: new { controller = "Product", action = "Index", style = 0 }
+                url: "Product/style/{style}/{SortOption}",
+                defaults: new { controller = "Product", action = "Index", style = 0, SortOption = "RELEVANCE" }
             );
             routes.MapRoute(
                 name: "ProductByName",

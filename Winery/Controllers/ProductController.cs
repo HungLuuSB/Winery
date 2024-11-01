@@ -15,11 +15,27 @@ namespace Winery.Controllers
     {
         private WineryEntities2 db = new WineryEntities2();
 
+        public string GetSortOption()
+        {
+            if (Session["SortOption"] == null)
+                Session["SortOption"] = "RELEVANCE";
+            return Session["SortOption"].ToString();
+        }
         // GET: Product
         [HttpGet]
-        public ActionResult Index(int? style)
+        public ActionResult Index(int? style, string SortOption)
         {
             IQueryable<Product> product;
+            string option;
+            if (!string.IsNullOrEmpty(SortOption))
+            {
+                option = SortOption;
+            }
+            else
+            {
+                option = "RELEVANCE";
+            }
+            Session["SortOption"] = option;
             if (style != 0)
             {
                 ViewBag.Category = CategoryUtilityService.GetCategoryByID(style.Value);
@@ -35,6 +51,23 @@ namespace Winery.Controllers
                 
             }
             ViewBag.Style = style;
+            switch (option)
+            {
+                case "RELEVANCE":
+                    break;
+                case "PRICE-ASC":
+                    product = product.OrderBy(p => p.ProductPrice);
+                    break;
+                case "PRICE-DESC":
+                    product = product.OrderByDescending(p => p.ProductPrice);
+                    break;
+                case "NAME-ASC":
+                    product = product.OrderBy(p => p.ProductName);
+                    break;
+                case "NAME-DESC":
+                    product = product.OrderByDescending(p => p.ProductName);
+                    break;
+            }
             return View(product.ToList());
         }
 

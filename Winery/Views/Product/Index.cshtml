@@ -68,14 +68,14 @@
                                 <div class="prResultCount">Total: @(Model.ToList().Count) products</div>
                                 <div class="prDropdown prDropSortBy" id="prDropDown-Sort">
                                     <div class="prDropdownLabel">
-                                        Sort by: Best match
+                                        Sort by: @Session["SortOption"].ToString()
                                     </div>
                                     <div class="prDropdownOptions">
-                                        <div class="prDropdownOption prSort" data-sort-option="RELEVANCE" role="option">Best match</div>
-                                        <div class="prDropdownOption prSort" data-sort-option="PRICE-ASC" role="option">Price: Low to High</div>
-                                        <div class="prDropdownOption prSort" data-sort-option="PRICE-DESC" role="option">Price: High to Low</div>
-                                        <div class="prDropdownOption prSort" data-sort-option="NAME-ASC" role="option">Name: A to Z</div>
-                                        <div class="prDropdownOption prSort" data-sort-option="NAME-DESC" role="option">Price: Z to A</div>
+                                        <a class="prDropdownOption prSort" data-sort-option="RELEVANCE" role="option" href="@(Url.Action("Index", "Product", new { style = ViewBag.Style, SortOption = "RELEVANCE" }))">Best match</a>
+                                        <a class="prDropdownOption prSort" data-sort-option="PRICE-ASC" role="option" href="@(Url.Action("Index", "Product", new { style = ViewBag.Style, SortOption = "PRICE-ASC" }))">Price: Low to High</a>
+                                        <a class="prDropdownOption prSort" data-sort-option="PRICE-DESC" role="option" href="@(Url.Action("Index", "Product", new { style = ViewBag.Style, SortOption = "PRICE-DESC" }))">Price: High to Low</a>
+                                        <a class="prDropdownOption prSort" data-sort-option="NAME-ASC" role="option" href="@(Url.Action("Index", "Product", new { style = ViewBag.Style, SortOption = "NAME-ASC" }))">Name: A to Z</a>
+                                        <a class="prDropdownOption prSort" data-sort-option="NAME-DESC" role="option" href="@(Url.Action("Index", "Product", new { style = ViewBag.Style, SortOption = "NAME-DESC" }))">Price: Z to A</a>
                                     </div>
                                 </div>
                             </header>
@@ -127,6 +127,13 @@
                             </footer>
                         </div>
                     </div>
+                    <script>
+                        document.querySelectorAll(".prDropdownOption.prSort").forEach(div => {
+                            div.onclick = function () {
+                                location.reload(); // Reload the current page on click
+                            };
+                        });
+                    </script>
                 </div>
             </div>
         }
