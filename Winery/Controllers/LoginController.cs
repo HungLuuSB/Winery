@@ -35,5 +35,24 @@ namespace Winery.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register([Bind(Include = "Username,Password,Email,FirstName,LastName,MiddleName")] User user)
+        {
+            if (ModelState.IsValid)
+            {
+                var _validateEmail = db.User.Where(x => x.Email == user.Email).FirstOrDefault();
+                if (_validateEmail != null) 
+                {
+                    return View();
+                }
+
+                db.User.Add(user);
+                db.SaveChanges();
+                return RedirectToAction("Index", "Access");
+            }
+            return View();
+        }
     }
 }
