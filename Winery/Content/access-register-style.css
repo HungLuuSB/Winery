@@ -154,17 +154,26 @@
     padding: 0px;
 }
 
-.action_submit {
-    background-color: #ffb81c;
-    border: 0.5px;
-    margin: 20px 0px 0px 0px;
-    padding: 10px 20px;
-    letter-spacing: 3px;
-    border-radius: 7px;
+#action_toolbar {
+    justify-items: center;
 }
+.action_submit {
+    border: 0;
+    width: 200px;
+    height: 50px;
+    background-color: #8c5a43;
+    transition: 0.3s ease;
+    
+}
+
+.action_submit span {
+    font-family: 'Cormorant Upright';
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    transition: 0.3s ease;
+}
+
     .action_submit:hover {
-        background-color: black;
-        color: white;
-        transform: translate3d(5px);
-        box-shadow: 0 10px 10px 0;
+        background-color: #58594b;
     }
