@@ -39,17 +39,26 @@
     <div class="row">
         <div class="pr-onsales-results">
             <div class="pr-onsales-results-inner">
-                <div class="item">
-                    <div class="item-img">
-                        <a></a>
+                @foreach (var item in Model)
+                {
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="~/Content/Images/wine/@ProductUtilityService.ParseItemNameIntoPNGFileName(item.ProductName)" />
+                        </div>
+                        <div class="item-desc">
+                            <a title="@item.ProductName" href="@Url.Action("Details", "Product", new { productName = item.ProductName } )">
+                                @item.ProductName
+                            </a>
+                            <div class="item-attribute">@(item.ProductCapacity)CL / @(item.ProductABV)%</div>
+                            <div class="item-price">
+                                <div class="item-sale-price">£@item.ProductPrice.ToString("F2")</div>
+                            </div>
+                        </div>
+                        <div class="item-button"></div>
                     </div>
-                    <div class="item-desc">
-                        <a></a>
-                        <div class="item-ABV"></div>
-                        <div class="item-price"></div>
-                    </div>
-                </div>
-                <div class="item-button"></div>
+                    
+                }
+
             </div>
         </div>
     </div>
