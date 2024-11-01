@@ -31,6 +31,8 @@ namespace Winery.Models
         public string ProductOrigin { get; set; }
         public int ProductCategoryID { get; set; }
         public int ProductBrandID { get; set; }
+        public Nullable<float> ProductSalePrice { get; set; }
+        public bool ProductOnSale { get; set; }
     
         public virtual Brand Brand { get; set; }
         public virtual Category Category { get; set; }
