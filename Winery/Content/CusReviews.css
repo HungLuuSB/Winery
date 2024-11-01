@@ -15,17 +15,30 @@
     padding: 15px;
     position: relative;
     width: 250px;
-    height: 100px;
+    background-color: white;
+    box-shadow: 5px 10px 20px #cccccc;
+    height: 150px;
 }
 .container-customers-reviews .container-review .content-wrapper {
-display: flex;
-flex-direction: column;
-
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
     .container-customers-reviews .container-review .content-wrapper .text {
-    text-align: left
+        text-align: left;
+        height: 100%;
     }
     .container-customers-reviews .container-review .content-wrapper .date-and-user-info-wrapper {
         display: flex;
         gap: 5px;
+    }
+
+    .container-customers-reviews .container-review .content-wrapper .header {
+        font-weight: bold;
+        text-align: left;
+    }
+    .container-customers-reviews .container-review .content-wrapper .date-and-user-info-wrapper {
+        font-weight: 500;
+        font-size: 13px;
+        color: #666666;
     }
