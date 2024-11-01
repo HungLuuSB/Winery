@@ -1,7 +1,11 @@
 ﻿.container-customers-reviews {
+    padding: 50px;
+}
+.customers-reviews-content-wrapper {
     color: black;
-    padding: 50px 0 50px 0;
     background-color: #f3f4f5;
+    width: 100%;
+    height: 100%;
 }
 .container-customers-reviews .container-review {
     list-style: none;

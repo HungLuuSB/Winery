@@ -86,10 +86,17 @@
                     <div class="section-title">
                         <h2 class="order-summary-title">ORDER SUMMARY</h2>
                     </div>
+
                     <div class="item-in-cart">
-                        <div class="title">
-                            @(Model.Items.Count()) ITEM(S) IN CART
+                        <div class="order-title">
+                            <div class="title">
+                                @(Model.Items.Count()) ITEM(S) IN CART
+                            </div>
+                            <div class="order-total">
+                                £@(Model.TotalMoney().ToString("F2"))
+                            </div>
                         </div>
+                        
                         <div class="item-list-wrapper">
                             <ol class="item-list">
                                 @foreach (var item in Model.Items)
@@ -102,14 +109,17 @@
                                             </div>
                                             <div class="product-details">
                                                 <div class="product-name">
-                                                    @item.Product.ProductName
+                                                    @item.Product.ProductName.ToUpper()
                                                 </div>
                                                 <div class="product-quantity">
-                                                    @item.Quantity
+                                                    Quantity: @item.Quantity
                                                 </div>
                                                 <div class="product-price">
-                                                    @item.Product.ProductPrice
+                                                    £@item.Product.ProductPrice
                                                 </div>
+                                                <a href="@Url.Action("RemoveFromCart","ShoppingCart", new { id = item.Product.ProductID })" class="remove-from-cart">
+                                                    Remove
+                                                </a>
                                             </div>
                                         </div>
                                     </li>

@@ -44,7 +44,15 @@ namespace Winery.Controllers
             }
             return RedirectToAction("ShowCart", "ShoppingCart");
         }
-        
+        public ActionResult RemoveFromCart(int id)
+        {
+            var _pro = db.Product.SingleOrDefault(s => s.ProductID == id);
+            if (_pro != null)
+            {
+                GetCart().RemoveFromCart(id);
+            }
+            return RedirectToAction("ShowCart", "ShoppingCart");
+        }
         public ActionResult UpdateCartQuantity(FormCollection form)
         {
             Cart cart = Session["Cart"] as Cart;

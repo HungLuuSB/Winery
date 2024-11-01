@@ -7,7 +7,9 @@
 
 
 @{
-    var mainProduct = Model.First();
+    var onSaleProduct = Model;
+    var products = ProductUtilityService.GetRandomItems(5);
+    var mainProduct = products.First();
 }
 
 <main>
@@ -39,7 +41,7 @@
     <div class="row">
         <div class="pr-onsales-results">
             <div class="pr-onsales-results-inner">
-                @foreach (var item in Model)
+                @foreach (var item in onSaleProduct)
                 {
                     <div class="item">
                         <div class="item-img">
@@ -55,7 +57,7 @@
                             </div>
                         </div>
                         <div class="item-button">
-                            <button>Add to Cart</button>
+                            <button onclick="window.location.href='@Url.Action("AddToCart","ShoppingCart", new { id = item.ProductID, quantity = 1})'">Add to Cart</button>
                         </div>
                     </div>
 
@@ -116,9 +118,9 @@
             <div class="premium-wines-container right">
                 <ul class="premium-wines-list">
                     @{
-                        foreach (var item in Model)
+                        foreach (var item in products)
                         {
-                            if (Model.First() != item)
+                            if (mainProduct != item)
                             {
                                 <li class="product-card">
                                     <div class="product-card-wrapper">
@@ -155,62 +157,65 @@
             </div>
         </div>
     </div>
-    <div class="row" style="height: 500px;">
+    <div class="row" style="height: 400px;">
         <div class="container-customers-reviews">
-            <h2>Customers Reviews</h2>
-            <div class="small text">
-                <p>What our customers says about us</p>
-            </div>
-            <div class="container-review">
-                <div class="content-wrapper">
-                    <div class="header">Excellent</div>
-                    <div class="text">Fast delivery, great product. Will be ordering again very soon</div>
-                    <div class="date-and-user-info-wrapper">
-                        <div class="name secondary-text">Alison Sandford,</div>
-                        <div class="date secondary-text">2 days ago</div>
+            <div class="customers-reviews-content-wrapper">
+                <h2>Customers Reviews</h2>
+                <div class="small text">
+                    <p>What our customers says about us</p>
+                </div>
+                <div class="container-review">
+                    <div class="content-wrapper">
+                        <div class="header">Excellent</div>
+                        <div class="text">Fast delivery, great product. Will be ordering again very soon</div>
+                        <div class="date-and-user-info-wrapper">
+                            <div class="name secondary-text">Alison Sandford,</div>
+                            <div class="date secondary-text">2 days ago</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-review">
+                    <div class="content-wrapper">
+                        <div class="header">Excellent</div>
+                        <div class="text">Fast delivery, great product. Will be ordering again very soon</div>
+                        <div class="date-and-user-info-wrapper">
+                            <div class="name secondary-text">Alison Sandford,</div>
+                            <div class="date secondary-text">2 days ago</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-review">
+                    <div class="content-wrapper">
+                        <div class="header">Excellent</div>
+                        <div class="text">Fast delivery, great product. Will be ordering again very soon</div>
+                        <div class="date-and-user-info-wrapper">
+                            <div class="name secondary-text">Alison Sandford,</div>
+                            <div class="date secondary-text">2 days ago</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-review">
+                    <div class="content-wrapper">
+                        <div class="header">Excellent</div>
+                        <div class="text">Fast delivery, great product. Will be ordering again very soon</div>
+                        <div class="date-and-user-info-wrapper">
+                            <div class="name secondary-text">Alison Sandford,</div>
+                            <div class="date secondary-text">2 days ago</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-review">
+                    <div class="content-wrapper">
+                        <div class="header">Excellent</div>
+                        <div class="text">Fast delivery, great product. Will be ordering again very soon</div>
+                        <div class="date-and-user-info-wrapper">
+                            <div class="name secondary-text">Alison Sandford,</div>
+                            <div class="date secondary-text">2 days ago</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="container-review">
-                <div class="content-wrapper">
-                    <div class="header">Excellent</div>
-                    <div class="text">Fast delivery, great product. Will be ordering again very soon</div>
-                    <div class="date-and-user-info-wrapper">
-                        <div class="name secondary-text">Alison Sandford,</div>
-                        <div class="date secondary-text">2 days ago</div>
-                    </div>
-                </div>
-            </div>
-            <div class="container-review">
-                <div class="content-wrapper">
-                    <div class="header">Excellent</div>
-                    <div class="text">Fast delivery, great product. Will be ordering again very soon</div>
-                    <div class="date-and-user-info-wrapper">
-                        <div class="name secondary-text">Alison Sandford,</div>
-                        <div class="date secondary-text">2 days ago</div>
-                    </div>
-                </div>
-            </div>
-            <div class="container-review">
-                <div class="content-wrapper">
-                    <div class="header">Excellent</div>
-                    <div class="text">Fast delivery, great product. Will be ordering again very soon</div>
-                    <div class="date-and-user-info-wrapper">
-                        <div class="name secondary-text">Alison Sandford,</div>
-                        <div class="date secondary-text">2 days ago</div>
-                    </div>
-                </div>
-            </div>
-            <div class="container-review">
-                <div class="content-wrapper">
-                    <div class="header">Excellent</div>
-                    <div class="text">Fast delivery, great product. Will be ordering again very soon</div>
-                    <div class="date-and-user-info-wrapper">
-                        <div class="name secondary-text">Alison Sandford,</div>
-                        <div class="date secondary-text">2 days ago</div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
 
     </div>

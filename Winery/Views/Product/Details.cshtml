@@ -33,7 +33,7 @@
 
                 </div>
                 <div class="product-purchase-buttons">
-                    <a href="@Url.Action("AddToCart","ShoppingCart", new { id = Model.ProductID, quantity = 1})" class="add-to-cart-button">ADD TO CART</a>
+                    <button onclick="window.location.href='@Url.Action("AddToCart","ShoppingCart", new { id = Model.ProductID, quantity = 1})'"  class="add-to-cart-button">ADD TO CART</button>
                 </div>
             </div>
         </div>

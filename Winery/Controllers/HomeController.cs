@@ -15,20 +15,10 @@ namespace Winery.Controllers
 
         private WineryEntities2 db = new WineryEntities2();
 
-        private List<T> GetRandomItems<T>(List<T> items, int count)
-        {
-            return items.OrderBy(x => Guid.NewGuid()).Take(count).ToList();
-        }
-
         public ActionResult Index()
         {
             var products = db.Product.Include(p => p.Category).ToList();
-
-            // Select 5 random products
-            var randomProducts = GetRandomItems(products, 5);
-
-            // Pass to the view
-            return View(randomProducts);
+            return View(products);
         }
 
 
