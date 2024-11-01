@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Winery.Models;
+using Winery.Services;
 
 namespace Winery.Controllers
 {
@@ -26,17 +27,20 @@ namespace Winery.Controllers
         {
             if (Session["Cart"] == null)
             {
-                return View("ShowCart");
+                Cart _cartTemp = new Cart();
+                Session["Cart"] = _cartTemp;
             }
             Cart _cart = Session["Cart"] as Cart;
+            if (!UserSessionService.IsUserLoggedIn())
+                return RedirectToAction("Index", "Access", new {});
             return View(_cart);
         }
-        public ActionResult AddToCart(int id)
+        public ActionResult AddToCart(int id, int quantity = 1)
         {  
             var _pro = db.Product.SingleOrDefault(s => s.ProductID == id);
             if (_pro != null)
             {
-                GetCart().AddToCart(_pro);
+                GetCart().AddToCart(_pro, quantity);
             }
             return RedirectToAction("ShowCart", "ShoppingCart");
         }

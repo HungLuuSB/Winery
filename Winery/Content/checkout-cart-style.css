@@ -1,0 +1,100 @@
+﻿/*CHUNG*/
+.checkout-panel {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.shipping-infomation-panel {
+    width: 66%;
+}
+
+.order-summary-content {
+    margin: 30px;
+    padding: 40px;
+    background-color: #f7f7f7;
+}
+
+.order-summary-panel {
+    width: 33%;
+    display: inline-block;
+}
+
+.font_normal {
+    font-size: 15px;
+    color: #3D3E42;
+    font-family: 'Montserrrat',sans-serif;
+}
+
+.label_font {
+    margin: 0px 0px 10px;
+}
+
+.input_address {
+    height: 48px;
+    border: 0.1px solid #aaa8a8;
+    border-radius: 3px;
+    width: 100%;
+    margin: 10px 10px 0px 0px;
+    padding: 0px 9px;
+}
+
+.div_emailaddress {
+    margin: 0px 0px 20px 0px
+}
+
+/*RIÊNG*/
+
+#fieldset {
+    padding: 40px;
+    border: none;
+    background-color: #f7f7f7;
+    margin: 30px;
+}
+
+.header_fieldset {
+    border: none;
+    border-bottom: 2px solid #c4c1c1;
+    padding: 0px 0px 10px;
+    margin: 0px 0px 15px;
+}
+
+.header_div > .header_fieldset > span {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Montserrrat',sans-serif;
+}
+
+.action_toolbar_2 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button_action_toolbar {
+    background: #ffb81c;
+    border: 1px solid #ffb81c;
+    height: 45px;
+    padding: 3.5px 40px;
+    border-radius: 2px;
+}
+
+    .button_action_toolbar > span {
+        font-size: 15px;
+        font-family: 'Montserrrat',sans-serif;
+        letter-spacing: 0.5px;
+    }
+
+.item-list {
+    list-style-type: none;
+}
+
+.product-item {
+    width: 400px;
+    height: 70px;
+    letter-spacing: normal;
+    font-size: 1.2rem;
+    vertical-align: top;
+}

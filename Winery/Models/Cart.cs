@@ -10,6 +10,7 @@ namespace Winery.Models
     {
         public Product Product { get; set; }
         public int Quantity { get; set; }
+        public DateTime AddedTime { get; set; }
     }
 
     public class Cart
@@ -22,9 +23,9 @@ namespace Winery.Models
         public void AddToCart(Product product, int quantity = 1)
         {
             var item = items.FirstOrDefault(x => x.Product.ProductID == product.ProductID);
-            if (item != null) 
+            if (item == null) 
             {
-                items.Add(new CartItem() { Product = product, Quantity = quantity });
+                items.Add(new CartItem() { Product = product, Quantity = quantity, AddedTime = DateTime.Now });
             }
             else
             {

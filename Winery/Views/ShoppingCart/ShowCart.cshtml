@@ -1,0 +1,128 @@
+﻿@using Winery.Services;
+@using Winery.Models;
+@model Winery.Models.Cart
+
+@{
+    ViewBag.Title = "ShowCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var currentUser = UserSessionService.CurrentUser;
+}
+<link rel="stylesheet" href="~/Content/checkout-cart-style.css"/>
+<div class="page-wrapper">
+    <main class="page-content" id="maincontent">
+        <div class="checkout-panel">
+            <div class="shipping-infomation-panel">
+                <fieldset id="fieldset">
+                    <div class="header_div">
+                        <fieldset class="header_fieldset">
+                            <span style="color: #3D3E42; font-family: 'Montserrrat',sans-serif;">
+                                SHIPPING ADDRESS
+                            </span>
+                        </fieldset>
+                    </div>
+                    <div class="div_emailaddress">
+                        <label class="label_font">
+                            <span class="font_normal">Email Address</span>
+                        </label>
+                        <div>
+                            <input class="input_address" type="email" name="Email" placeholder="" value="@currentUser.Email">
+                        </div>
+                    </div>
+                    <div class="div_firstname">
+                        <label><span class="font_normal">First Name</span></label>
+                        <div>
+                            <input class="input_address" type="text" name="First Name" placeholder="Input your First Name" value="@currentUser.FirstName">
+                        </div>
+                    </div>
+                    <div class="div_middlename">
+                        <label><span class="font_normal">Last Name</span></label>
+                        <div>
+                            <input class="input_address" type="text" name="Middle Name" placeholder="Input your Middle Name" value="@currentUser.MiddleName">
+                        </div>
+                    </div>
+                    <div class="div_lastname">
+                        <label><span class="font_normal">Last Name</span></label>
+                        <div>
+                            <input class="input_address" type="text" name="Last Name" placeholder="Input your Last Name" value="@currentUser.LastName">
+                        </div>
+                    </div>
+                    <div class="div_address">
+                        <label><span class="font_normal">Address</span></label>
+                        <div>
+                            <input class="input_address" type="text" name="City" placeholder="City, Country">
+                        </div>
+                        <div>
+                            <input class="input_address" type="text" name="District" placeholder="District">
+                        </div>
+                        <div>
+                            <input class="input_address" type="text" name="Number Houses" placeholder="Number Houses, Road">
+                        </div>
+                    </div>
+                    <div class="div_emailaddress">
+                        <label><span class="font_normal">Phone Number</span></label>
+                        <div>
+                            <input class="input_address" type="number" name="Phone Number" placeholder="Input your Phone number">
+                        </div>
+                    </div>
+                    <ul>
+                        <li id="list_shipPing_methods">
+                            <div style="color: #3D3E42; font-family: 'Montserrrat',sans-serif; font-size: 23px; letter-spacing: 2px; ;">
+                                SHIPPING METHODS
+                            </div>
+                            <div class="action_toolbar">
+                                <div class="action_toolbar_2">
+                                    <button type="submit" class="button_action_toolbar">
+                                        <span>Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </fieldset>
+            </div>
+            <div class="order-summary-panel">
+                <div class="order-summary-content">
+                    <div class="section-title">
+                        <h2 class="order-summary-title">ORDER SUMMARY</h2>
+                    </div>
+                    <div class="item-in-cart">
+                        <div class="title">
+                            @(Model.Items.Count()) ITEM(S) IN CART
+                        </div>
+                        <div class="item-list-wrapper">
+                            <ol class="item-list">
+                                @foreach (var item in Model.Items)
+                                {
+                                    <li class="product-item">
+                                        <div class="product">
+                                            <div class="product-image">
+                                                <img src="~/Content/Images/wine/@ProductUtilityService.ParseItemNameIntoPNGFileName(item.Product.ProductName)" />
+
+                                            </div>
+                                            <div class="product-details">
+                                                <div class="product-name">
+                                                    @item.Product.ProductName
+                                                </div>
+                                                <div class="product-quantity">
+                                                    @item.Quantity
+                                                </div>
+                                                <div class="product-price">
+                                                    @item.Product.ProductPrice
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                            </ol>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </main>
+</div>
+        
