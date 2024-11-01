@@ -102,9 +102,20 @@
     opacity: 1;
 }
 
+
+
 @media only screen and (max-width: 960px) {
+    .product-purchase-wrapper {
+        height: unset;
+    }
     .product-purchase {
         flex-direction: column;
         align-items: center;
+    }
+    .product-display.right {
+        align-items: center;
+    }
+    .product-name h2 {
+        text-align: center;
     }
 }

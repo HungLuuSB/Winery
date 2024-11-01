@@ -16,7 +16,7 @@ namespace Winery.Services
         {
             if (year == null)
                 return 0;
-            return DateTime.Now.Year - year;
+            return year;
         }
     }
 }

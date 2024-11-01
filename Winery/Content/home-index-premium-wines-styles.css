@@ -86,8 +86,6 @@
     flex: 1 0 50%; /* Take 50% width of the container (2 items per row) */
     height: 50%;
     box-sizing: border-box;
-    padding: 10px;
-    border: 1px solid #ccc;
     text-align: center;
 }
 
