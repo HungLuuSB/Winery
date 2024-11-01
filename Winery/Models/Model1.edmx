@@ -81,6 +81,8 @@
           <Property Name="ProductYearAging" Type="int" />
           <Property Name="ProductABV" Type="real" />
           <Property Name="ProductPrice" Type="real" Nullable="false" />
+          <Property Name="ProductSalePrice" Type="real" />
+          <Property Name="ProductOnSale" Type="bit" Nullable="false" />
           <Property Name="ProductCapacity" Type="int" />
           <Property Name="ProductOrigin" Type="nvarchar" MaxLength="50" />
           <Property Name="ProductCategoryID" Type="int" Nullable="false" />
@@ -155,7 +157,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Inventory__Produ__2A164134">
+        <Association Name="FK__Inventory__Produ__531856C7">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -191,7 +193,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OrderDeta__Produ__3A4CA8FD">
+        <Association Name="FK__OrderDeta__Produ__540C7B00">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -203,7 +205,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Product__Product__19DFD96B">
+        <Association Name="FK__Product__Product__51300E55">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
@@ -215,7 +217,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Product__Product__1BC821DD">
+        <Association Name="FK__Product__Product__5224328E">
           <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
@@ -227,7 +229,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Review__ProductI__1AD3FDA4">
+        <Association Name="FK__Review__ProductI__55009F39">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="Review" Type="Self.Review" Multiplicity="*" />
           <ReferentialConstraint>
@@ -300,7 +302,7 @@
             <End Role="Category" EntitySet="Category" />
             <End Role="BrandCategory" EntitySet="BrandCategory" />
           </AssociationSet>
-          <AssociationSet Name="FK__Inventory__Produ__2A164134" Association="Self.FK__Inventory__Produ__2A164134">
+          <AssociationSet Name="FK__Inventory__Produ__531856C7" Association="Self.FK__Inventory__Produ__531856C7">
             <End Role="Product" EntitySet="Product" />
             <End Role="Inventory" EntitySet="Inventory" />
           </AssociationSet>
@@ -312,19 +314,19 @@
             <End Role="Order" EntitySet="Order" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__OrderDeta__Produ__3A4CA8FD" Association="Self.FK__OrderDeta__Produ__3A4CA8FD">
+          <AssociationSet Name="FK__OrderDeta__Produ__540C7B00" Association="Self.FK__OrderDeta__Produ__540C7B00">
             <End Role="Product" EntitySet="Product" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__Product__Product__19DFD96B" Association="Self.FK__Product__Product__19DFD96B">
+          <AssociationSet Name="FK__Product__Product__51300E55" Association="Self.FK__Product__Product__51300E55">
             <End Role="Category" EntitySet="Category" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK__Product__Product__1BC821DD" Association="Self.FK__Product__Product__1BC821DD">
+          <AssociationSet Name="FK__Product__Product__5224328E" Association="Self.FK__Product__Product__5224328E">
             <End Role="Brand" EntitySet="Brand" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK__Review__ProductI__1AD3FDA4" Association="Self.FK__Review__ProductI__1AD3FDA4">
+          <AssociationSet Name="FK__Review__ProductI__55009F39" Association="Self.FK__Review__ProductI__55009F39">
             <End Role="Product" EntitySet="Product" />
             <End Role="Review" EntitySet="Review" />
           </AssociationSet>
@@ -433,6 +435,8 @@
           <NavigationProperty Name="Inventory" Relationship="Self.FK__Inventory__Produ__2A164134" FromRole="Product" ToRole="Inventory" />
           <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__Produ__3A4CA8FD" FromRole="Product" ToRole="OrderDetails" />
           <NavigationProperty Name="Review" Relationship="Self.FK__Review__ProductI__1AD3FDA4" FromRole="Product" ToRole="Review" />
+          <Property Name="ProductSalePrice" Type="Single" />
+          <Property Name="ProductOnSale" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Review">
           <Key>
@@ -746,6 +750,8 @@
           <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="WineryModel.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductOnSale" ColumnName="ProductOnSale" />
+                <ScalarProperty Name="ProductSalePrice" ColumnName="ProductSalePrice" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="ProductDesc" ColumnName="ProductDesc" />
