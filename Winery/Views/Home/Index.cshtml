@@ -12,7 +12,9 @@
     var mainProduct = products.First();
 }
 
-<main>
+
+<div class="page-wrapper">
+    >
     <link href="~/Content/CusReviews.css" rel="stylesheet">
     <link href="~/Content/home-index-styles.css" rel="stylesheet">
     <link href="~/Content/home-index-premium-wines-styles.css" rel="stylesheet">
@@ -35,189 +37,191 @@
             </div>
         </div>
     </div>
-    <div class="section header">
-        <h1>ON SALES</h1>
-    </div>
-    <div class="row">
-        <div class="pr-onsales-results">
-            <div class="pr-onsales-results-inner">
-                @foreach (var item in onSaleProduct)
-                {
-                    <div class="item">
-                        <div class="item-img">
-                            <img src="~/Content/Images/wine/@ProductUtilityService.ParseItemNameIntoPNGFileName(item.ProductName)" />
-                        </div>
-                        <div class="item-desc">
-                            <a class="item-name" title="@item.ProductName" href="@Url.Action("Details", "Product", new { productName = item.ProductName } )">
-                                @item.ProductName
-                            </a>
-                            <div class="item-attribute">@(item.ProductCapacity)CL / @(item.ProductABV)% ABV</div>
-                            <div class="item-price">
-                                <div class="item-sale-price">£@item.ProductPrice.ToString("F2")</div>
+    <main class="page-content" id="maincontent">
+        <div class="section header">
+            <h1>ON SALES</h1>
+        </div>
+        <div class="row">
+            <div class="pr-onsales-results">
+                <div class="pr-onsales-results-inner">
+                    @foreach (var item in onSaleProduct)
+                    {
+                        <div class="item">
+                            <div class="item-img">
+                                <img src="~/Content/Images/wine/@ProductUtilityService.ParseItemNameIntoPNGFileName(item.ProductName)" />
+                            </div>
+                            <div class="item-desc">
+                                <a class="item-name" title="@item.ProductName" href="@Url.Action("Details", "Product", new { productName = item.ProductName } )">
+                                    @item.ProductName
+                                </a>
+                                <div class="item-attribute">@(item.ProductCapacity)CL / @(item.ProductABV)% ABV</div>
+                                <div class="item-price">
+                                    <div class="item-sale-price">£@item.ProductPrice.ToString("F2")</div>
+                                </div>
+                            </div>
+                            <div class="item-button">
+                                <button onclick="window.location.href='@Url.Action("AddToCart","ShoppingCart", new { id = item.ProductID, quantity = 1})'">Add to Cart</button>
                             </div>
                         </div>
-                        <div class="item-button">
-                            <button onclick="window.location.href='@Url.Action("AddToCart","ShoppingCart", new { id = item.ProductID, quantity = 1})'">Add to Cart</button>
-                        </div>
-                    </div>
 
-                }
-
-            </div>
-        </div>
-    </div>
-    <div class="section header">
-        <h1>PREMIUM WINES</h1>
-    </div>
-    <div class="row" style="height: 1000px;">
-
-        <div class="premium-wines-container">
-            <!-- Left Section: Product Display -->
-            <div class="premium-wines-container left">
-                <div class="main-product-wrapper">
-                    <div class="main-product-content left">
-                        <div class="product-content-display-properties thumbnail">
-                            <img src="~/Content/Images/wine/@ProductUtilityService.ParseItemNameIntoPNGFileName(mainProduct.ProductName)" alt="Product Image">
-                        </div>
-                        <div class="product-content-display-properties product-name">
-                            <p>@mainProduct.ProductName</p>
-                        </div>
-                        <div class="product-content-display-properties product-buy-button">
-                            <button onclick="location.href='@Url.Action("Details", "Product", new { productName = mainProduct.ProductName })'">
-                                <span>BUY NOW</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="main-product-content right">
-                        <div class="product-content-display-properties product-category">
-                            <p class="product-content-header-properties-category product-capacity">Capacity</p>
-                            <p class="product-content-display-properties-category product-capacity">@mainProduct.ProductCapacity<span>ml</span></p>
-                        </div>
-                        <div class="product-content-display-properties product-capacity">
-                            <p class="product-content-header-properties-category product-category">Catergory</p>
-                            <p class="product-content-display-properties-category product-category">@mainProduct.Category.CategoryName</p>
-                        </div>
-                        <div class="product-content-display-properties product-origin">
-                            <p class="product-content-header-properties-category product-origin">Origin</p>
-                            <p class="product-content-display-properties-category product-origin">@mainProduct.ProductOrigin</p>
-                        </div>
-                        <div class="product-content-display-properties product-aging">
-                            <p class="product-content-header-properties-category product-aging">Aging</p>
-                            <p class="product-content-display-properties-category product-aging">@mainProduct.ProductYearAging</p>
-                        </div>
-                        <div class="product-content-display-properties product-price">
-                            <p class="product-content-header-properties-category product-price">Price</p>
-                            <p class="product-content-display-properties-category product-price">£@mainProduct.ProductPrice.ToString("F2")</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Section: 2x2 Product Grid -->
-
-            <div class="premium-wines-container right">
-                <ul class="premium-wines-list">
-                    @{
-                        foreach (var item in products)
-                        {
-                            if (mainProduct != item)
-                            {
-                                <li class="product-card">
-                                    <div class="product-card-wrapper">
-                                        <div class="product-card-wrapper-background-effect"></div>
-                                        <div class="product-card-content left">
-                                            <div class="thumbnail">
-                                                <img src="~/Content/Images/wine/@ProductUtilityService.ParseItemNameIntoPNGFileName(item.ProductName)" alt="Italian Red Wine">
-                                            </div>
-                                            <div class="product-card-content-display-properties product-name">
-                                                <a href="@Url.Action("Details","Product", new { productName = item.ProductName })">@item.ProductName</a>
-                                            </div>
-                                        </div>
-                                        <div class="product-card-content right">
-                                            <div class="product-card-content-display-properties product-buy-button">
-                                                <a href="@Url.Action("Details","Product", new { productName = item.ProductName })">
-                                                    <p>ADD TO CART</p>
-                                                </a>
-                                            </div>
-                                            <div style="flex: 0 0 10%">
-
-                                            </div>
-                                            <div class="product-card-content-display-properties product-price">
-                                                <p>£@item.ProductPrice.ToString("F2")</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            }
-
-                        }
                     }
-                </ul>
 
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row" style="height: 400px;">
-        <div class="container-customers-reviews">
-            <div class="customers-reviews-content-wrapper">
-                <h2>Customers Reviews</h2>
-                <div class="small text">
-                    <p>What our customers says about us</p>
-                </div>
-                <div class="container-review">
-                    <div class="content-wrapper">
-                        <div class="header">Excellent</div>
-                        <div class="text">Fast delivery, great product. Will be ordering again very soon.</div>
-                        <div class="date-and-user-info-wrapper">
-                            <div class="name secondary-text">Alison Sandford,</div>
-                            <div class="date secondary-text">2 days ago</div>
+    </main>
+        <div class="section header">
+            <h1>PREMIUM WINES</h1>
+        </div>
+        <div class="row" style="height: 1000px;">
+
+            <div class="premium-wines-container">
+                <!-- Left Section: Product Display -->
+                <div class="premium-wines-container left">
+                    <div class="main-product-wrapper">
+                        <div class="main-product-content left">
+                            <div class="product-content-display-properties thumbnail">
+                                <img src="~/Content/Images/wine/@ProductUtilityService.ParseItemNameIntoPNGFileName(mainProduct.ProductName)" alt="Product Image">
+                            </div>
+                            <div class="product-content-display-properties product-name">
+                                <p>@mainProduct.ProductName</p>
+                            </div>
+                            <div class="product-content-display-properties product-buy-button">
+                                <button onclick="location.href='@Url.Action("Details", "Product", new { productName = mainProduct.ProductName })'">
+                                    <span>BUY NOW</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="main-product-content right">
+                            <div class="product-content-display-properties product-category">
+                                <p class="product-content-header-properties-category product-capacity">Capacity</p>
+                                <p class="product-content-display-properties-category product-capacity">@mainProduct.ProductCapacity<span>ml</span></p>
+                            </div>
+                            <div class="product-content-display-properties product-capacity">
+                                <p class="product-content-header-properties-category product-category">Catergory</p>
+                                <p class="product-content-display-properties-category product-category">@mainProduct.Category.CategoryName</p>
+                            </div>
+                            <div class="product-content-display-properties product-origin">
+                                <p class="product-content-header-properties-category product-origin">Origin</p>
+                                <p class="product-content-display-properties-category product-origin">@mainProduct.ProductOrigin</p>
+                            </div>
+                            <div class="product-content-display-properties product-aging">
+                                <p class="product-content-header-properties-category product-aging">Aging</p>
+                                <p class="product-content-display-properties-category product-aging">@mainProduct.ProductYearAging</p>
+                            </div>
+                            <div class="product-content-display-properties product-price">
+                                <p class="product-content-header-properties-category product-price">Price</p>
+                                <p class="product-content-display-properties-category product-price">£@mainProduct.ProductPrice.ToString("F2")</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="container-review">
-                    <div class="content-wrapper">
-                        <div class="header">Good</div>
-                        <div class="text">As true as they say, within 2 business days.</div>
-                        <div class="date-and-user-info-wrapper">
-                            <div class="name secondary-text">hungluu12,</div>
-                            <div class="date secondary-text">4 days ago</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-review">
-                    <div class="content-wrapper">
-                        <div class="header">Excellent</div>
-                        <div class="text">Very promising.</div>
-                        <div class="date-and-user-info-wrapper">
-                            <div class="name secondary-text">WuocWy,</div>
-                            <div class="date secondary-text">4 days ago</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-review">
-                    <div class="content-wrapper">
-                        <div class="header">Good</div>
-                        <div class="text">Marvelous</div>
-                        <div class="date-and-user-info-wrapper">
-                            <div class="name secondary-text">Van Khanh,</div>
-                            <div class="date secondary-text">3 days ago</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-review">
-                    <div class="content-wrapper">
-                        <div class="header">Good</div>
-                        <div class="text">Good, helpful, fast-responding services.</div>
-                        <div class="date-and-user-info-wrapper">
-                            <div class="name secondary-text">Duc Trung,</div>
-                            <div class="date secondary-text">5 days ago</div>
-                        </div>
-                    </div>
+
+                <!-- Right Section: 2x2 Product Grid -->
+
+                <div class="premium-wines-container right">
+                    <ul class="premium-wines-list">
+                        @{
+                            foreach (var item in products)
+                            {
+                                if (mainProduct != item)
+                                {
+                                    <li class="product-card">
+                                        <div class="product-card-wrapper">
+                                            <div class="product-card-wrapper-background-effect"></div>
+                                            <div class="product-card-content left">
+                                                <div class="thumbnail">
+                                                    <img src="~/Content/Images/wine/@ProductUtilityService.ParseItemNameIntoPNGFileName(item.ProductName)" alt="Italian Red Wine">
+                                                </div>
+                                                <div class="product-card-content-display-properties product-name">
+                                                    <a href="@Url.Action("Details","Product", new { productName = item.ProductName })">@item.ProductName</a>
+                                                </div>
+                                            </div>
+                                            <div class="product-card-content right">
+                                                <div class="product-card-content-display-properties product-buy-button">
+                                                    <a href="@Url.Action("Details","Product", new { productName = item.ProductName })">
+                                                        <p>ADD TO CART</p>
+                                                    </a>
+                                                </div>
+                                                <div style="flex: 0 0 10%">
+
+                                                </div>
+                                                <div class="product-card-content-display-properties product-price">
+                                                    <p>£@item.ProductPrice.ToString("F2")</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+
+                            }
+                        }
+                    </ul>
+
                 </div>
             </div>
-            
         </div>
+        <div class="row" style="height: 400px;">
+            <div class="container-customers-reviews">
+                <div class="customers-reviews-content-wrapper">
+                    <h2>Customers Reviews</h2>
+                    <div class="small text">
+                        <p>What our customers says about us</p>
+                    </div>
+                    <div class="container-review">
+                        <div class="content-wrapper">
+                            <div class="header">Excellent</div>
+                            <div class="text">Fast delivery, great product. Will be ordering again very soon.</div>
+                            <div class="date-and-user-info-wrapper">
+                                <div class="name secondary-text">Alison Sandford,</div>
+                                <div class="date secondary-text">2 days ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-review">
+                        <div class="content-wrapper">
+                            <div class="header">Good</div>
+                            <div class="text">As true as they say, within 2 business days.</div>
+                            <div class="date-and-user-info-wrapper">
+                                <div class="name secondary-text">hungluu12,</div>
+                                <div class="date secondary-text">4 days ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-review">
+                        <div class="content-wrapper">
+                            <div class="header">Excellent</div>
+                            <div class="text">Very promising.</div>
+                            <div class="date-and-user-info-wrapper">
+                                <div class="name secondary-text">WuocWy,</div>
+                                <div class="date secondary-text">4 days ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-review">
+                        <div class="content-wrapper">
+                            <div class="header">Good</div>
+                            <div class="text">Marvelous</div>
+                            <div class="date-and-user-info-wrapper">
+                                <div class="name secondary-text">Van Khanh,</div>
+                                <div class="date secondary-text">3 days ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-review">
+                        <div class="content-wrapper">
+                            <div class="header">Good</div>
+                            <div class="text">Good, helpful, fast-responding services.</div>
+                            <div class="date-and-user-info-wrapper">
+                                <div class="name secondary-text">Duc Trung,</div>
+                                <div class="date secondary-text">5 days ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    </div>
+            </div>
 
-</main>
+        </div>
+    
+</div>
