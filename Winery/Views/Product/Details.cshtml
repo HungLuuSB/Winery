@@ -7,6 +7,7 @@
 
 
 <link href="~/Content/product-detail.css" rel="stylesheet">
+<script src="~/Scripts/product-details.js"></script>
 <body>
     <div class="product-purchase-wrapper">
         <div class="product-purchase">
@@ -31,6 +32,15 @@
                 </div>
                 <div class="product-display-filler">
 
+                </div>
+                <div class="product-quantity">
+                    <button class="decrease-quantity" onclick="decreaseQuantity()">
+                        -
+                    </button>
+                    <input class="input-number-quantity" id="quantity" value="1"/>
+                    <button class="increase-quantity" onclick="increaseQuantity()">
+                        +
+                    </button>
                 </div>
                 <div class="product-purchase-buttons">
                     <button onclick="window.location.href='@Url.Action("AddToCart","ShoppingCart", new { id = Model.ProductID, quantity = 1})'"  class="add-to-cart-button">ADD TO CART</button>

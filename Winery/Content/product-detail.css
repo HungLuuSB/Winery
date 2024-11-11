@@ -119,3 +119,40 @@
         text-align: center;
     }
 }
+
+.product-quantity {
+    display: block;
+    align-items: center;
+    font-weight: 300;
+    width: 130px;
+    height: 40px;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    letter-spacing: normal;
+    font-size: 1.2rem;
+    vertical-align: central;
+}
+.decrease-quantity {
+    border: 0;
+    background: 0;
+    text-align: center;
+    padding: 0 10px;
+
+}
+.input-number-quantity {
+    text-align: center;
+    border: 0;
+    background: 0;
+    width: 50px;
+    padding: 5px;
+}
+.increase-quantity {
+    border: 0;
+    background: 0;
+    text-align: center;
+    padding: 0 10px;
+}
+.input-number-quantity:focus {
+    outline: none;
+}
