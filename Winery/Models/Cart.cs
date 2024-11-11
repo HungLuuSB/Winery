@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Winery.Services;
 using System.Linq;
 using System.Web;
 
@@ -50,7 +51,7 @@ namespace Winery.Models
         }
         public double TotalMoney()
         {
-            return items.Sum(x => x.Quantity * x.Product.ProductPrice);
+            return items.Sum(x => x.Quantity * (double)(ProductUtilityService.IsProductOnSale(x.Product) == true ? x.Product.ProductSalePrice : x.Product.ProductPrice));
         }
         public void ClearCart()
         {

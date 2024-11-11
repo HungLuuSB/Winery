@@ -135,6 +135,8 @@
         flex: 1;
         height: 100%;
         width: 100%;
+        text-decoration: none;
+        color: #c6c5b3;
     }
 
     .footer-infomation.help-centre a, h4 {

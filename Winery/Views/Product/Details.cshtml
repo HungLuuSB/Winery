@@ -1,5 +1,6 @@
 ﻿@model Winery.Models.Product
 @using Winery.Ultilities;
+@using Winery.Services;
 @{
     ViewBag.Title = Model.ProductName;
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -24,8 +25,20 @@
                     <h2>@Model.ProductName.ToUpper()</h2>
                 </div>
                 <hr class="hr-product-purchase-seperator" />
+                <div class="product-brand">
+                    <h5>Brand: @Model.Brand.BrandName</h5>
+                </div>
                 <div class="product-price">
-                    <span>£@Model.ProductPrice.ToString("F2")</span>
+                    @{
+                        if (ProductUtilityService.IsProductOnSale(Model))
+                        {
+                            <span>£@(Model.ProductSalePrice)</span>
+                        }
+                        else
+                        {
+                            <span>£@Model.ProductPrice.ToString("F2")</span>
+                        }
+                    }
                 </div>
                 <div class="product-desc">
                     <p>@Model.ProductDesc</p>
@@ -37,7 +50,7 @@
                     <button class="decrease-quantity" onclick="decreaseQuantity()">
                         -
                     </button>
-                    <input class="input-number-quantity" id="quantity" value="1"/>
+                    <input class="input-number-quantity" id="quantity" value="1" />
                     <button class="increase-quantity" onclick="increaseQuantity()">
                         +
                     </button>

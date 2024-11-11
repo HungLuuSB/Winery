@@ -144,11 +144,22 @@
                 padding: 7px 0px 7px 0px;
             }
 
-        .pr-onsales-results .pr-onsales-results-inner .item .item-button {
-            width: 100%;
-            text-align: center;
-            align-content: center;
-        }
+            .pr-onsales-results .pr-onsales-results-inner .item .item-desc .item-price .item-origin-price,
+            .pr-onsales-results .pr-onsales-results-inner .item .item-desc .item-price .item-sale-price {
+                display: inline;
+
+            }
+            .pr-onsales-results .pr-onsales-results-inner .item .item-desc .item-price .item-sale-price {
+                float: right;
+            }
+            .pr-onsales-results .pr-onsales-results-inner .item .item-desc .item-price .item-origin-price {
+                text-decoration: line-through;
+            }
+            .pr-onsales-results .pr-onsales-results-inner .item .item-button {
+                width: 100%;
+                text-align: center;
+                align-content: center;
+            }
 
             .pr-onsales-results .pr-onsales-results-inner .item .item-button button {
                 background-color: #8c5a43;

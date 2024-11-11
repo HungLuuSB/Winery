@@ -115,7 +115,18 @@
                                                     Quantity: @item.Quantity
                                                 </div>
                                                 <div class="product-price">
-                                                    £@item.Product.ProductPrice
+                                                    @{
+                                                        if (ProductUtilityService.IsProductOnSale(item.Product))
+                                                        {
+                                                            <span>£@item.Product.ProductSalePrice</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span>£@item.Product.ProductPrice</span>
+
+                                                        }
+                                                    }
+
                                                 </div>
                                                 <a href="@Url.Action("RemoveFromCart","ShoppingCart", new { id = item.Product.ProductID })" class="remove-from-cart">
                                                     Remove

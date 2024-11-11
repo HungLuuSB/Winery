@@ -111,7 +111,17 @@
 
                                                         </div>
                                                         <div class="product-price">
-                                                            <span>£@item.ProductPrice.ToString("F2")</span>
+                                                            @{
+                                                                if (ProductUtilityService.IsProductOnSale(item))
+                                                                {
+                                                                    <span>£@item.ProductSalePrice</span>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <span>£@item.ProductPrice.ToString("F2")</span>
+                                                                }
+                                                            }
+
                                                         </div>
                                                         <div class="product-purchase-button">
                                                             <button onclick="location.href='@Url.Action("Details","Product", new { productName = item.ProductName })'">Add to cart</button>

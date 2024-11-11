@@ -7,7 +7,7 @@
 
 
 @{
-    var onSaleProduct = Model;
+    var onSaleProduct = ProductUtilityService.GetOnSaleProducts();
     var products = ProductUtilityService.GetRandomItems(5);
     var mainProduct = products.First();
 }
@@ -55,7 +55,8 @@
                                 </a>
                                 <div class="item-attribute">@(item.ProductCapacity)CL / @(item.ProductABV)% ABV</div>
                                 <div class="item-price">
-                                    <div class="item-sale-price">£@item.ProductPrice.ToString("F2")</div>
+                                    <div class="item-origin-price">£@item.ProductPrice.ToString("F2")</div>
+                                    <div class="item-sale-price">£@item.ProductSalePrice.ToString()</div>
                                 </div>
                             </div>
                             <div class="item-button">
