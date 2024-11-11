@@ -43,8 +43,15 @@
                     </button>
                 </div>
                 <div class="product-purchase-buttons">
-                    <button onclick="window.location.href='@Url.Action("AddToCart","ShoppingCart", new { id = Model.ProductID, quantity = 1})'"  class="add-to-cart-button">ADD TO CART</button>
+                    <button onclick="addToCart()" class="add-to-cart-button">ADD TO CART</button>
                 </div>
+                <script>
+                    function addToCart() {
+                        const quantity = document.getElementById('quantity').value;
+                        const productId = @Model.ProductID; // Pass ProductID from the server
+                        window.location.href = `@Url.Action("AddToCart", "ShoppingCart")?id=${productId}&quantity=${quantity}`;
+                    }
+                </script>
             </div>
         </div>
     </div>

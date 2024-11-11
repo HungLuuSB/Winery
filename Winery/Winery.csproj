@@ -242,7 +242,7 @@
     <Content Include="Content\Images\title_thumbnail.png" />
     <Content Include="Content\Images\winery-footer-img.png" />
     <Content Include="Content\Images\wine\avantis_estate_falcon%27s_hill_rosé.png" />
-    <Content Include="Content\Images\wine\calem-colheita-1961.png" />
+    <Content Include="Content\Images\wine\cálem_colheita_1961.png" />
     <Content Include="Content\Images\wine\château_de_chausse_côtes_de_provence_rosé.png" />
     <Content Include="Content\Images\wine\château_de_chausse_côtes_de_provence_rosé_magnum.png" />
     <Content Include="Content\Images\wine\château_de_beaucastel_roussanne_vieilles_vignes_châteauneuf-du-pape_blanc_2015.png" />

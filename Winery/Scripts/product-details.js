@@ -1,10 +1,12 @@
 ﻿function increaseQuantity() {
-    var input = document.getElementById("quantity").value;
-    input += 1;
+    var input = document.getElementById("quantity");
+    var quantity = parseInt(input.value) + 1;
+    input.value = quantity;
 }
-function deccreaseQuantity() {
-    var input = document.getElementById("quantity").value;
-    if (input > 1) {
-        input -= 1;
+function decreaseQuantity() {
+    var input = document.getElementById("quantity");
+    var quantity = parseInt(input.value) - 1;
+    if (quantity > 0) {
+        input.value = quantity;
     }
 }
