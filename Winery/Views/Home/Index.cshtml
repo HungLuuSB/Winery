@@ -2,7 +2,7 @@
 @using Winery.Services;
 @{
 
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Winery";
 }
 
 
@@ -38,6 +38,45 @@
     </div>
     <main class="page-content" id="maincontent">
         <div class="section header">
+            <h1>OUR SHOP</h1>
+        </div>
+        <div class="row">
+            <div class="quality-list">
+                <div class="quality-box">
+                    <div class="quality-box-title">
+                        <h3>FAST DELIVERY</h3>
+                    </div>
+                    <div class="quality-box-content">
+                        <p>Order before 2pm Monday - Friday to receive your order within 2 working days*</p>
+                    </div>
+                </div>
+                <div class="quality-box">
+                    <div class="quality-box-title">
+                        <h3>CLICK &amp; COLLECT</h3>
+                    </div>
+                    <div class="quality-box-content">
+                        <p>Buy online and pick up your purchases from any of our nationwide stores</p>
+                    </div>
+                </div>
+                <div class="quality-box">
+                    <div class="quality-box-title">
+                        <h3>EXPERT ADVICE</h3>
+                    </div>
+                    <div class="quality-box-content">
+                        <p>Speak to one of our knowledgeable advisors from 9am to 6pm</p>
+                    </div>
+                </div>
+                <div class="quality-box">
+                    <div class="quality-box-title">
+                        <h3>MIX &amp; MATCH</h3>
+                    </div>
+                    <div class="quality-box-content">
+                        <p>Look out for our multibuy discounts on selected products</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section header">
             <h1>ON SALES</h1>
         </div>
         <div class="row">
@@ -63,9 +102,7 @@
                                 <button onclick="window.location.href='@Url.Action("AddToCart","ShoppingCart", new { id = item.ProductID, quantity = 1})'">Add to Cart</button>
                             </div>
                         </div>
-
                     }
-
                 </div>
             </div>
         </div>
@@ -74,7 +111,6 @@
             <h1>PREMIUM WINES</h1>
         </div>
         <div class="row" style="height: 1000px;">
-
             <div class="premium-wines-container">
                 <!-- Left Section: Product Display -->
                 <div class="premium-wines-container left">

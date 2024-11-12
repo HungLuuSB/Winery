@@ -64,6 +64,12 @@
 
 }
 
+/*Quality List*/
+.quality-list {
+    display: flex;
+}
+
+
 .section.header {
     font-family: 'Cormorant Upright';
     padding-top: 50px;
