@@ -68,6 +68,9 @@
     display: flex;
 }
 
+.quality-box {
+    padding: 10px;
+}
 
 .section.header {
     font-family: 'Cormorant Upright';

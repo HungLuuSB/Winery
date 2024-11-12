@@ -107,7 +107,7 @@
     align-items: flex-start;
     justify-content: center;
     background-color: #535446;
-    font-family: 'Cormorant Upright';
+    
     color: #c6c5b3;
     padding: 50px 100px 50px 100px;
     gap: 10%;
@@ -170,8 +170,9 @@
 
     .footer-infomation-copyright {
         background-color: #535446;
-        font-family: 'Cormorant Upright';
+        
         color: #c6c5b3;
+        text-align: center;
     }
 .newsletter-background-overlay {
     position: absolute;

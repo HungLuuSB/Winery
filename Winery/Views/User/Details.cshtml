@@ -31,7 +31,8 @@
                         </p>
                     </div>
                     <div class="box-actions">
-                        <a class="action" href="@Url.Action("Edit","User", new {id = Model.UserID})">Edit</a>
+                        <a class="action" href="@Url.Action("Edit","User", new {id = Model.UserID})">Edit |</a>
+                        <a class="action" href="@Url.Action("Logout","Login", new {id = Model.UserID})">Logout</a>
                     </div>
                 </div>
             </div>
