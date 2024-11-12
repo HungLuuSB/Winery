@@ -69,7 +69,7 @@ namespace Winery.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserID,Username,Password,Email,FirstName,LastName,MiddleName,DateOfBirth,PhoneNumber")] User user)
+        public ActionResult Create([Bind(Include = "UserID,Email,Password,FirstName,LastName,MiddleName,DateOfBirth,PhoneNumber")] User user)
         {
             if (ModelState.IsValid)
             {

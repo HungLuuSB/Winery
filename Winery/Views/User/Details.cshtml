@@ -4,62 +4,71 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="~/Content/user-details-style.css">
+<div class="page-wrapper">
+    <main class="page-content" id="maincontent">
+        <div class="page-title-wrapper">
+            <div class="breadcrumb">
 
-<h2>Details</h2>
-<div>
-    <h4>User</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MiddleName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MiddleName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateOfBirth)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-    </dl>
+            </div>
+            <h1 class="page-title" id="page-title-heading">
+                MY ACCOUNT
+            </h1>
+        </div>
+        <div class="account-block dashboard-info">
+            <div class="account-block-title">
+                <strong>ACCOUNT INFORMATION</strong>
+            </div>
+            <div class="account-block-content">
+                <div class="account-box box-information">
+                    <strong class="box-title">
+                        Contact Information
+                    </strong>
+                    <div class="box-content">
+                        <p>
+                            @($"{Model.LastName} {Model.MiddleName} {Model.FirstName}") <br />
+                            @(Model.Email)
+                        </p>
+                    </div>
+                    <div class="box-actions">
+                        <a class="action" href="@Url.Action("Edit","User", new {id = Model.UserID})">Edit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="account-block address-book">
+            <div class="account-block-title">
+                <strong>ADDRESS BOOK</strong>
+            </div>
+            <div class="account-block-content">
+                <div class="account-box box-shipping-address">
+                    <strong class="box-title">
+                        Default Shipping Address
+                    </strong>
+                    <div class="box-content">
+                        <p>
+                            You have not set a default shipping address.
+                        </p>
+                        
+                    </div>
+                    <div class="box-actions">
+                        <a class="action")">Add</a>
+                    </div>
+                </div>
+                <div class="account-box box-billing-address">
+                    <strong class="box-title">
+                        Default Billing Address
+                    </strong>
+                    <div class="box-content">
+                        <p>
+                            You have not set a default billing address.
+                        </p>
+                    </div>
+                    <div class="box-actions">
+                        <a class="action" )">Add</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.UserID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

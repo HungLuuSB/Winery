@@ -56,7 +56,7 @@
                                 <div class="item-attribute">@(item.ProductCapacity)CL / @(item.ProductABV)% ABV</div>
                                 <div class="item-price">
                                     <div class="item-origin-price">£@item.ProductPrice.ToString("F2")</div>
-                                    <div class="item-sale-price">£@item.ProductSalePrice.ToString()</div>
+                                    <div class="item-sale-price">£@item.ProductSalePrice.Value.ToString("F2")</div>
                                 </div>
                             </div>
                             <div class="item-button">

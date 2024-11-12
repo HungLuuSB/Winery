@@ -269,6 +269,7 @@
     <Content Include="Content\product-index-styles.css" />
     <Content Include="Content\product-detail.css" />
     <Content Include="Content\styles.css" />
+    <Content Include="Content\user-details-style.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -305,6 +306,7 @@
     <Content Include="Content\Fonts\Morning Vintage.ttf" />
     <Content Include="Content\Fonts\Lucky Skirt %28DEMO%29.ttf" />
     <Content Include="Content\Fonts\Fontspring-DEMO-visbycf-regular.otf" />
+    <Content Include="Content\Fonts\Montserrat-Regular.ttf" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />

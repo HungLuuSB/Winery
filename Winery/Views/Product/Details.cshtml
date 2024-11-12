@@ -32,7 +32,7 @@
                     @{
                         if (ProductUtilityService.IsProductOnSale(Model))
                         {
-                            <span>£@(Model.ProductSalePrice)</span>
+                            <span>£@(Model.ProductSalePrice.Value.ToString("F2"))</span>
                         }
                         else
                         {

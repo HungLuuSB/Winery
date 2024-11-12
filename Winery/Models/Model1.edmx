@@ -104,9 +104,8 @@
             <PropertyRef Name="UserID" />
           </Key>
           <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" />
           <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
@@ -121,7 +120,7 @@
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="PermissionId" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Address__UserID__571DF1D5">
+        <Association Name="FK__Address__UserID__681373AD">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Address" Type="Self.Address" Multiplicity="*" />
           <ReferentialConstraint>
@@ -169,7 +168,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Order__UserID__3587F3E0">
+        <Association Name="FK__Order__UserID__671F4F74">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
@@ -241,7 +240,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Review__UserID__6FE99F9F">
+        <Association Name="FK__Review__UserID__690797E6">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Review" Type="Self.Review" Multiplicity="*" />
           <ReferentialConstraint>
@@ -265,7 +264,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UserPermi__UserI__04E4BC85">
+        <Association Name="FK__UserPermi__UserI__662B2B3B">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="UserPermission" Type="Self.UserPermission" Multiplicity="*" />
           <ReferentialConstraint>
@@ -290,7 +289,7 @@
           <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserPermission" EntityType="Self.UserPermission" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Address__UserID__571DF1D5" Association="Self.FK__Address__UserID__571DF1D5">
+          <AssociationSet Name="FK__Address__UserID__681373AD" Association="Self.FK__Address__UserID__681373AD">
             <End Role="User" EntitySet="User" />
             <End Role="Address" EntitySet="Address" />
           </AssociationSet>
@@ -306,7 +305,7 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="Inventory" EntitySet="Inventory" />
           </AssociationSet>
-          <AssociationSet Name="FK__Order__UserID__3587F3E0" Association="Self.FK__Order__UserID__3587F3E0">
+          <AssociationSet Name="FK__Order__UserID__671F4F74" Association="Self.FK__Order__UserID__671F4F74">
             <End Role="User" EntitySet="User" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
@@ -330,7 +329,7 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="Review" EntitySet="Review" />
           </AssociationSet>
-          <AssociationSet Name="FK__Review__UserID__6FE99F9F" Association="Self.FK__Review__UserID__6FE99F9F">
+          <AssociationSet Name="FK__Review__UserID__690797E6" Association="Self.FK__Review__UserID__690797E6">
             <End Role="User" EntitySet="User" />
             <End Role="Review" EntitySet="Review" />
           </AssociationSet>
@@ -338,7 +337,7 @@
             <End Role="Permission" EntitySet="Permission" />
             <End Role="UserPermission" EntitySet="UserPermission" />
           </AssociationSet>
-          <AssociationSet Name="FK__UserPermi__UserI__04E4BC85" Association="Self.FK__UserPermi__UserI__04E4BC85">
+          <AssociationSet Name="FK__UserPermi__UserI__662B2B3B" Association="Self.FK__UserPermi__UserI__662B2B3B">
             <End Role="User" EntitySet="User" />
             <End Role="UserPermission" EntitySet="UserPermission" />
           </AssociationSet>
@@ -456,9 +455,8 @@
             <PropertyRef Name="UserID" />
           </Key>
           <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -781,7 +779,6 @@
             <EntityTypeMapping TypeName="WineryModel.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />

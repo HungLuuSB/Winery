@@ -30,15 +30,6 @@ namespace Winery.Ultilities
                 return 0;
             return DateTime.Now.Year - year;
         }
-        public static int? GetUserIDFromName(string username) 
-        {
-            var user = db.User.Where(x => x.Username.Equals(username)).FirstOrDefault();
-            if (user != null)
-            {
-                return user.UserID;
-            }
-            return null;
-        }
         public static bool IsUserLoggedIn()
         {
             return _currentUser != null;
