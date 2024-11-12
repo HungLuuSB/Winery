@@ -147,6 +147,9 @@
     <Compile Include="Models\Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\database_firewall_rules.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Inventory.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -295,6 +298,11 @@
     <Content Include="Content\Fonts\CormorantUpright-Medium.ttf" />
     <Content Include="Content\Fonts\CormorantUpright-Regular.ttf" />
     <Content Include="Content\Fonts\CormorantUpright-SemiBold.ttf" />
+    <Content Include="Content\Fonts\RetroVibesPersonalUseRegular-lgEBX.otf" />
+    <Content Include="Content\Fonts\Morning Vintage.ttf" />
+    <Content Include="Content\Fonts\Lucky Skirt %28DEMO%29.ttf" />
+    <Content Include="Content\Fonts\Fontspring-DEMO-visbycf-regular.otf" />
+    <Content Include="Content\Fonts\Montserrat-Regular.ttf" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -302,11 +310,6 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Content\Fonts\RetroVibesPersonalUseRegular-lgEBX.otf" />
-    <Content Include="Content\Fonts\Morning Vintage.ttf" />
-    <Content Include="Content\Fonts\Lucky Skirt %28DEMO%29.ttf" />
-    <Content Include="Content\Fonts\Fontspring-DEMO-visbycf-regular.otf" />
-    <Content Include="Content\Fonts\Montserrat-Regular.ttf" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
