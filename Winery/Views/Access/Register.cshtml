@@ -5,14 +5,14 @@
 }
 <link href="~/Content/access-register-style.css" rel="stylesheet">
 <body>
-    @Html.AntiForgeryToken()
     <div class="row">
         <div class="page-title-wrapper">
             <h1>Create New Customer Account</h1>
         </div>
         <div class="main-content">
-            @using (Html.BeginForm("User", "Create", FormMethod.Post))
+            @using (Html.BeginForm("Create", "User", FormMethod.Post))
             {
+                @Html.AntiForgeryToken()
                 <fieldset class="fieldset">
                     <legend class="legend">
                         <span class="front_high">Personal Information</span>
@@ -20,13 +20,13 @@
                     <br />
                     <input type="hidden" name="success_url" value="0">
                     <input type="hidden" name="error_url" value="0">
-                    <!--First Name-->
-                    <div id="field_firstname" style="margin: 0px 0px 20px;">
-                        <label class="label_information" for="Firstname">
-                            <span class="front_normal">First Name</span>
+                    <!--Last Name-->
+                    <div class="field_name" style="margin: 0px 0px 20px;">
+                        <label class="label_information" for="LastName">
+                            <span class="front_normal">Last Name</span>
                         </label>
-                        <div class="Control">
-                            <input type="text" id="Firstname" name="Firstname" value title="First Name">
+                        <div class="control">
+                            <input type="text" id="LastName" name="LastName" value title="Last Name">
                         </div>
                     </div>
                     <!--Middld Name-->
@@ -34,17 +34,17 @@
                         <label class="label_information" for="MiddleName">
                             <span class="front_normal">Middle Name</span>
                         </label>
-                        <div class="Control">
+                        <div class="control">
                             <input type="text" id="MiddleName" name="MiddleName" value title="Middle Name">
                         </div>
                     </div>
-                    <!--Last Name-->
-                    <div class="field_name" style="margin: 0px 0px 20px;">
-                        <label class="label_information" for="LastName">
-                            <span class="front_normal">Last Name</span>
+                    <!--First Name-->
+                    <div id="field_firstname" style="margin: 0px 0px 20px;">
+                        <label class="label_information" for="Firstname">
+                            <span class="front_normal">First Name</span>
                         </label>
-                        <div class="Control">
-                            <input type="text" id="LastName" name="LastName" value title="Last Name">
+                        <div class="control">
+                            <input type="text" id="Firstname" name="Firstname" value title="First Name">
                         </div>
                     </div>
                 </fieldset>
@@ -59,8 +59,8 @@
                         <label class="label_information" for="Email" style="margin-bottom: 8px;">
                             <span class="front_normal">Email</span>
                         </label>
-                        <div class="Control">
-                            <input type="text" id="Email" name="Email" title="Email" placeholder="">
+                        <div class="control">
+                            <input type="email" id="Email" name="Email" title="Email" placeholder="">
                         </div>
                     </div>
                     <!--Password-->
@@ -68,26 +68,27 @@
                         <label class="label_information" for="Password" style="margin-bottom: 8px;">
                             <span class="front_normal">Password</span>
                         </label>
-                        <div class="Control">
-                            <input type="text" id="Password" name="Password" title="Password" placeholder="Enter your password">
-                        </div>
-                    </div>
-                    <!--Confirm Password-->
-                    <div class="field_name" style="margin: 0px 0px 20px;">
-                        <label class="label_information" for="password" style="margin-bottom: 8px;">
-                            <span class="front_normal">Confirm Password</span>
-                        </label>
-                        <div class="Control">
-                            <input type="text" id="ConfirmPassword" name="confirmpassword" title="Confirm Password" placeholder="Confirm Password">
+                        <div class="control">
+                            <input type="password" id="Password" name="Password" title="Password">
                         </div>
                     </div>
                     <div class="field_choice">
-                        <input type="checkbox" name="assistance_allowed_checkbox" title="Allow remote shopping assistance" value="1" id="assistance_allowed_checkbox" class="checkbox" data-gtm-form-interact-field-id="0">
+                        <input type="checkbox" name="show_passord_checkbox" onchange="onShowPasswordChange(this)" />
                         <label for="assistance_allowed_checkbox" style="font-size: 12px;" class="checkbox">
                             <span class="front_normal">Show Password</span>
                         </label>
                         <input type="hidden" name="assistance_allowed" value="">
                     </div>
+                    <script>
+                        function onShowPasswordChange(obj) {
+                            const passwordInput = document.getElementById('Password');
+                            if (obj.checked) {
+                                passwordInput.type = 'text';
+                            } else {
+                                passwordInput.type = 'password';
+                            }
+                        }
+                    </script>
                 </fieldset>
 
                 <div id="action_toolbar">

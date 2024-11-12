@@ -3,21 +3,20 @@
     width: 100%;
 }
 .page-title-wrapper h1 {
-    font-family: 'Cormorant Upright';
     font-weight: bold;
 }
 .main-content {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     background-color: #eae7e4;
-    font-family: 'Cormorant Upright';
 }
 .main-content form {
     display: flex;
     flex-direction:column;
-
+    width: 50%;
+    padding: 15px;
 }
 .field-seperator {
     width: 100%;
@@ -32,7 +31,6 @@
 }
 
 .block-title h3 {
-    font-family: 'Cormorant Upright';
     font-weight: bold;
     font-size: 1.5rem;
 }
@@ -56,7 +54,6 @@
 
 
 .action button {
-    font-family: 'Cormorant Upright';
     font-weight: bold;
     border: 0;
     width: 150px;
@@ -167,8 +164,7 @@
 }
 
 .action_submit span {
-    font-family: 'Cormorant Upright';
-    font-weight: bold;
+    font-weight: 500;
     font-size: 20px;
     color: white;
     transition: 0.3s ease;

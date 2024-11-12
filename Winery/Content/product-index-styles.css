@@ -271,5 +271,12 @@
     font-weight: bold;
 }
 
-
-
+/*Text block*/
+.text-block-title {
+    text-align: center;
+    padding: 15px 0 15px;
+    font-weight: bold;
+}
+.text-section {
+    padding-bottom: 10px;
+}

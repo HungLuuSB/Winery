@@ -48,7 +48,62 @@
                 </p>
             </div>
         </div>
-        @if (Model.ToList().Count > 0)
+        @if (ViewBag.Category == null)
+        {
+            <div class="row" style="background-color: #f3f4f5;">
+                <div class="text-block insight">
+                    <div class="text-block-title">
+                        <h1>
+                            Insights of the Category
+                        </h1>
+                    </div>
+                    <div class="text-block-content">
+                        <div class="text-section">
+                            <div class="text-section-title">
+                                <strong>The Art of Wine Tasting</strong>
+                            </div>
+                            <div class="text-section-content">
+                                <p>
+                                    Discover the art of wine tasting with expert tips and techniques to enhance your sensory experience and appreciation. Unlock the secrets of wine aromas, flavours, and textures for a truly immersive tasting journey.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="text-section">
+                            <div class="text-section-title">
+                                <strong>The Perfect Serve</strong>
+                            </div>
+                            <div class="text-section-content">
+                                <p>
+                                    Learn the ideal serving temperatures for different types of wines to bring out their best characteristics. Learn the ideal serving temperatures for different types of wines to bring out their best characteristics. Master the proper pouring techniques to avoid spills and ensure a perfect serve every time.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="text-section">
+                            <div class="text-section-title">
+                                <strong>Explore Flavor Profiles</strong>
+                            </div>
+                            <div class="text-section-content">
+                                <p>
+                                    Identify the key flavour notes in wines, from fruity and floral to earthy and spicy. Develop your palate by practising with various wines from different regions and grape varieties. Use the aroma wheel to pinpoint subtle nuances and enhance your tasting skills.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="text-section">
+                            <div class="text-section-title">
+                                <strong>Appreciating Age</strong>
+                            </div>
+                            <div class="text-section-content">
+                                <p>
+                                    Discover how ageing affects the complexity and depth of wine flavours and aromas. Learn to recognize the signs of a well-aged wine versus one past its prime. Understand the best storage conditions to preserve your wine collection for optimal ageing.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @if (ViewBag.Category != null)
         {
             <div class="content">
                 <div class="content-wrapper">

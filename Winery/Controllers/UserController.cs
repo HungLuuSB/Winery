@@ -75,7 +75,7 @@ namespace Winery.Controllers
             {
                 db.User.Add(user);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Access");
             }
 
             return View(user);
