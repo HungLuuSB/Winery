@@ -187,6 +187,9 @@
     background: transparent;
     width: 250px;
 }
+.search-items-container form {
+    width: 100%;
+}
 .search-input {
     background: transparent;
     min-height: 45px;
@@ -205,6 +208,9 @@
         outline: none;
         border-color: #A3664F;
     }
+
 .searchResults {
     position: absolute;
+    background-color: white;
+    width: 100%;
 }

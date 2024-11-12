@@ -59,8 +59,12 @@
         <div class="nav-section right">
             <div class="search-items-container">
                 <form>
-                    <input id="search" name="search" type="text" placeholder="Search..." value class="search-input" />
-                    <ul class="searchResults"></ul>
+                    <input onkeypress="search(this)" id="search" name="search" type="text" placeholder="Search..." value class="search-input" />
+                    
+                    <ul class="searchResults">
+                        
+                    </ul>
+
                 </form>
             </div>
             @if (currentUser != null)
