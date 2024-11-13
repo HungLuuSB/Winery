@@ -238,6 +238,12 @@
     <Content Include="Content\Images\logo_huflit.png" />
     <Content Include="Content\Images\product-item-shop-display-grape-background.png" />
     <Content Include="Content\Images\product-item-shop-display-plant-background.png" />
+    <Content Include="Content\Images\shop-category\champagne-sparkling-wines.jpg" />
+    <Content Include="Content\Images\shop-category\fortified-wines.jpg" />
+    <Content Include="Content\Images\shop-category\orange-wines.jpg" />
+    <Content Include="Content\Images\shop-category\red-wines.jpg" />
+    <Content Include="Content\Images\shop-category\rose-wines.jpg" />
+    <Content Include="Content\Images\shop-category\white-wines.jpg" />
     <Content Include="Content\Images\title_thumbnail.png" />
     <Content Include="Content\Images\winery-footer-img.png" />
     <Content Include="Content\Images\wine\avantis_estate_falcon%27s_hill_rosé.png" />

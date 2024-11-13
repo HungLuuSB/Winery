@@ -131,7 +131,8 @@
     max-width: 10%;
 }
 
-    .footer-infomation.the-company a, h4 {
+    .footer-infomation.the-company a,
+    .footer-infomation.the-company h4 {
         flex: 1;
         height: 100%;
         width: 100%;
@@ -139,13 +140,15 @@
         color: #c6c5b3;
     }
 
-    .footer-infomation.help-centre a, h4 {
+    .footer-infomation.help-centre a,
+    .footer-infomation.help-centre h4 {
         flex: 1;
         height: 100%;
         width: 100%;
     }
 
-    .footer-infomation.legal a, h4 {
+    .footer-infomation.legal a,
+    .footer-infomation.legal h4 {
         flex: 1;
         height: 100%;
         width: 100%;

@@ -72,6 +72,40 @@
     padding: 10px;
 }
 
+/*Shop category list*/
+.shop-category-list{
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 50px;
+}
+.shop-category-item {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.shop-category-image {
+    overflow: hidden;
+    object-fit: contain;
+    width: 100%;
+    border-radius: 10px;
+    height: 125px;
+}
+.shop-category-image img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    transition: 0.5s ease;
+}
+.shop-category-item:hover .shop-category-image img {
+    transform: scale(1.25);
+}
+.shop-category-title {
+    margin: 10px 0 10px;
+}
+
 .section.header {
     font-family: 'Cormorant Upright';
     padding-top: 50px;
