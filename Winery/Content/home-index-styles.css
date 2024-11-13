@@ -107,7 +107,7 @@
 }
 
 .section.header {
-    font-family: 'Cormorant Upright';
+    /*font-family: 'Cormorant Upright';*/
     padding-top: 50px;
     padding-bottom: 50px;
     text-decoration: underline;
@@ -196,6 +196,7 @@
             }
             .pr-onsales-results .pr-onsales-results-inner .item .item-desc .item-price .item-origin-price {
                 text-decoration: line-through;
+                text-decoration-thickness: 2px;
             }
             .pr-onsales-results .pr-onsales-results-inner .item .item-button {
                 width: 100%;

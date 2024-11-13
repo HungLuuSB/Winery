@@ -4,16 +4,43 @@
 
     display: flex;
     flex-direction: row;
-    font-family: 'Cormorant Upright';
 }
 
-@media only screen and ((max-width: 520px) or (max-height: 340px)) {
+@media only screen and ((max-width: 1100px) or (max-height: 340px)) {
     body {
         height: 100%;
     }
-
+    #premium-wine-list-container {
+        height: unset !important;
+    }
     .premium-wines-container {
-        flex-direction: column;
+        flex-direction: column !important;
+        width: 100%;
+    }
+        .premium-wines-container.left {
+            width: 100% !important; 
+            max-height: 672px !important;
+        }
+        .premium-wines-container.right {
+            width: 100% !important;
+            padding-left: 0 !important;
+        }
+    .main-product-content {
+        height: 672px !important;
+        max-height: 672px !important;
+    }
+    .product-card-content.left {
+        height: 672px !important;
+    }
+        .product-card-content.left .thumbnail {
+            width: 100% !important;
+        }
+    .product-card-content.left .thumbnail img {
+        width: 50% !important;
+        object-fit: contain !important;
+    }
+    .premium-wines-list {
+        display: unset !important;
     }
 }
 
@@ -131,7 +158,7 @@
 
     .product-card-content.left .thumbnail {
         height: 80%;
-        max-height: 80%;
+        max-height: 400px;
         flex: 0 80%;
     }
 
@@ -288,14 +315,16 @@
     }
 
 .product-content-header-properties-category {
-    font-size: 50px;
+    font-size: 2.5rem;
     color: #8c5a43;
     font-weight: bold;
     text-align: left;
+    padding: 0;
+    margin: 0;
 }
 
 .product-content-display-properties-category {
-    font-size: 40px;
+    font-size: 2rem;
     color: #58594b;
     text-align: left;
 }
