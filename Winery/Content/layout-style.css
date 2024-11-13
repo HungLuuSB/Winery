@@ -185,6 +185,42 @@
     background-color: black;
 }
 
+.newsletter-email-warpper {
+    width: 100%;
+    height: 50px;
+    background-color:white;
+}
+
+    .newsletter-email-warpper input {
+        width: 80%;
+        height: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+        display: inline-block;
+        vertical-align: middle;
+        border: 0;
+    }
+    .newsletter-email-warpper input:focus {
+        outline: none;
+        
+    }
+    .newsletter-email-warpper button {
+        height: 100%;
+        display: inline-block;
+        border: 0;
+        background-color: transparent;
+        transition: 0.3s ease;
+        font-size: 20px;
+        font-weight: bold;
+        color: #535446;
+        vertical-align: middle;
+        float: right;
+    }
+        .newsletter-email-warpper button:hover {
+            color: #8c5a43;
+        }
+
 .search-items-container {
     display: block;
     opacity: 1;
