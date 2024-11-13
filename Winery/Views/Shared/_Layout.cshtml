@@ -10,6 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="~/Content/layout-style.css" rel="stylesheet" type="text/css">
     <script src="~/Scripts/navbar.js"></script>
     <meta charset="utf-8" />
@@ -58,14 +59,15 @@
 
         <div class="nav-section right">
             <div class="search-items-container">
-                <form>
-                    <input onkeypress="search(this)" id="search" name="search" type="text" placeholder="Search..." value class="search-input" />
-                    
+                @using (Html.BeginForm("Search", "Product", FormMethod.Get))
+                {
+                    <input id="search" name="search" type="text" placeholder="Search..." value class="search-input" />
+                    <button class="search-button">
+                        <i class="fa fa-search"></i>
+                    </button>
                     <ul class="searchResults">
-                        
                     </ul>
-
-                </form>
+                }
             </div>
             @if (currentUser != null)
             {
@@ -79,11 +81,11 @@
             else
             {
                 <div class="nav-item-container">
-                    <a href="@Url.Action("Index","Access")">
+                    <a href="@Url.Action("Index", "Access")">
                         <span class="nav-menu-item-text">MY ACCOUNT</span>
                     </a>
                 </div>
-            }
+                }
 
             <div class="nav-item-container">
                 <a href="@Url.Action("ShowCart","ShoppingCart")">

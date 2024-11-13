@@ -71,6 +71,14 @@ namespace Winery.Controllers
             return View(product.ToList());
         }
 
+        [HttpGet]
+        public ActionResult Search(string search)
+        {
+            ViewBag.Search = search;
+            var products = db.Product.Where(x => x.ProductName.Contains(search)).ToList();
+            return View(products);
+        }
+
         // GET: Product/Details/5
         /*
          public ActionResult Details(int? id)

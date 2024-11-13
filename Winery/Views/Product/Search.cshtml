@@ -1,0 +1,131 @@
+﻿@model IEnumerable<Winery.Models.Product>
+@using Winery.Ultilities;
+@using Winery.Services;
+@using Winery.Models;
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/product-index-styles.css" rel="stylesheet" type="text/css">
+<div class="page-wrapper">
+    <main class="page-content" id="maincontent">
+        <div class="page-title-wrapper">
+            <div class="breadcrumb">
+
+            </div>
+            <h1 class="page-title" id="page-title-heading">
+                <span>Search</span>
+            </h1>
+        </div>
+        <div class="category-view">
+            <div class="category-image">
+                <img src="~/Content/Images/category/@CategoryUtilityService.ParseItemNameIntoPNGFileName(ViewBag.Style.ToString())" />
+            </div>
+            <div class="category-description">
+                <p>We hope that you can find what you are looking for.</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="content-wrapper">
+                <div class="content-section left">
+                    <div class="filter-box">
+                        <div class="field title">
+                            <h5>TITLE</h5>
+                        </div>
+                        <div class="field values">
+                            <h6>VALUES</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-section right">
+                    <div class="product-result">
+                        <header class="product-result-header">
+                            <div class="prResultCount">Total: @(Model.ToList().Count) products</div>
+                            <div class="prDropdown prDropSortBy" id="prDropDown-Sort">
+                                <div class="prDropdownLabel">
+                                    Sort by: @Session["SortOption"].ToString()
+                                </div>
+                                <div class="prDropdownOptions">
+                                    <a class="prDropdownOption prSort" data-sort-option="RELEVANCE" role="option" href="@(Url.Action("Index", "Product", new { style = ViewBag.Style, SortOption = "RELEVANCE" }))">Best match</a>
+                                    <a class="prDropdownOption prSort" data-sort-option="PRICE-ASC" role="option" href="@(Url.Action("Index", "Product", new { style = ViewBag.Style, SortOption = "PRICE-ASC" }))">Price: Low to High</a>
+                                    <a class="prDropdownOption prSort" data-sort-option="PRICE-DESC" role="option" href="@(Url.Action("Index", "Product", new { style = ViewBag.Style, SortOption = "PRICE-DESC" }))">Price: High to Low</a>
+                                    <a class="prDropdownOption prSort" data-sort-option="NAME-ASC" role="option" href="@(Url.Action("Index", "Product", new { style = ViewBag.Style, SortOption = "NAME-ASC" }))">Name: A to Z</a>
+                                    <a class="prDropdownOption prSort" data-sort-option="NAME-DESC" role="option" href="@(Url.Action("Index", "Product", new { style = ViewBag.Style, SortOption = "NAME-DESC" }))">Price: Z to A</a>
+                                </div>
+                            </div>
+                        </header>
+                        <ul class="product-result-list">
+                            @foreach (var item in Model)
+                            {
+                                <li class="product-result-list-item">
+                                    <div class="product-display-item-container">
+                                        <div class="product-purchase-wrapper">
+                                            <div class="product-purchase">
+                                                <div class="product-display top">
+                                                    <div class="product-image">
+                                                        <a href="@Url.Action("Details", "Product", new { productName = item.ProductName })">
+                                                            <img src="~/Content/Images/wine/@WineryUtilities.ParseItemNameIntoPNGFileName(item.ProductName)" />
+                                                        </a>
+
+                                                    </div>
+                                                </div>
+                                                <hr class="hr-product-seperator" />
+                                                <div class="product-display bottom">
+                                                    <div class="product-info-wrapper">
+                                                        <div class="product-name">
+                                                            <span>@item.ProductName</span>
+                                                        </div>
+                                                        <div class="product-capacity">
+                                                            <span>@(item.ProductCapacity)cl / @(item.ProductABV)%</span>
+                                                        </div>
+                                                        <div class="product-desc">
+                                                            <span>@item.ProductDesc</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-info-spacer">
+
+                                                    </div>
+                                                    <div class="product-price">
+                                                        @{
+                                                            if (ProductUtilityService.IsProductOnSale(item))
+                                                            {
+                                                                <span>£@(item.ProductSalePrice.Value.ToString("F2"))</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span>£@item.ProductPrice.ToString("F2")</span>
+                                                            }
+                                                        }
+
+                                                    </div>
+                                                    <div class="product-purchase-button">
+                                                        <button onclick="location.href='@Url.Action("Details","Product", new { productName = item.ProductName })'">Add to cart</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                        <footer class="product-result-footer">
+                        </footer>
+                    </div>
+                </div>
+                <script>
+                    document.querySelectorAll(".prDropdownOption.prSort").forEach(div => {
+                        div.onclick = function () {
+                            location.reload(); // Reload the current page on click
+                        };
+                    });
+                </script>
+            </div>
+        </div>
+
+
+    </main>
+
+</div>
+
