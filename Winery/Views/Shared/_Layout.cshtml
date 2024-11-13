@@ -61,12 +61,10 @@
             <div class="search-items-container">
                 @using (Html.BeginForm("Search", "Product", FormMethod.Get))
                 {
-                    <input id="search" name="search" type="text" placeholder="Search..." value class="search-input" />
-                    <button class="search-button">
+                    <input id="search" name="search" type="text" placeholder="Search..." value="" class="search-input"/>
+                    <button class="search-button" type="submit">
                         <i class="fa fa-search"></i>
                     </button>
-                    <ul class="searchResults">
-                    </ul>
                 }
             </div>
             @if (currentUser != null)

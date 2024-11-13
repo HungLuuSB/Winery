@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<Winery.Models.Product>
-@using Winery.Ultilities;
 @using Winery.Services;
 @using Winery.Models;
 @{
@@ -19,9 +18,6 @@
             </h1>
         </div>
         <div class="category-view">
-            <div class="category-image">
-                <img src="~/Content/Images/category/@CategoryUtilityService.ParseItemNameIntoPNGFileName(ViewBag.Style.ToString())" />
-            </div>
             <div class="category-description">
                 <p>We hope that you can find what you are looking for.</p>
             </div>
@@ -48,11 +44,11 @@
                                     Sort by: @Session["SortOption"].ToString()
                                 </div>
                                 <div class="prDropdownOptions">
-                                    <a class="prDropdownOption prSort" data-sort-option="RELEVANCE" role="option" href="@(Url.Action("Index", "Product", new { style = ViewBag.Style, SortOption = "RELEVANCE" }))">Best match</a>
-                                    <a class="prDropdownOption prSort" data-sort-option="PRICE-ASC" role="option" href="@(Url.Action("Index", "Product", new { style = ViewBag.Style, SortOption = "PRICE-ASC" }))">Price: Low to High</a>
-                                    <a class="prDropdownOption prSort" data-sort-option="PRICE-DESC" role="option" href="@(Url.Action("Index", "Product", new { style = ViewBag.Style, SortOption = "PRICE-DESC" }))">Price: High to Low</a>
-                                    <a class="prDropdownOption prSort" data-sort-option="NAME-ASC" role="option" href="@(Url.Action("Index", "Product", new { style = ViewBag.Style, SortOption = "NAME-ASC" }))">Name: A to Z</a>
-                                    <a class="prDropdownOption prSort" data-sort-option="NAME-DESC" role="option" href="@(Url.Action("Index", "Product", new { style = ViewBag.Style, SortOption = "NAME-DESC" }))">Price: Z to A</a>
+                                    <a class="prDropdownOption prSort" data-sort-option="RELEVANCE" role="option" href="@(Url.Action("Search", "Product", new { search = ViewBag.Search, SortOption = "RELEVANCE" }))">Best match</a>
+                                    <a class="prDropdownOption prSort" data-sort-option="PRICE-ASC" role="option" href="@(Url.Action("Search", "Product", new { search = ViewBag.Search, SortOption = "PRICE-ASC" }))">Price: Low to High</a>
+                                    <a class="prDropdownOption prSort" data-sort-option="PRICE-DESC" role="option" href="@(Url.Action("Search", "Product", new { search = ViewBag.Search, SortOption = "PRICE-DESC" }))">Price: High to Low</a>
+                                    <a class="prDropdownOption prSort" data-sort-option="NAME-ASC" role="option" href="@(Url.Action("Search", "Product", new { search = ViewBag.Search, SortOption = "NAME-ASC" }))">Name: A to Z</a>
+                                    <a class="prDropdownOption prSort" data-sort-option="NAME-DESC" role="option" href="@(Url.Action("Search", "Product", new { search = ViewBag.Search, SortOption = "NAME-DESC" }))">Price: Z to A</a>
                                 </div>
                             </div>
                         </header>
@@ -66,7 +62,7 @@
                                                 <div class="product-display top">
                                                     <div class="product-image">
                                                         <a href="@Url.Action("Details", "Product", new { productName = item.ProductName })">
-                                                            <img src="~/Content/Images/wine/@WineryUtilities.ParseItemNameIntoPNGFileName(item.ProductName)" />
+                                                            <img src="~/Content/Images/wine/@ProductUtilityService.ParseItemNameIntoPNGFileName(item.ProductName)" />
                                                         </a>
 
                                                     </div>

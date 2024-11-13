@@ -72,11 +72,40 @@ namespace Winery.Controllers
         }
 
         [HttpGet]
-        public ActionResult Search(string search)
+        public ActionResult Search(string search, string SortOption)
         {
             ViewBag.Search = search;
-            var products = db.Product.Where(x => x.ProductName.Contains(search)).ToList();
-            return View(products);
+            var product = db.Product.Where(x => x.ProductName.Contains(search))
+                                        .Include(p => p.Category)
+                                        .Include(p => p.Brand);
+            string option;
+            if (!string.IsNullOrEmpty(SortOption))
+            {
+                option = SortOption;
+            }
+            else
+            {
+                option = "RELEVANCE";
+            }
+            Session["SortOption"] = option;
+            switch (option)
+            {
+                case "RELEVANCE":
+                    break;
+                case "PRICE-ASC":
+                    product = product.OrderBy(p => p.ProductPrice);
+                    break;
+                case "PRICE-DESC":
+                    product = product.OrderByDescending(p => p.ProductPrice);
+                    break;
+                case "NAME-ASC":
+                    product = product.OrderBy(p => p.ProductName);
+                    break;
+                case "NAME-DESC":
+                    product = product.OrderByDescending(p => p.ProductName);
+                    break;
+            }
+            return View(product.ToList());
         }
 
         // GET: Product/Details/5
