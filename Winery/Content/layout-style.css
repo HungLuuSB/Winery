@@ -197,8 +197,8 @@
 .search-input {
     background: transparent;
     min-height: 45px;
-    color: #c6c5b3;
-    font-size: 14px;
+    color: white;
+    font-size: 1rem;
     padding-top: 0px;
     padding-bottom: 0px;
     padding-left: 20px;
@@ -211,6 +211,10 @@
     .search-input:focus {
         outline: none;
         border-color: #A3664F;
+    }
+    .search-input::placeholder {
+        color: white;
+        opacity: 1; /* Firefox */
     }
 
 .searchResults {
