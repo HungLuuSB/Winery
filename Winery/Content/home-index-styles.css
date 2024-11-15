@@ -71,7 +71,12 @@
 .quality-box {
     padding: 10px;
 }
-
+@media only screen and (max-width: 800px) {
+    .quality-list {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
 /*Shop category list*/
 .shop-category-list {
     width: 100%;
@@ -117,6 +122,11 @@
 @media only screen and (max-width: 900px) {
     .shop-category-list {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media only screen and (max-width: 450px) {
+    .shop-category-list {
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 .section.header {

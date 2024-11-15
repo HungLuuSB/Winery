@@ -7,69 +7,72 @@
 <link rel="stylesheet" href="~/Content/user-details-style.css">
 <div class="page-wrapper">
     <main class="page-content" id="maincontent">
-        <div class="page-title-wrapper">
-            <div class="breadcrumb">
+        <div class="sidebar sidebar-main">
+            @Html.Action("GetUserActions", "User", new { id = Model.UserID })
+        </div>
+        <div class="board">
+            <div class="page-title-wrapper">
+                <h1 class="page-title" id="page-title-heading">
+                    MY ACCOUNT
+                </h1>
+            </div>
+            <div class="account-block dashboard-info">
+                <div class="account-block-title">
+                    <strong>ACCOUNT INFORMATION</strong>
+                </div>
+                <div class="account-block-content">
+                    <div class="account-box box-information">
+                        <strong class="box-title">
+                            Contact Information
+                        </strong>
+                        <div class="box-content">
+                            <p>
+                                @($"{Model.LastName} {Model.MiddleName} {Model.FirstName}") <br />
+                                @(Model.Email)
+                            </p>
+                        </div>
+                        <div class="box-actions">
+                            <a class="action" href="@Url.Action("Edit","User", new {id = Model.UserID})">Edit |</a>
+                            <a class="action" href="@Url.Action("Logout","Login", new {id = Model.UserID})">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="account-block address-book">
+                <div class="account-block-title">
+                    <strong>ADDRESS BOOK</strong>
+                </div>
+                <div class="account-block-content">
+                    <div class="account-box box-shipping-address">
+                        <strong class="box-title">
+                            Default Shipping Address
+                        </strong>
+                        <div class="box-content">
+                            <p>
+                                You have not set a default shipping address.
+                            </p>
 
-            </div>
-            <h1 class="page-title" id="page-title-heading">
-                MY ACCOUNT
-            </h1>
-        </div>
-        <div class="account-block dashboard-info">
-            <div class="account-block-title">
-                <strong>ACCOUNT INFORMATION</strong>
-            </div>
-            <div class="account-block-content">
-                <div class="account-box box-information">
-                    <strong class="box-title">
-                        Contact Information
-                    </strong>
-                    <div class="box-content">
-                        <p>
-                            @($"{Model.LastName} {Model.MiddleName} {Model.FirstName}") <br />
-                            @(Model.Email)
-                        </p>
+                        </div>
+                        <div class="box-actions">
+                            <a class="action" )">Add</a>
+                        </div>
                     </div>
-                    <div class="box-actions">
-                        <a class="action" href="@Url.Action("Edit","User", new {id = Model.UserID})">Edit |</a>
-                        <a class="action" href="@Url.Action("Logout","Login", new {id = Model.UserID})">Logout</a>
+                    <div class="account-box box-billing-address">
+                        <strong class="box-title">
+                            Default Billing Address
+                        </strong>
+                        <div class="box-content">
+                            <p>
+                                You have not set a default billing address.
+                            </p>
+                        </div>
+                        <div class="box-actions">
+                            <a class="action" )">Add</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="account-block address-book">
-            <div class="account-block-title">
-                <strong>ADDRESS BOOK</strong>
-            </div>
-            <div class="account-block-content">
-                <div class="account-box box-shipping-address">
-                    <strong class="box-title">
-                        Default Shipping Address
-                    </strong>
-                    <div class="box-content">
-                        <p>
-                            You have not set a default shipping address.
-                        </p>
-                        
-                    </div>
-                    <div class="box-actions">
-                        <a class="action")">Add</a>
-                    </div>
-                </div>
-                <div class="account-box box-billing-address">
-                    <strong class="box-title">
-                        Default Billing Address
-                    </strong>
-                    <div class="box-content">
-                        <p>
-                            You have not set a default billing address.
-                        </p>
-                    </div>
-                    <div class="box-actions">
-                        <a class="action" )">Add</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </main>
 </div>

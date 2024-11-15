@@ -51,8 +51,11 @@
           </Key>
           <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="OdrderDate" Type="datetime" Nullable="false" />
-          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" />
           <Property Name="Total" Type="real" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Province" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="OrderDetails">
           <Key>
@@ -183,18 +186,6 @@ warning 6002: The table/view 'Winery.sys.database_firewall_rules' does not have 
             </Principal>
             <Dependent Role="Inventory">
               <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Order__UserID__671F4F74">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -333,10 +324,6 @@ warning 6002: The table/view 'Winery.sys.database_firewall_rules' does not have 
             <End Role="Product" EntitySet="Product" />
             <End Role="Inventory" EntitySet="Inventory" />
           </AssociationSet>
-          <AssociationSet Name="FK__Order__UserID__671F4F74" Association="Self.FK__Order__UserID__671F4F74">
-            <End Role="User" EntitySet="User" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
           <AssociationSet Name="FK__OrderDeta__Order__395884C4" Association="Self.FK__OrderDeta__Order__395884C4">
             <End Role="Order" EntitySet="Order" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
@@ -419,9 +406,11 @@ warning 6002: The table/view 'Winery.sys.database_firewall_rules' does not have 
           </Key>
           <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="OdrderDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" />
           <Property Name="Total" Type="Single" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK__Order__UserID__671F4F74" FromRole="Order" ToRole="User" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__Order__395884C4" FromRole="Order" ToRole="OrderDetails" />
         </EntityType>
         <EntityType Name="OrderDetails">
@@ -492,7 +481,6 @@ warning 6002: The table/view 'Winery.sys.database_firewall_rules' does not have 
           <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
           <Property Name="PhoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Address" Relationship="Self.FK__Address__UserID__681373AD" FromRole="User" ToRole="Address" />
-          <NavigationProperty Name="Order" Relationship="Self.FK__Order__UserID__671F4F74" FromRole="User" ToRole="Order" />
           <NavigationProperty Name="Review" Relationship="Self.FK__Review__UserID__690797E6" FromRole="User" ToRole="Review" />
           <NavigationProperty Name="UserPermission" Relationship="Self.FK__UserPermi__UserI__662B2B3B" FromRole="User" ToRole="UserPermission" />
         </EntityType>
@@ -567,18 +555,6 @@ warning 6002: The table/view 'Winery.sys.database_firewall_rules' does not have 
             </Principal>
             <Dependent Role="Inventory">
               <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Order__UserID__671F4F74">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -687,10 +663,6 @@ warning 6002: The table/view 'Winery.sys.database_firewall_rules' does not have 
             <End Role="Product" EntitySet="Product" />
             <End Role="Inventory" EntitySet="Inventory" />
           </AssociationSet>
-          <AssociationSet Name="FK__Order__UserID__671F4F74" Association="Self.FK__Order__UserID__671F4F74">
-            <End Role="User" EntitySet="User" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
           <AssociationSet Name="FK__OrderDeta__Order__395884C4" Association="Self.FK__OrderDeta__Order__395884C4">
             <End Role="Order" EntitySet="Order" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
@@ -769,6 +741,9 @@ warning 6002: The table/view 'Winery.sys.database_firewall_rules' does not have 
                 <ScalarProperty Name="OdrderDate" ColumnName="OdrderDate" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

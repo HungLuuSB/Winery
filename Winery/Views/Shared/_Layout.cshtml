@@ -21,6 +21,13 @@
 </head>
 <body>
     <nav id="navbar-content-main" class="navbar-content">
+        <div class="nav-dropdown" id="nav-dropdown">
+            <button>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
+        </div>
         <div class="nav-section left">
             <div class="nav-item-container">
                 <a href="@Url.Action("Index","Home")">
@@ -47,7 +54,7 @@
                     <span class="nav-menu-item-text">ABOUT</span>
                 </a>
             </div>
-            
+
         </div>
 
         <div class="nav-section center">
@@ -61,7 +68,7 @@
             <div class="search-items-container">
                 @using (Html.BeginForm("Search", "Product", FormMethod.Get))
                 {
-                    <input id="search" name="search" type="text" placeholder="Search..." value="" class="search-input"/>
+                    <input id="search" name="search" type="text" placeholder="Search..." value="" class="search-input" />
                     <button class="search-button" type="submit">
                         <i class="fa fa-search"></i>
                     </button>
@@ -83,15 +90,16 @@
                         <span class="nav-menu-item-text">MY ACCOUNT</span>
                     </a>
                 </div>
-                }
+            }
 
             <div class="nav-item-container">
                 <a href="@Url.Action("ShowCart","ShoppingCart")">
                     <span class="nav-menu-item-text">CART</span>
                 </a>
             </div>
-            
+
         </div>
+
     </nav>
     <div>
         @{

@@ -153,6 +153,7 @@
 }
 .product-details {
     width: 100%;
+    padding-left: 15px;
 }
 
     .product-details .product-name {

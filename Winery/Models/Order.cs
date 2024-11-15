@@ -22,10 +22,12 @@ namespace Winery.Models
     
         public int OrderID { get; set; }
         public System.DateTime OdrderDate { get; set; }
-        public int UserID { get; set; }
+        public Nullable<int> UserID { get; set; }
         public float Total { get; set; }
+        public string City { get; set; }
+        public string Province { get; set; }
+        public string Address { get; set; }
     
-        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetails> OrderDetails { get; set; }
     }

@@ -1,0 +1,51 @@
+﻿@model Winery.Models.Address
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Address</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressProvince)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressProvince)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AddressID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

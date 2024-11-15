@@ -12,6 +12,8 @@
     <main class="page-content" id="maincontent">
         <div class="checkout-panel">
             <div class="shipping-infomation-panel">
+                @using (Html.BeginForm("Create", "Order", FormMethod.Post))
+            {
                 <fieldset id="fieldset">
                     <div class="header_div">
                         <fieldset class="header_fieldset">
@@ -52,10 +54,10 @@
                             <input class="input_address" type="text" name="City" placeholder="City, Country">
                         </div>
                         <div>
-                            <input class="input_address" type="text" name="District" placeholder="District">
+                            <input class="input_address" type="text" name="Province" placeholder="Province">
                         </div>
                         <div>
-                            <input class="input_address" type="text" name="Number Houses" placeholder="Number Houses, Road">
+                            <input class="input_address" type="text" name="Address" placeholder="Number Houses, Road">
                         </div>
                     </div>
                     <div class="div_emailaddress">
@@ -78,8 +80,9 @@
                             </div>
                         </li>
                     </ul>
-
                 </fieldset>
+            }
+                
             </div>
             <div class="order-summary-panel">
                 <div class="order-summary-content">

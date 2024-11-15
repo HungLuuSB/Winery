@@ -1,8 +1,35 @@
-﻿.account-block {
-
+﻿.page-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+.sidebar {
+    width: 22.3%;
+}
+.board {
+    width: 77.7%;
+    padding-left: 50px;
+}
+.sidebar-list {
+    list-style-type: none;
+    background-color: #f5f5f5;
+    margin: 0;
 }
 
-.account-block-title {
+.sidebar-list li a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-size: 0.75rem;
+}
+
+
+.account-block {
+}
+
+.account-block-title,
+.list-block-title
+{
     font-size: 22px;
     border-bottom: 1px solid #c6c6c6;
     margin-bottom: 20px;
@@ -35,4 +62,22 @@
 .action {
     color: #000 !important;
     font-size: 12px;
+}
+
+.list-block {
+
+}
+
+.order-list {
+    width: 100%;
+}
+
+    .order-list tr {
+        text-align: center;
+        border-bottom: 1px solid black;
+    }
+
+.order-data a {
+    text-decoration: none;
+    color: inherit;
 }

@@ -62,7 +62,6 @@ namespace Winery.Controllers
 
             return RedirectToAction("ShowCart", "ShoppingCart");
         }
-        
         public ActionResult RemoveCart(int id)
         {
             Cart cart = Session["Cart"] as Cart;

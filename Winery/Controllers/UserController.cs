@@ -138,6 +138,14 @@ namespace Winery.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        [ChildActionOnly]
+        public ActionResult GetUserActions(int id)
+        {
+            User user = db.User.Find(id);
+            return PartialView("GetUserActions", user);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

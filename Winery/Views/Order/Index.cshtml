@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Winery.Models.Order>
+@using Winery.Services;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/user-details-style.css">
+<div class="page-wrapper">
+    <main class="page-content" id="maincontent">
+        <div class="sidebar sidebar-main">
+            @Html.Action("GetUserActions", "User", new { id = UserSessionService.CurrentUser.UserID })
+        </div>
+        <div class="board">
+            <div class="page-title-wrapper">
+                <h1 class="page-title" id="page-title-heading">
+                    MY ORDER
+                </h1>
+            </div>
+            <div class="list-block dashboard-info">
+                <div class="list-block-title">
+                    <strong>LIST OF ORDERS</strong>
+                </div>
+                <div class="list-block-content">
+                    <div class="list-box box-information">
+                        <strong class="box-title">
+                            
+                        </strong>
+                        <div class="box-content">
+                            <table class="order-list">
+                                <thead>
+                                    <tr>
+                                        <th class="order-header">Order ID</th>
+                                        <th class="order-header">Date - Time</th>
+                                        <th class="order-header">Address</th>
+                                        <th class="order-header">Total</th>
+                                        <th class="order-header">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="order-data">
+                                                <a class="order-data-details" href="@Url.Action("Details", "OrderDetails", new { id = item.OrderID })">@item.OrderID</a>
+                                            </td>
+                                            <td class="order-data">
+                                                <p>@item.OdrderDate</p>
+                                            </td>
+                                            <td class="order-data">
+                                                <p>@(item.City), @(item.Province), @(item.Address)</p>
+                                            </td>
+                                            <td class="order-data">
+                                                <p>@item.Total.ToString("F2")</p>
+                                            </td>
+                                            <td class="order-data">
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            
+                        </div>
+                        <div class="box-actions">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>

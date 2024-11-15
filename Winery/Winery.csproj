@@ -128,8 +128,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccessController.cs" />
+    <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\OrderDetailsController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
@@ -174,6 +177,7 @@
     <Compile Include="Models\OrderDetails.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\Permission.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -354,6 +358,15 @@
     <Content Include="Views\Access\Register.cshtml" />
     <Content Include="Views\ShoppingCart\ShowCart.cshtml" />
     <Content Include="Views\Product\Search.cshtml" />
+    <Content Include="Views\Address\Create.cshtml" />
+    <Content Include="Views\Address\Delete.cshtml" />
+    <Content Include="Views\Address\Details.cshtml" />
+    <Content Include="Views\Address\Edit.cshtml" />
+    <Content Include="Views\Address\Index.cshtml" />
+    <Content Include="Views\User\GetUserActions.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\OrderDetails\Index.cshtml" />
+    <Content Include="Views\OrderDetails\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
