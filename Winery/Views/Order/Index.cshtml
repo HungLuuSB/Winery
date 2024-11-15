@@ -30,33 +30,39 @@
                             <table class="order-list">
                                 <thead>
                                     <tr>
-                                        <th class="order-header">Order ID</th>
+                                        <th class="order-header">No.</th>
                                         <th class="order-header">Date - Time</th>
                                         <th class="order-header">Address</th>
                                         <th class="order-header">Total</th>
-                                        <th class="order-header">Status</th>
+                                        <th class="order-header">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var item in Model)
-                                    {
-                                        <tr>
-                                            <td class="order-data">
-                                                <a class="order-data-details" href="@Url.Action("Details", "OrderDetails", new { id = item.OrderID })">@item.OrderID</a>
-                                            </td>
-                                            <td class="order-data">
-                                                <p>@item.OdrderDate</p>
-                                            </td>
-                                            <td class="order-data">
-                                                <p>@(item.City), @(item.Province), @(item.Address)</p>
-                                            </td>
-                                            <td class="order-data">
-                                                <p>@item.Total.ToString("F2")</p>
-                                            </td>
-                                            <td class="order-data">
-                                            </td>
-                                        </tr>
+                                    @{
+                                        int count = 1;
+                                        foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td class="order-data">
+                                                    <p>@count</p>
+                                                </td>
+                                                <td class="order-data">
+                                                    <p>@item.OdrderDate</p>
+                                                </td>
+                                                <td class="order-data">
+                                                    <p>@(item.City), @(item.Province), @(item.Address)</p>
+                                                </td>
+                                                <td class="order-data">
+                                                    <p>@item.Total.ToString("F2")</p>
+                                                </td>
+                                                <td class="order-data">
+                                                    <a class="action" href="@Url.Action("Details", "OrderDetails", new { id = item.OrderID })">Details</a>
+                                                </td>
+                                            </tr>
+                                            count++;
+                                        }
                                     }
+
                                 </tbody>
                             </table>
                             

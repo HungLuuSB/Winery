@@ -62,6 +62,7 @@
 .action {
     color: #000 !important;
     font-size: 12px;
+    vertical-align: middle;
 }
 
 .list-block {
@@ -72,12 +73,15 @@
     width: 100%;
 }
 
+    .order-list th {
+        font-size: 1rem;
+    }
     .order-list tr {
         text-align: center;
         border-bottom: 1px solid black;
     }
 
 .order-data a {
-    text-decoration: none;
+    
     color: inherit;
 }
