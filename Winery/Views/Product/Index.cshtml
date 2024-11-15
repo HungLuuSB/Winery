@@ -14,6 +14,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link href="~/Content/product-index-styles.css" rel="stylesheet" type="text/css">
+<link href="~/Content/home-index-styles.css" rel="stylesheet" >
 <div class="page-wrapper">
     <main class="page-content" id="maincontent">
         <div class="page-title-wrapper">
@@ -50,6 +51,69 @@
         </div>
         @if (ViewBag.Category == null)
         {
+            <div class="row">
+                <div class="section header">
+                    <h1>SHOP BY CATEGORY</h1>
+                </div>
+                <div class="row">
+                    <div class="shop-category-list">
+                        <div class="shop-category-item">
+                            <div class="shop-category-image">
+                                <a href="@Url.Action("Index", "Product", new { style = 1 })">
+                                    <img src="~/Content/Images/shop-category/red-wines.jpg" />
+                                </a>
+
+                            </div>
+                            <h4 class="shop-category-title">RED WINES</h4>
+                        </div>
+                        <div class="shop-category-item">
+                            <div class="shop-category-image">
+                                <a href="@Url.Action("Index", "Product", new { style = 2 })">
+                                    <img src="~/Content/Images/shop-category/white-wines.jpg" />
+                                </a>
+
+                            </div>
+                            <h4 class="shop-category-title">WHITE WINES</h4>
+                        </div>
+                        <div class="shop-category-item">
+                            <div class="shop-category-image">
+                                <a href="@Url.Action("Index", "Product", new { style = 3 })">
+                                    <img src="~/Content/Images/shop-category/rose-wines.jpg" />
+                                </a>
+
+                            </div>
+                            <h4 class="shop-category-title">ROSÉ WINES</h4>
+                        </div>
+                        <div class="shop-category-item">
+                            <div class="shop-category-image">
+                                <a href="@Url.Action("Index", "Product", new { style = 4 })">
+                                    <img src="~/Content/Images/shop-category/champagne-sparkling-wines.jpg" />
+                                </a>
+
+                            </div>
+                            <h4 class="shop-category-title">CHAMPAGNE WINES</h4>
+                        </div>
+                        <div class="shop-category-item">
+                            <div class="shop-category-image">
+                                <a href="@Url.Action("Index", "Product", new { style = 5 })">
+                                    <img src="~/Content/Images/shop-category/orange-wines.jpg" />
+                                </a>
+
+                            </div>
+                            <h4 class="shop-category-title">ORANGE WINES</h4>
+                        </div>
+                        <div class="shop-category-item">
+                            <div class="shop-category-image">
+                                <a href="@Url.Action("Index", "Product", new { style = 6 })">
+                                    <img src="~/Content/Images/shop-category/fortified-wines.jpg" />
+                                </a>
+
+                            </div>
+                            <h4 class="shop-category-title">FORTIFIED WINES</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row" style="background-color: #f3f4f5;">
                 <div class="text-block insight">
                     <div class="text-block-title">
