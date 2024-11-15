@@ -1,51 +1,89 @@
 ﻿@model IEnumerable<Winery.Models.OrderDetails>
-
+@using Winery.Services;
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="~/Content/user-details-style.css">
+<div class="page-wrapper">
+    <main class="page-content" id="maincontent">
+        <div class="sidebar sidebar-main">
+            @Html.Action("GetUserActions", "User", new { id = UserSessionService.CurrentUser.UserID })
+        </div>
+        <div class="board">
+            <div class="page-title-wrapper">
+                <h1 class="page-title" id="page-title-heading">
+                    ORDER DETAILS
+                </h1>
+            </div>
+            <div class="list-block order-details-info">
+                <div class="list-block-title">
+                    <strong>DETAILS OF ORDER</strong>
+                </div>
+                <div class="list-block-content">
+                    <div class="list-box box-information">
+                        <strong class="box-title">
+                        </strong>
+                        <div class="box-content">
+                            <table class="order-details-list">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th></th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="order-details-col item">
+                                                <a href="@Url.Action("Details", "Product", new { productName = item.Product.ProductName })">
+                                                    <span class="product-thumbnail">
+                                                        <img src="~/Content/Images/wine/@ProductUtilityService.ParseItemNameIntoPNGFileName(item.Product.ProductName)" />
+                                                    </span>
+                                                </a>
+                                            </td>
+                                            <td class="order-details-col name" >
+                                                <a style="font-size: 1rem;" href="@Url.Action("Details", "Product", new { productName = item.Product.ProductName })" class="action">@item.Product.ProductName</a>
+                                            </td>
+                                            <td class="order-details-col price">
+                                                <p>£@(item.UnitPrice.ToString("F2"))</p>
+                                            </td>
+                                            <td class="order-details-col quantity">
+                                                <p>@item.Quantity</p>
+                                            </td>
+                                            <td class="order-details-col quantity">
+                                                <p>£@((item.UnitPrice * item.Quantity).ToString("F2"))</p>
+                                            </td>
+                                        </tr>
+                                    }
+                                    <tr>
+                                        <td>Total</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        @if (Model.Count() > 0)
+                                        {
+                                            <td>
+                                                £@Model.First().Order.Total.ToString("F2")
+                                            </td>
+                                        }
+                                        
+                                    </tr>
+                                </tbody>
 
-<h2>Details</h2>
+                            </table>
+                        </div>
+                        <div class="box-actions">
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Quantity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UnitPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Order.City)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Product.ProductName)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UnitPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Order.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Product.ProductName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.OrderDetailsID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.OrderDetailsID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.OrderDetailsID })
-            </td>
-        </tr>
-    }
-
-</table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
 
