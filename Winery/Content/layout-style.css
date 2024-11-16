@@ -274,6 +274,7 @@
         vertical-align: middle;
         border: 0;
         float: left;
+        padding-left: 4px;
     }
     .newsletter-email-warpper input:focus {
         outline: none;
