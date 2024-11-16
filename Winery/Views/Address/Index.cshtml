@@ -1,52 +1,7 @@
-﻿@model IEnumerable<Winery.Models.Address>
-
+﻿@model Winery.Models.Address
+@using Winery.Services;
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "My Address";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.AddressCity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AddressProvince)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User.Email)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AddressCity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AddressProvince)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.User.Email)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AddressID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AddressID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AddressID })
-        </td>
-    </tr>
-}
-
-</table>

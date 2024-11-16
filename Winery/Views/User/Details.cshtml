@@ -1,8 +1,10 @@
 ﻿@model Winery.Models.User
+@using Winery.Models;
 @using Winery.Ultilities;
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var address = ViewData["Address"] as Address;
 }
 <link rel="stylesheet" href="~/Content/user-details-style.css">
 <div class="page-wrapper">
@@ -47,15 +49,30 @@
                         <strong class="box-title">
                             Default Shipping Address
                         </strong>
-                        <div class="box-content">
-                            <p>
-                                You have not set a default shipping address.
-                            </p>
-
-                        </div>
-                        <div class="box-actions">
-                            <a class="action" href="@Url.Action("Create", "Address")">Add</a>
-                        </div>
+                        @if (ViewData["Address"] == null)
+                        {
+                            <div class="box-content">
+                                <p>
+                                    You have not set a default shipping address.
+                                </p>
+                            </div>
+                            <div class="box-actions">
+                                <a class="action" href="@Url.Action("Create", "Address")">Add</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="box-content">
+                                <p>
+                                    @(address.AddressCity) <br />
+                                    @(address.AddressProvince) <br />
+                                    @(address.Address1) <br />
+                                </p>
+                            </div>
+                            <div class="box-actions">
+                                <a class="action" href="@Url.Action("Edit", "Address", new { id = address.AddressID })">Edit</a>
+                            </div>
+                        }
                     </div>
                     <div class="account-box box-billing-address">
                         <strong class="box-title">
