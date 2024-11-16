@@ -40,8 +40,14 @@
     padding: 0px 9px;
 }
 
-.div_emailaddress {
-    margin: 0px 0px 20px 0px
+.div_emailaddress,
+.div_firstname,
+.div_middlename, 
+.div_lastname,
+.div_address,
+.div_phonenumber {
+    margin: 0px 0px 20px 0px;
+    margin-bottom: 20px;
 }
 
 /*RIÊNG*/
