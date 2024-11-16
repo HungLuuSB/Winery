@@ -51,6 +51,12 @@
     margin: 0 0 10px;
     display: inline-block;
 }
+
+.block-subtitle {
+    font-size: 12px;
+    font-weight: 300;
+}
+
 .box-content {
     font-size: 1.7rem;
 }
