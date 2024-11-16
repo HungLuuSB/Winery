@@ -18,8 +18,11 @@ namespace Winery.Controllers
         // GET: Address
         public ActionResult Index()
         {
-            var address = db.Address.Include(a => a.User);
-            return View(address.ToList());
+            var currentUser = Session["user"] as User;
+            if (currentUser == null)
+                return RedirectToAction("Index", "Access");
+            var address = db.Address.FirstOrDefault(x => x.UserID == currentUser.UserID);
+            return View(address);
         }
 
         // GET: Address/Details/5
@@ -51,14 +54,17 @@ namespace Winery.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(string AddressCity, string AddressProvince, string Address1)
         {
-            if (Session["user"] == null)
+            var user = Session["user"] as User;
+            if (user == null)
                 return RedirectToAction("Index", "Access");
             if (ModelState.IsValid)
             {
+                
                 Address address = new Address();
                 address.AddressCity = AddressCity;
                 address.AddressProvince = AddressProvince;
                 address.Address1 = Address1;
+                address.UserID = db.User.Find(user.UserID).UserID;
                 db.Address.Add(address);
                 db.SaveChanges();
             }
@@ -86,16 +92,23 @@ namespace Winery.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AddressID,AddressCity,AddressProvince,Address1,UserID")] Address address)
+        public ActionResult Edit(string AddressCity, string AddressProvince, string Address1)
         {
+            if (Session["user"] == null)
+                return RedirectToAction("Index", "Access");
+            var user = Session["user"] as User;
+            var address = db.Address.Where(x => x.UserID == user.UserID).First();
+            
             if (ModelState.IsValid)
             {
+                address.AddressCity = AddressCity;
+                address.AddressProvince = AddressProvince;
+                address.Address1 = Address1;
                 db.Entry(address).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
-            ViewBag.UserID = new SelectList(db.User, "UserID", "Email", address.UserID);
-            return View(address);
+            
+            return RedirectToAction("Details", "User", new { id = user.UserID });
         }
 
         // GET: Address/Delete/5

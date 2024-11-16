@@ -1,67 +1,66 @@
 ﻿@model Winery.Models.Address
-
+@using Winery.Services;
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit Address";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<link rel="stylesheet" href="~/Content/user-details-style.css">
+<div class="page-wrapper">
+    <main class="page-content" id="maincontent">
+        <div class="sidebar sidebar-main">
+            @Html.Action("GetUserActions", "User", new { id = UserSessionService.CurrentUser.UserID })
+        </div>
+        <div class="board">
+            <div class="page-title-wrapper">
+                <h1 class="page-title" id="page-title-heading">
+                    EDIT ADDRESS
+                </h1>
+            </div>
+            <div class="account-block dashboard-info">
+                <div class="account-block-title">
+                    <strong>Address</strong>
+                </div>
+                <div class="account-block-content">
+                    <div class="account-box box-information">
+                        @using (Html.BeginForm("Edit", "Address", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <strong class="box-title">
+                                Address Information
+                            </strong>
+                            <div class="box-content">
+                                <div class="user-form-field AddressCity">
+                                    <label class="user-form-label" for="AddressCity">City</label>
+                                    <div class="user-form-control">
+                                        <input id="AddressCity" name="AddressCity" value="@Model.AddressCity" />
+                                    </div>
+                                </div>
+                                <div class="user-form-field AddressProvince">
+                                    <label class="user-form-label" for="AddressProvince">Province</label>
+                                    <div class="user-form-control">
+                                        <input id="AddressProvince" name="AddressProvince" value="@Model.AddressProvince" />
+                                    </div>
+                                </div>
+                                <div class="user-form-field Address1">
+                                    <label class="user-form-label" for="Address1">Address</label>
+                                    <div class="user-form-control">
+                                        <input id="Address1" name="Address1" value="@Model.Address1"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-actions">
 
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Address</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.AddressID)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.AddressCity, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.AddressCity, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AddressCity, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="box-actions-submit">
+                                <button type="submit" class="user-edit-save-button" value="Save">
+                                    SAVE ADDRESS
+                                </button>
+                            </div>
+                        }
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.AddressProvince, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.AddressProvince, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AddressProvince, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Address1, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Address1, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Address1, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UserID, "UserID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    </main>
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

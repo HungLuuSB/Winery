@@ -34,6 +34,7 @@ namespace Winery.Controllers
                 {
                     if (id == UserSessionService.CurrentUser.UserID)
                     {
+                        ViewData["Address"] = db.Address.FirstOrDefault(x => x.UserID == id);
                         User user = db.User.Find(id);
                         return View(user);
                     }

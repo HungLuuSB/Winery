@@ -18,7 +18,7 @@ namespace Winery.Controllers
         // GET: Order
         public ActionResult Index()
         {
-            var currentUser = UserSessionService.CurrentUser;
+            var currentUser = Session["user"] as User;
             if (currentUser == null)
                 return RedirectToAction("Index", "Access");
 
