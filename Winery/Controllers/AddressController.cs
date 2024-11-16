@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Winery.Models;
+using Winery.Services;
 
 namespace Winery.Controllers
 {
@@ -48,17 +49,20 @@ namespace Winery.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AddressID,AddressCity,AddressProvince,Address1,UserID")] Address address)
+        public ActionResult Create(string AddressCity, string AddressProvince, string Address1)
         {
+            if (Session["user"] == null)
+                return RedirectToAction("Index", "Access");
             if (ModelState.IsValid)
             {
+                Address address = new Address();
+                address.AddressCity = AddressCity;
+                address.AddressProvince = AddressProvince;
+                address.Address1 = Address1;
                 db.Address.Add(address);
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
-
-            ViewBag.UserID = new SelectList(db.User, "UserID", "Email", address.UserID);
-            return View(address);
+            return RedirectToAction("Details", "User", new { id = UserSessionService.CurrentUser.UserID });
         }
 
         // GET: Address/Edit/5
