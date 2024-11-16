@@ -68,57 +68,76 @@
             </div>
         </div>
     </div>
-    <div class="product-specs-container-title">
-        <h1>DETAILS</h1>
-    </div>
+    
     <div class="product-specs-container">
+        <div class="product-specs-container-title">
+            <h1>AT A GLANCE</h1>
+        </div>
         <div class="product-specs-list">
             <div class="product-spec">
-                <div class="product-spec-title">
-                    <h4>Brand</h4>
-                </div>
-                <div class="product-spec-content">
-                    <p>@Model.Brand.BrandName</p>
-                </div>
-            </div>
-            <div class="product-spec">
-                <div class="product-spec-title">
-                    <h4>Vintage</h4>
-                </div>
-                <div class="product-spec-content">
-                    <p>@Model.ProductYearAging</p>
+                <img src="~/Content/Images/icon/Brand.svg" />
+                <div class="product-spec-wrapper">
+                    <div class="product-spec-title">
+                        <p>Brand</p>
+                    </div>
+                    <div class="product-spec-content">
+                        <p>@Model.Brand.BrandName</p>
+                    </div>
                 </div>
             </div>
             <div class="product-spec">
-                <div class="product-spec-title">
-                    <h4>Origin</h4>
-                </div>
-                <div class="product-spec-content">
-                    <p>@Model.ProductOrigin</p>
-                </div>
-            </div>
-            <div class="product-spec">
-                <div class="product-spec-title">
-                    <h4>ABV</h4>
-                </div>
-                <div class="product-spec-content">
-                    <p>@(Model.ProductABV)%</p>
+                <img src="~/Content/Images/icon/Vintage.svg" />
+                <div class="product-spec-wrapper">
+                    <div class="product-spec-title">
+                        <p>Vintage</p>
+                    </div>
+                    <div class="product-spec-content">
+                        <p>@Model.ProductYearAging</p>
+                    </div>
                 </div>
             </div>
             <div class="product-spec">
-                <div class="product-spec-title">
-                    <h4>Bottle Size</h4>
-                </div>
-                <div class="product-spec-content">
-                    <p>@(Model.ProductCapacity)CL</p>
+                <img src="~/Content/Images/icon/Country.svg" />
+                <div class="product-spec-wrapper">
+                    <div class="product-spec-title">
+                        <p>Origin</p>
+                    </div>
+                    <div class="product-spec-content">
+                        <p>@Model.ProductOrigin</p>
+                    </div>
                 </div>
             </div>
             <div class="product-spec">
-                <div class="product-spec-title">
-                    <h4>Catergory</h4>
+                <img src="~/Content/Images/icon/Percentage-Alcohol.svg" />
+                <div class="product-spec-wrapper">
+                    <div class="product-spec-title">
+                        <p>% ABV</p>
+                    </div>
+                    <div class="product-spec-content">
+                        <p>@(Model.ProductABV)%</p>
+                    </div>
                 </div>
-                <div class="product-spec-content">
-                    <p>@Model.Category.CategoryName</p>
+            </div>
+            <div class="product-spec">
+                <img src="~/Content/Images/icon/Capacity.svg" />
+                <div class="product-spec-wrapper">
+                    <div class="product-spec-title">
+                        <p>Bottle Size</p>
+                    </div>
+                    <div class="product-spec-content">
+                        <p>@(Model.ProductCapacity)CL</p>
+                    </div>
+                </div>
+            </div>
+            <div class="product-spec">
+                <img src="~/Content/Images/icon/Style.svg" />
+                <div class="product-spec-wrapper">
+                    <div class="product-spec-title">
+                        <p>Category</p>
+                    </div>
+                    <div class="product-spec-content">
+                        <p>@Model.Category.CategoryName</p>
+                    </div>
                 </div>
             </div>
         </div>

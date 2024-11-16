@@ -169,21 +169,26 @@
 }
 .product-specs-container {
     width: 100%;
+    background-color: #6d6f59;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 .product-specs-container-title {
     text-align: center;
     color: white;
     font-size: 3rem;
-    background-color: #6d6f59;
+    
 }
 .product-specs-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     align-items: center;
     justify-items: center;
     gap: 25px;
     height: 100%;
     padding: 20px;
+    width: 100%;
+    justify-content: center;
 }
 @media only screen and (max-width: 960px) {
     .product-specs-list {
@@ -196,20 +201,33 @@
     }
 }
 .product-spec {
-    width: 200px;
+    display: flex;
+    width: 150px;
     text-align: center;
-    border: 1px solid black;
-    border-radius: 10px;
-    height: 100px;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    height: 50px;
 }
-.product-spec-title h4 {
-    padding: 0;
-    margin: 0;
+.product-spec img {
+    background-color: transparent;
+    border-radius: 50px;
+    object-fit: contain;
+    border: 3px solid white;
 }
+.product-spec-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 10px;
+    color: white;
+}
+.product-spec-title, 
+.product-spec-content {
+    height: 50%;
+}
+    .product-spec-title p {
+        padding: 0;
+        margin: 0;
+    }
 .product-spec-content p {
     font-weight: 900;
-    padding: 10px 0;
     margin: 0;
 }

@@ -239,6 +239,17 @@
     <Content Include="Content\Images\footer_img.jpg" />
     <Content Include="Content\Images\Home img.jpg" />
     <Content Include="Content\Images\HomeImg.png" />
+    <Content Include="Content\Images\icon\Brand.svg" />
+    <Content Include="Content\Images\icon\Capacity.svg" />
+    <Content Include="Content\Images\icon\Country.svg" />
+    <Content Include="Content\Images\icon\Fine.svg" />
+    <Content Include="Content\Images\icon\Grape-Variety.svg" />
+    <Content Include="Content\Images\icon\Percentage-Alcohol.svg" />
+    <Content Include="Content\Images\icon\Rare.svg" />
+    <Content Include="Content\Images\icon\Region.svg" />
+    <Content Include="Content\Images\icon\Style.svg" />
+    <Content Include="Content\Images\icon\Vintage.svg" />
+    <Content Include="Content\Images\icon\Wine-Colour.svg" />
     <Content Include="Content\Images\item_display_background_img.png" />
     <Content Include="Content\Images\item_display_background_img_2.png" />
     <Content Include="Content\Images\logo_huflit.png" />
