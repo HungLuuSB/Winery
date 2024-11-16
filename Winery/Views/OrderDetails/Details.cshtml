@@ -46,7 +46,7 @@
                                                     </span>
                                                 </a>
                                             </td>
-                                            <td class="order-details-col name" >
+                                            <td class="order-details-col name">
                                                 <a style="font-size: 1rem;" href="@Url.Action("Details", "Product", new { productName = item.Product.ProductName })" class="action">@item.Product.ProductName</a>
                                             </td>
                                             <td class="order-details-col price">
@@ -71,14 +71,49 @@
                                                 £@Model.First().Order.Total.ToString("F2")
                                             </td>
                                         }
-                                        
+
+                                    </tr>
+                                    <tr>
+                                        <td>Payment</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        @if (Model.Count() > 0)
+                                        {
+                                            <td>
+                                                <div class="qr-pay">
+                                                    <button class="qr-pay-button" onclick="generateQRPayImage()">
+                                                        QR PAY
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        }
+
                                     </tr>
                                 </tbody>
-
                             </table>
                         </div>
                         <div class="box-actions">
 
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="account-block dashboard-info" style="padding-top: 20px; display: none" id="payment">
+                <div class="account-block-title">
+                    <strong>PAYMENT</strong>
+                </div>
+                <div class="account-block-content">
+                    <div class="account-box box-information">
+                        <strong class="box-title">
+                            QR PAY
+                        </strong>
+                        <div class="box-content">
+                            <img class="qr-pay-image" id="qr-image" />
+                        </div>
+                        <div class="box-actions">
+                            
                         </div>
                     </div>
                 </div>
@@ -86,4 +121,15 @@
         </div>
     </main>
 </div>
+<script>
+    function generateQRPayImage() {
+        const payment = document.getElementById("payment");
+        const img = document.getElementById("qr-image");
+        var amount = @Model.First().Order.Total;
+        var addInfo = @Model.First().Order.OrderID;
+        var accountName = "WINERY INC";
+        img.src = "https://img.vietqr.io/image/VBA-7308205286441-compact2.png?amount=" + amount + "&addInfo=" + addInfo + "&accountName=" + accountName;
+        payment.style.display = "block";
+    }
+</script>
 

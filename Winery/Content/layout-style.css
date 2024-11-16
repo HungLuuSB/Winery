@@ -1,7 +1,6 @@
 ﻿
-
 .navbar-content {
-    position: absolute;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,17 +41,56 @@
 .bar {
     width: 35px;
     height: 5px;
-    background-color: black;
+    background-color: white;
     margin: 6px 0;
 }
 #nav-dropdown {
     display: none;
     justify-content: flex-start;
 }
-    
-
+#dropdown-menu {
+    position: absolute;
+    right: 0;
+    padding-right: 20px;
+    display: none;
+}
+.menu-dropdown {
+    position: absolute;
+    width: 40vw;
+    background-color: inherit;
+    right: -40vw;
+    top: 75px;
+    height: 100vh;
+    transition: right 0.5s ease;
+}
+.menu-items {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.menu-item {
+    width: 100%;
+    border-bottom: 1px solid white;
+    height: 100%;
+    min-height: 50px;
+    align-content: center;
+}
+    .menu-item a {
+        text-decoration: none;
+        color: white;
+        padding-left: 1rem;
+        vertical-align: middle;
+    }
+.menu-dropdown-button {
+    border: 0;
+    background-color: transparent;
+}
 .thumbnail-img {
     width: 100%;
+}
+.menu-dropdown.active {
+    display: block;
+    right: 0;
 }
 @media only screen and (max-width: 1500px) {
     .navbar-content {
@@ -68,6 +106,19 @@
         }
     #nav-dropdown {
         display: inline-block;
+    }
+    #dropdown-menu {
+        display: block;
+    }
+    
+    .search-items-container {
+        width: 100% !important;
+    }
+    .search-input {
+        width: calc(100% - 45px) !important;
+    }
+    .search-items-container form {
+        border: 0 !important;
     }
 }
 
@@ -118,6 +169,13 @@
     cursor: pointer;
 }
 
+.page {
+    transition: 0.3s ease;
+}
+.page.blur {
+    filter: blur(5px);
+    background-color: #00000039;
+}
 .footer-infomation-wrapper {
     display: flex;
     flex-direction: row;
@@ -137,7 +195,7 @@
         flex-direction: column;
         flex: 0 25%;
         height: 100%;
-        align-items: center;
+
         justify-content: center;
         
     }
@@ -146,42 +204,21 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
     max-width: 20%;
 }
 
-    .footer-infomation.the-company a,
-    .footer-infomation.the-company h4 {
+    .footer-infomation a,
+    .footer-infomation h4 {
         flex: 1;
         height: 100%;
         width: 100%;
         text-decoration: none;
         color: #c6c5b3;
     }
-
-    .footer-infomation.help-centre a,
-    .footer-infomation.help-centre h4 {
-        flex: 1;
-        height: 100%;
-        width: 100%;
+    .footer-infomation a:hover {
+        color: inherit;
     }
-
-    .footer-infomation.legal a,
-    .footer-infomation.legal h4 {
-        flex: 1;
-        height: 100%;
-        width: 100%;
-    }
-
-    .footer-infomation.the-company h4 {
-        font-weight: bold;
-    }
-
-    .footer-infomation.help-centre h4 {
-        font-weight: bold;
-    }
-
-    .footer-infomation.legal h4 {
+    .footer-infomation h4 {
         font-weight: bold;
     }
     .footer-infomation.logo img {
@@ -217,11 +254,14 @@
     opacity: 0.5;
     background-color: black;
 }
-
+.footer-newsletter img {
+    min-height: 500px;
+    object-fit: cover;
+}
 .newsletter-email-warpper {
     width: 100%;
     height: 50px;
-    background-color:white;
+    background-color: white;
 }
 
     .newsletter-email-warpper input {
@@ -279,8 +319,9 @@
     border: none;
     transition: 0.3s ease;
     display: inline-block;
-    width: 202px;
-    
+    width: calc(100% - 45px) !important;
+    max-width: unset;
+    transition: 0.3s ease;
 }
     .search-input:focus {
         outline: none;
@@ -308,4 +349,13 @@
     height: 45px;
     position: absolute;
     border: 0;
+    background-color: transparent;
 }
+.search-button i {
+    color: white;
+    transition: 0.3s ease;
+}
+
+    .search-button:hover i {
+        color: #8c5a43;
+    }

@@ -128,3 +128,53 @@
     
     color: inherit;
 }
+.qr-pay {
+    width: 200px;
+    height: 45px;
+    float: right;
+}
+.qr-pay-button {
+    width: 100%;
+    border: 0;
+    background-color: #8c5a43;
+    color: white;
+    transition: 0.3s ease;
+}
+    .qr-pay-button:hover {
+        background-color: #58594b;
+    }
+
+.qr-pay-image {
+    max-width: 350px;
+}
+
+/*EDIT FORM*/
+.user-form-label {
+    font-weight: 500;
+    font-size: 12px;
+}
+.user-form-control input {
+    height: 40px;
+    width: 100%;
+    max-width: unset;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    padding-left: 10px;
+}
+.user-form-control input:focus {
+    outline: none;
+}
+.box-actions-submit {
+    padding-top: 20px;
+}
+    .box-actions-submit button {
+        border: 0;
+        height: 45px;
+        width: 150px;
+        color: white;
+        background-color: #8c5a43;
+        transition: 0.3s ease;
+    }
+        .box-actions-submit button:hover {
+            background-color: #58594b;
+        }

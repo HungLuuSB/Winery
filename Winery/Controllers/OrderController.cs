@@ -18,7 +18,11 @@ namespace Winery.Controllers
         // GET: Order
         public ActionResult Index()
         {
-            var order = db.Order.ToList();
+            var currentUser = UserSessionService.CurrentUser;
+            if (currentUser == null)
+                return RedirectToAction("Index", "Access");
+
+            var order = db.Order.Where(x => x.UserID == currentUser.UserID).ToList();
             return View(order.ToList());
         }
 

@@ -92,9 +92,79 @@
             </div>
 
         </div>
+        <div class="nav-item-container" id="dropdown-menu">
+            <button class="menu-dropdown-button" id="menu-dropdown-button">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
 
+        </div>
+        <div class="menu-dropdown" id="side-menu">
+            <ul class="menu-items">
+                <li class="menu-item">
+                    <a href="@Url.Action("Index","Home")">
+                        <span>
+                            HOME
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="@Url.Action("Index","Product", new { style = 0 })">
+                        <span>
+                            SHOP
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="@Url.Action("About","Home")">
+                        <span>
+                            ABOUT US
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    @if (currentUser != null)
+                    {
+
+                        <a href="@Url.Action("Details", "User", new { id = currentUser.UserID })">
+                            <span>
+                                MY ACCOUNT
+                            </span>
+
+                        </a>
+
+
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Index", "Access")">
+                            <span>
+                                MY ACCOUNT
+                            </span>
+                        </a>
+                    }
+                </li>
+                <li class="menu-item">
+                    <a href="@Url.Action("ShowCart","ShoppingCart")">CART</a>
+                </li>
+                <li class="menu-item">
+                    <div class="search-items-container">
+                        @using (Html.BeginForm("Search", "Product", FormMethod.Get))
+                        {
+                            <input id="search" name="search" type="text" placeholder="Search..." value="" class="search-input" />
+                            <span>
+                                <button class="search-button" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        }
+                    </div>
+                </li>
+            </ul>
+        </div>
     </nav>
-    <div>
+    <div class="page" id="page">
         @{
             if (currentController == "Home")
             {
@@ -114,7 +184,7 @@
         }
 
         @RenderBody()
-        
+
         <footer class="footer">
             <div class="footer-wrapper">
                 <div class="footer-newsletter" style="position:relative; text-align: center; color: white;">
@@ -124,7 +194,7 @@
                         <h1>NEWSLETTER</h1>
                         <h6>Sign up for exclusive offers, masterclasses, launches and the latest news</h6>
                         <div class="newsletter-email-warpper">
-                            <input type="email"placeholder="Enter your email to get notifications"/>
+                            <input type="email" placeholder="Enter your email to get notifications" />
                             <button>
                                 Submit
                             </button>
@@ -149,7 +219,7 @@
                     </div>
                     <div class="footer-infomation help-centre">
                         <h4>HELP CENTRE</h4>
-                        <a>
+                        <a href="@Url.Action("Contact","Home")">
                             Contact Us
                         </a>
                         <a>
@@ -184,5 +254,21 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script>
+        const toggleButton = document.getElementById('menu-dropdown-button');
+        const sideMenu = document.getElementById('side-menu');
+        const header = document.getElementById('navbar-content-main');
+        const page = document.getElementById("page");
+
+        toggleButton.addEventListener('click', () => {
+            if (sideMenu.classList.contains('active')) {
+                sideMenu.classList.remove('active');
+                page.classList.remove('blur');
+            } else {
+                sideMenu.classList.add('active');
+                page.classList.add('blur');
+            }
+        });
+    </script>
 </body>
 </html>

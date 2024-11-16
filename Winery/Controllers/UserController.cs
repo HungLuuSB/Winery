@@ -101,15 +101,21 @@ namespace Winery.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserID,Username,Password,Email,FirstName,LastName,MiddleName,DateOfBirth,PhoneNumber")] User user)
+        public ActionResult Edit(string LastName, string MiddleName, string FirstName)
         {
+            if (Session["user"] == null)
+                return RedirectToAction("Index", "Access");
+            var user = db.User.Find(UserSessionService.CurrentUser.UserID);
             if (ModelState.IsValid)
             {
+                user.LastName = LastName;
+                user.FirstName = FirstName;
+                user.MiddleName = MiddleName;
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "User", new {id = user.UserID });
             }
-            return View(user);
+            return RedirectToAction("Details", "User", new { id = user.UserID });
         }
 
         // GET: User/Delete/5

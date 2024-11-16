@@ -53,7 +53,7 @@
                                                     <p>@(item.City), @(item.Province), @(item.Address)</p>
                                                 </td>
                                                 <td class="order-data">
-                                                    <p>@item.Total.ToString("F2")</p>
+                                                    <p>£@item.Total.ToString("F2")</p>
                                                 </td>
                                                 <td class="order-data">
                                                     <a class="action" href="@Url.Action("Details", "OrderDetails", new { id = item.OrderID })">Details</a>

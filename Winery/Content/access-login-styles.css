@@ -70,3 +70,21 @@
 .action:hover button {
     background-color: #58594b;
 }
+@media only screen and (max-width: 800px) {
+    .main-content {
+        flex-direction: column;
+    }
+    .main-content form {
+        width: 100%;
+    }
+    .block-title,
+    .control,
+    .option,
+    .action{
+        text-align: center;
+    }
+    .control label {
+        display: none;
+        
+    }
+}
