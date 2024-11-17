@@ -126,15 +126,12 @@
                 <li class="menu-item">
                     @if (currentUser != null)
                     {
-
                         <a href="@Url.Action("Details", "User", new { id = currentUser.UserID })">
                             <span>
                                 MY ACCOUNT
                             </span>
 
                         </a>
-
-
                     }
                     else
                     {
