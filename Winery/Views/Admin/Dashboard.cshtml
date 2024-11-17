@@ -198,10 +198,10 @@
                                                 <td class="table-list-col sale-price">
                                                     @if (item.ProductOnSale)
                                                     {
-                                                        <span>£@item.ProductSalePrice.Value.ToString("F2")</span>
+                                                        <span>£@item.ProductSalePrice.Value.ToString("N2")</span>
                                                     }
                                                 </td>
-                                                <td class="table-list-col price">£@item.ProductPrice.ToString("F2")</td>
+                                                <td class="table-list-col price">£@item.ProductPrice.ToString("N2")</td>
                                                 <td class="table-list-col origin">@item.ProductOrigin</td>
                                                 <td class="table-list-col capacity">@(item.ProductCapacity)CL</td>
                                                 <td class="table-list-col abv">@(item.ProductABV)%</td>

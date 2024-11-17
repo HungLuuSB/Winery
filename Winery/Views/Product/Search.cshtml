@@ -87,11 +87,11 @@
                                                         @{
                                                             if (ProductUtilityService.IsProductOnSale(item))
                                                             {
-                                                                <span>£@(item.ProductSalePrice.Value.ToString("F2"))</span>
+                                                                <span>£@(item.ProductSalePrice.Value.ToString("N2"))</span>
                                                             }
                                                             else
                                                             {
-                                                                <span>£@item.ProductPrice.ToString("F2")</span>
+                                                                <span>£@item.ProductPrice.ToString("N2")</span>
                                                             }
                                                         }
 

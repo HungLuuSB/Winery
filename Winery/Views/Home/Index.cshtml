@@ -155,8 +155,8 @@
                                 </a>
                                 <div class="item-attribute">@(item.ProductCapacity)CL / @(item.ProductABV)% ABV</div>
                                 <div class="item-price">
-                                    <div class="item-origin-price">£@item.ProductPrice.ToString("F2")</div>
-                                    <div class="item-sale-price">£@item.ProductSalePrice.Value.ToString("F2")</div>
+                                    <div class="item-origin-price">£@item.ProductPrice.ToString("N2")</div>
+                                    <div class="item-sale-price">£@item.ProductSalePrice.Value.ToString("N2")</div>
                                 </div>
                             </div>
                             <div class="item-button">
@@ -212,7 +212,7 @@
                             </div>
                             <div class="product-content-display-properties product-price">
                                 <p class="product-content-header-properties-category product-price">Price</p>
-                                <p class="product-content-display-properties-category product-price">£@mainProduct.ProductPrice.ToString("F2")</p>
+                                <p class="product-content-display-properties-category product-price">£@mainProduct.ProductPrice.ToString("N2")</p>
                             </div>
                         </div>
                     </div>
@@ -248,7 +248,7 @@
 
                                                 </div>
                                                 <div class="product-card-content-display-properties product-price">
-                                                    <p>£@item.ProductPrice.ToString("F2")</p>
+                                                    <p>£@item.ProductPrice.ToString("N2")</p>
                                                 </div>
                                             </div>
                                         </div>

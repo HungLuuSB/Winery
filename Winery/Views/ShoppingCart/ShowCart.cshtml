@@ -107,7 +107,7 @@
                                 @(Model.Items.Count()) ITEM(S) IN CART
                             </div>
                             <div class="order-total">
-                                £@(Model.TotalMoney().ToString("F2"))
+                                £@(Model.TotalMoney().ToString("N2"))
                             </div>
                         </div>
                         
@@ -132,11 +132,11 @@
                                                     @{
                                                         if (ProductUtilityService.IsProductOnSale(item.Product))
                                                         {
-                                                            <span>£@(item.Product.ProductSalePrice.Value.ToString("F2"))</span>
+                                                            <span>£@(item.Product.ProductSalePrice.Value.ToString("N2"))</span>
                                                         }
                                                         else
                                                         {
-                                                            <span>£@item.Product.ProductPrice.ToString("F2")</span>
+                                                            <span>£@item.Product.ProductPrice.ToString("N2")</span>
 
                                                         }
                                                     }
