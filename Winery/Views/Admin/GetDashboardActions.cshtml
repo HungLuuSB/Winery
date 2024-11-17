@@ -1,0 +1,19 @@
+﻿@using Winery.Models;
+@{ 
+    var currentUser = Session["user"] as User;
+}
+<div class="siderbar-content-wrapper">
+    <div class="sidebar-content">
+        <ul class="sidebar-list">
+            <li class="sidebar-item">
+                <a href="@Url.Action("Details", "User", new { id = currentUser.UserID })">My Account</a>
+            </li>
+            <li class="sidebar-item">
+                <a href="@Url.Action("Index", "Order", new { id = currentUser.UserID })">My Orders</a>
+            </li>
+            <li class="sidebar-item">
+                <a href="@Url.Action("Logout", "Login")">Logout</a>
+            </li>
+        </ul>
+    </div>
+</div>

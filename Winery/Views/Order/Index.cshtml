@@ -1,15 +1,17 @@
 ﻿@model IEnumerable<Winery.Models.Order>
+@using Winery.Models;
 @using Winery.Services;
 @{
     ViewBag.Title = "My Orders";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var currentUser = Session["user"] as User;
 }
 
 <link rel="stylesheet" href="~/Content/user-details-style.css">
 <div class="page-wrapper">
     <main class="page-content" id="maincontent">
         <div class="sidebar sidebar-main">
-            @Html.Action("GetUserActions", "User", new { id = UserSessionService.CurrentUser.UserID })
+            @Html.Action("GetUserActions", "User", new { id = currentUser.UserID })
         </div>
         <div class="board">
             <div class="page-title-wrapper">

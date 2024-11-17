@@ -5,7 +5,8 @@
 @{
     ViewBag.Title = "ShowCart";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var currentUser = UserSessionService.CurrentUser;
+    var currentUser = Session["user"] as User;
+    var currentAddress = ViewData["Address"] as Address;
 }
 <link rel="stylesheet" href="~/Content/checkout-cart-style.css"/>
 <div class="page-wrapper">
@@ -49,16 +50,33 @@
                         </div>
                     </div>
                     <div class="div_address">
-                        <label><span class="font_normal">Address</span></label>
-                        <div>
-                            <input class="input_address" type="text" name="City" placeholder="City, Country">
-                        </div>
-                        <div>
-                            <input class="input_address" type="text" name="Province" placeholder="Province">
-                        </div>
-                        <div>
-                            <input class="input_address" type="text" name="Address" placeholder="Number Houses, Road">
-                        </div>
+                        @if (currentAddress == null)
+                        {
+                            <label><span class="font_normal">Address</span></label>
+                            <div>
+                                <input class="input_address" type="text" name="City" placeholder="City, Country">
+                            </div>
+                            <div>
+                                <input class="input_address" type="text" name="Province" placeholder="Province">
+                            </div>
+                            <div>
+                                <input class="input_address" type="text" name="Address" placeholder="Number Houses, Road">
+                            </div>
+                        }
+                        else
+                        {
+                            <label><span class="font_normal">Address</span></label>
+                            <div>
+                                <input class="input_address" type="text" name="City" placeholder="City, Country" value="@currentAddress.AddressCity">
+                            </div>
+                            <div>
+                                <input class="input_address" type="text" name="Province" placeholder="Province" value="@currentAddress.AddressProvince">
+                            </div>
+                            <div>
+                                <input class="input_address" type="text" name="Address" placeholder="Number Houses, Road" value="@currentAddress.Address1">
+                            </div>
+                        }
+
                     </div>
                     <div class="div_phonenumber">
                         <label><span class="font_normal">Phone Number</span></label>

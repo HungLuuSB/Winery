@@ -25,9 +25,7 @@ namespace Winery.Services
 
         public static void Logout()
         {
-            if (_currentUser != null) {
-                _currentUser = null;
-            }
+            _currentUser = null;
         }
     }
 }

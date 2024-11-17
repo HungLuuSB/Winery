@@ -50,5 +50,37 @@ namespace Winery.Services
         {
             return db.Product.Where(x => x.ProductOnSale == true).ToList();
         }
+        public static int GetProductPurchased(int id)
+        {
+            int count = 0;
+            var product = db.Product.Where(x => x.ProductID == id).FirstOrDefault();
+            if (product == null)
+                return 0;
+            var orders = db.Order.ToList();
+            foreach (var order in orders)
+            {
+                var orderDetails = db.OrderDetails.Where(x => x.OrderID == order.OrderID).ToList();
+                foreach (var item in orderDetails)
+                {
+                    if (item.ProductID == id)
+                        count += item.Quantity;
+                }
+            }
+            return count;
+        }
+        public static int GetAllProductPurchased()
+        {
+            int count = 0;
+            var orders = db.Order.ToList();
+            foreach (var order in orders)
+            {
+                var orderDetails = db.OrderDetails.Where(x => x.OrderID == order.OrderID).ToList();
+                foreach (var item in orderDetails)
+                {
+                    count += item.Quantity;
+                }
+            }
+            return count;
+        }
     }
 }

@@ -75,6 +75,12 @@ namespace Winery.Controllers
             if (ModelState.IsValid)
             {
                 db.User.Add(user);
+
+                db.SaveChanges();
+                UserPermission permission = new UserPermission();
+                permission.UserId = user.UserID;
+                permission.PermissionId = 3;
+                db.UserPermission.Add(permission);
                 db.SaveChanges();
                 return RedirectToAction("Index", "Access");
             }

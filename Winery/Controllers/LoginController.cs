@@ -31,8 +31,8 @@ namespace Winery.Controllers
             if (UserSessionService.CurrentUser != null)
             {
                 UserSessionService.CurrentUser = null;
-                Session["user"] = null;
             }
+            Session["user"] = null;
             return RedirectToAction("Index", "Home");
         }
 

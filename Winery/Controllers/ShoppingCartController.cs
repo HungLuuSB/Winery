@@ -31,8 +31,10 @@ namespace Winery.Controllers
                 Session["Cart"] = _cartTemp;
             }
             Cart _cart = Session["Cart"] as Cart;
-            if (!UserSessionService.IsUserLoggedIn())
+            var currentUser = Session["user"] as User;
+            if (currentUser == null)
                 return RedirectToAction("Index", "Access", new {});
+            ViewData["Address"] = db.Address.FirstOrDefault(x => x.UserID == currentUser.UserID);
             return View(_cart);
         }
         public ActionResult AddToCart(int id, int quantity = 1)

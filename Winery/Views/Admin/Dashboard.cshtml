@@ -1,0 +1,230 @@
+﻿@using Winery.Models;
+@using Winery.Services;
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var currentUser = Session["user"] as User;
+    var registeredUsers = ViewData["registeredUsers"] as IEnumerable<User>;
+    var products = ViewData["products"] as IEnumerable<Product>;
+    var brands = ViewData["brands"] as IEnumerable<Brand>;
+    var orders = ViewData["orders"] as IEnumerable<Order>;
+}
+@functions{
+
+}
+
+<link rel="stylesheet" href="~/Content/admin-dashboard-styles.css">
+<div class="page-wrapper">
+    <main class="page-content" id="maincontent">
+        <div class="sidebar sidebar-main">
+            @Html.Action("GetUserActions", "User", new { id = currentUser.UserID })
+        </div>
+        <div class="board">
+            <div class="page-title-wrapper">
+                <h1 class="page-title" id="page-title-heading">
+                    DASHBOARD
+                </h1>
+            </div>
+            <div class="block dashboard-customer">
+                <div class="block-title">
+                    <strong>CUSTOMERS</strong>
+                </div>
+                <div class="block-content">
+                    <div class="box box-information">
+                        <strong class="box-title">
+                            Customers Analysis
+                        </strong>
+                        <div class="box-content">
+                            <p>
+                                Total registered users: @registeredUsers.Count() <br />
+                            </p>
+                            <div class="list-block">
+                                <table class="table-list">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>First name</th>
+                                            <th>Middle name</th>
+                                            <th>Last name</th>
+                                            <th>Email</th>
+                                            <th>Address</th>
+                                            <th>Orders</th>
+                                            <th>Role</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in registeredUsers)
+                                        {
+                                            <tr>
+                                                <td class="table-list-col user-id">@item.UserID</td>
+                                                <td class="table-list-col firstname">@item.FirstName</td>
+                                                <td class="table-list-col middlename">@item.MiddleName</td>
+                                                <td class="table-list-col lastname">@item.LastName</td>
+                                                <td class="table-list-col email">@item.Email</td>
+                                                <td class="table-list-col address">
+                                                    @if (item.Address.Count == 0)
+                                                    {
+                                                        <span>No</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span>Yes</span>
+                                                    }
+                                                </td>
+                                                <td class="table-list-col orders">@OrderService.GetOrdersFromUser(item.UserID).Count</td>
+                                                <td class="table-list-col role">
+                                                    @if (item.UserPermission.Count > 0)
+                                                    {
+                                                        <span>@item.UserPermission.First().Permission.PermissionName</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span>Undefined</span>
+                                                    }
+                                                </td>
+                                                <td class="table-list-col action">
+                                                    <a class="action" href="@Url.Action("Edit", "User", new { id = item.UserID })">Edit</a>
+                                                    <a class="action" href="@Url.Action("Delete", "User", new { id = item.UserID })">Delete</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="box-actions">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block dashboard-brand">
+                <div class="block-title">
+                    <strong>BRANDS</strong>
+                </div>
+                <div class="block-content">
+                    <div class="box box-information">
+                        <strong class="box-title">
+                            List of brands
+                        </strong>
+                        <div class="box-content">
+                            <p>
+                                Total brands: @brands.Count() <br />
+                            </p>
+                            <div class="list-block">
+                                <table class="table-list">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Category</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in brands)
+                                        {
+                                            <tr>
+                                                <td class="table-list-col id">@item.BrandId</td>
+                                                <td class="table-list-col capacity">@item.BrandName</td>
+                                                <td class="table-list-col abv">@item.Category.First().CategoryName</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="box-actions">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="block dashboard-product">
+                <div class="block-title">
+                    <strong>PRODUCTS</strong>
+                </div>
+                <div class="block-content">
+                    <div class="box box-information">
+                        <strong class="box-title">
+                            Products Analysis
+                        </strong>
+                        <div class="box-content">
+                            <p>
+                                <strong>Total products:</strong> @products.Count() <br />
+                                <strong>Total purchases:</strong> @ProductUtilityService.GetAllProductPurchased() <br />
+                                <strong>Profit:</strong> <br />
+                            </p>
+                            <div class="list-block">
+                                <table class="table-list">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Item</th>
+                                            <th></th>
+                                            <th>Brand</th>
+                                            <th>Category</th>
+                                            <th>OnSale</th>
+                                            <th>SalePrice</th>
+                                            <th>Price</th>
+                                            <th>Origin</th>
+                                            <th>Capacity</th>
+                                            <th>ABV</th>
+                                            <th>Aging</th>
+                                            <th>Purchased</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in products)
+                                        {
+                                            <tr>
+                                                <td class="table-list-col id">@item.ProductID</td>
+                                                <td class="table-list-col item">
+                                                    <a>
+                                                        <span class="product-thumbnail">
+                                                            <img src="~/Content/Images/wine/@ProductUtilityService.ParseItemNameIntoPNGFileName(item.ProductName)" />
+                                                        </span>
+                                                    </a>
+                                                </td>
+                                                <td class="table-list-col name">@item.ProductName</td>
+                                                <td class="table-list-col brand">@item.Brand.BrandName</td>
+                                                <td class="table-list-col brand">@item.Category.CategoryName</td>
+                                                <td class="table-list-col on-sale">@item.ProductOnSale</td>
+                                                <td class="table-list-col sale-price">
+                                                    @if (item.ProductOnSale)
+                                                    {
+                                                        <span>£@item.ProductSalePrice.Value.ToString("F2")</span>
+                                                    }
+                                                </td>
+                                                <td class="table-list-col price">£@item.ProductPrice.ToString("F2")</td>
+                                                <td class="table-list-col origin">@item.ProductOrigin</td>
+                                                <td class="table-list-col capacity">@(item.ProductCapacity)CL</td>
+                                                <td class="table-list-col abv">@(item.ProductABV)%</td>
+                                                <td class="table-list-col origin">@item.ProductYearAging</td>
+                                                <td class="table-list-col abv">@ProductUtilityService.GetProductPurchased(item.ProductID)</td>
+                                                <td class="table-list-col actions">
+                                                    <a class="action" href="@Url.Action("Edit", "Product", new { id = item.ProductID })">Edit</a>
+                                                    <a class="action" href="@Url.Action("Delete", "Product", new { id = item.ProductID })">Delete</a>
+                                                </td>
+
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="box-actions">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
