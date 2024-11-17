@@ -77,6 +77,9 @@ namespace Winery.Controllers
 
         public void CreateOrderDetails(int orderID, CartItem item)
         {
+            var inventory = db.Inventory.Where(x => x.ProductID == item.Product.ProductID).First();
+            inventory.Quantity -= item.Quantity;
+            db.Entry(inventory).State = EntityState.Modified;
             OrderDetails orderDetails = new OrderDetails();
             orderDetails.OrderID = orderID;
             orderDetails.ProductID = item.Product.ProductID;

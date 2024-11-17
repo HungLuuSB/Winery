@@ -29,6 +29,7 @@ namespace Winery.Controllers
                 new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             ViewData["registeredUsers"] = db.User.Include(p => p.UserPermission).ToList();
             ViewData["products"] = db.Product.Include(p => p.Category)
+                                             .Include(p => p.Inventory)
                                              .Include(p => p.Brand).ToList();
             ViewData["brands"] = db.Brand.Include(p => p.Product)
                                          .Include(p => p.Category).ToList();

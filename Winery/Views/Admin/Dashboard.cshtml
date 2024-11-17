@@ -120,6 +120,7 @@
                                             <th>ID</th>
                                             <th>Name</th>
                                             <th>Category</th>
+                                            <th>Products</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -127,8 +128,9 @@
                                         {
                                             <tr>
                                                 <td class="table-list-col id">@item.BrandId</td>
-                                                <td class="table-list-col capacity">@item.BrandName</td>
-                                                <td class="table-list-col abv">@item.Category.First().CategoryName</td>
+                                                <td class="table-list-col brand-name">@item.BrandName</td>
+                                                <td class="table-list-col brand-category">@item.Category.First().CategoryName</td>
+                                                <td class="table-list-col brand-products">@item.Product.Count</td>
                                             </tr>
                                         }
                                     </tbody>
@@ -166,6 +168,7 @@
                                             <th>ID</th>
                                             <th>Item</th>
                                             <th></th>
+                                            <th>Stock</th>
                                             <th>Brand</th>
                                             <th>Category</th>
                                             <th>OnSale</th>
@@ -192,6 +195,7 @@
                                                     </a>
                                                 </td>
                                                 <td class="table-list-col name">@item.ProductName</td>
+                                                <td class="table-list-col stock">@item.Inventory.Quantity</td>
                                                 <td class="table-list-col brand">@item.Brand.BrandName</td>
                                                 <td class="table-list-col brand">@item.Category.CategoryName</td>
                                                 <td class="table-list-col on-sale">@item.ProductOnSale</td>
