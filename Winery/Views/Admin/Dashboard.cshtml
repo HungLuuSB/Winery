@@ -157,7 +157,7 @@
                             <p>
                                 <strong>Total products:</strong> @products.Count() <br />
                                 <strong>Total purchases:</strong> @ProductUtilityService.GetAllProductPurchased() <br />
-                                <strong>Profit:</strong> <br />
+                                <strong>Profit:</strong> £@(OrderService.GetProfit().ToString("N2")) <br />
                             </p>
                             <div class="list-block">
                                 <table class="table-list">
@@ -211,9 +211,8 @@
                                                     <a class="action" href="@Url.Action("Edit", "Product", new { id = item.ProductID })">Edit</a>
                                                     <a class="action" href="@Url.Action("Delete", "Product", new { id = item.ProductID })">Delete</a>
                                                 </td>
-
                                             </tr>
-                                        }
+                                         }
                                     </tbody>
                                 </table>
                             </div>

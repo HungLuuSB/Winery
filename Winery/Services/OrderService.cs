@@ -19,5 +19,19 @@ namespace Winery.Services
         {
             return db.Order.Where(x => x.UserID == id).ToList();
         }
+        public static double GetProfit()
+        {
+            double sum = 0;
+            var orders = db.Order.ToList();
+            foreach (var order in orders)
+            {
+                var orderDetails = db.OrderDetails.Where(x => x.OrderID == order.OrderID).ToList();
+                foreach (var item in orderDetails)
+                {
+                    sum += item.Quantity * item.UnitPrice;
+                }
+            }
+            return sum;
+        }
     }
 }
