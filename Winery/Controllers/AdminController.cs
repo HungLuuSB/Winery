@@ -18,11 +18,13 @@ namespace Winery.Controllers
         // GET: Admin
         public ActionResult Index()
         {
+            
             return View();
         }
 
         public ActionResult Dashboard()
         {
+            ViewBag.Message = Server.MapPath("~/Content/images/wine/");
             var currentUser = Session["user"] as User;
             if (currentUser == null)
                 return RedirectToAction("Index", "Action");
@@ -77,8 +79,9 @@ namespace Winery.Controllers
                     var fileName = ProductUtilityService.ParseItemNameIntoPNGFileName(ProductName);
                     var filePath = Path.Combine(Server.MapPath("~/Content/images/wine/"), fileName);
                     ProductImage.SaveAs(filePath);
+                    ViewBag.Message = filePath;
                 }
-
+                
                 return RedirectToAction("Dashboard", "Admin");
             }
             catch (Exception ex)
@@ -135,6 +138,28 @@ namespace Winery.Controllers
                 db.Entry(inventory).State = EntityState.Modified;
                 db.SaveChanges();
             }
+            return RedirectToAction("Dashboard", "Admin");
+        }
+
+        public ActionResult CreateBrand()
+        {
+            ViewData["Categories"] = db.Category.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateBrand(string BrandName, int BrandCategoryID)
+        {
+            var brand = new Brand();
+            brand.BrandName = BrandName;
+            brand.Category = db.Category.Where(x => x.CategoryID == BrandCategoryID).ToList();
+
+            if (ModelState.IsValid)
+            {
+                db.Brand.Add(brand);
+                db.SaveChanges();
+            }
+
             return RedirectToAction("Dashboard", "Admin");
         }
     }

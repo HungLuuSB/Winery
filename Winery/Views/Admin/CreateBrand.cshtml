@@ -1,0 +1,92 @@
+﻿@model Winery.Models.Brand
+@using Winery.Models
+@{
+    ViewBag.Title = "Create New Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var currentUser = Session["user"] as User;
+    var categories = ViewData["Categories"] as IEnumerable<Category>;
+}
+
+@functions{
+
+}
+
+<link rel="stylesheet" href="~/Content/admin-dashboard-styles.css">
+<div class="page-wrapper">
+    <main class="page-content" id="maincontent">
+        <div class="sidebar sidebar-main">
+            @Html.Action("GetUserActions", "User", new { id = currentUser.UserID })
+        </div>
+        <div class="board">
+            <div class="page-title-wrapper">
+                <h1 class="page-title" id="page-title-heading">
+                    CREATE NEW BRAND
+                </h1>
+            </div>
+            <div class="block dashboard-info">
+                <div class="block-title">
+                    <strong>Brand</strong>
+                    <span class="block-subtitle">This will create a new brand</span>
+                </div>
+                <div class="block-content">
+                    <div class="box box-information">
+                        @using (Html.BeginForm("CreateBrand", "Admin", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <strong class="box-title">
+                                Brand Information
+
+                            </strong>
+                            <div class="box-content">
+                                <div class="user-form-field BrandName">
+                                    <label class="user-form-label" for="BrandName">Name</label>
+                                    <div class="user-form-control">
+                                        <input id="BrandName" name="BrandName" value />
+                                    </div>
+                                </div>
+                                <div class="user-form-field BrandCategoryID">
+                                    <label class="user-form-label" for="BrandCategoryID">Category</label>
+                                    <div class="user-form-control">
+                                        <select id="BrandCategoryID" name="BrandCategoryID">
+                                            @foreach (var category in categories)
+                                            {
+                                                <option value="@category.CategoryID">@category.CategoryName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-actions">
+
+                            </div>
+                            <div class="box-actions-submit">
+                                <button type="submit" class="user-edit-save-button" value="Create">
+                                    CREATE
+                                </button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script>
+    const imageInput = document.getElementById('ProductImage');
+    const previewDiv = document.getElementById('user-form-image-preview');
+    const previewImg = document.getElementById('image-preview');
+
+    imageInput.addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+
+                previewImg.src = e.target.result;
+                previewImg.style.display = 'block';
+                previewDiv.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>

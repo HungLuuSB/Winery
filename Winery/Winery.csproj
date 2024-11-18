@@ -266,6 +266,7 @@
     <Content Include="Content\Images\shop-category\white-wines.jpg" />
     <Content Include="Content\Images\title_thumbnail.png" />
     <Content Include="Content\Images\winery-footer-img.png" />
+    <Content Include="Content\Images\wine\anhydrous_icon_assyrtiko_2020.png" />
     <Content Include="Content\Images\wine\argüeso_1822_amontillado.png" />
     <Content Include="Content\Images\wine\argüeso_manzanilla_san_león.png" />
     <Content Include="Content\Images\wine\armand_de_brignac_ace_of_spades_brut_gold_magnum.png" />
@@ -292,6 +293,7 @@
     <Content Include="Content\Images\wine\louis_roederer_cristal_vinothèque_rosé_2000.png" />
     <Content Include="Content\Images\wine\nyetimber_classic_cuvee_2010_magnum.png" />
     <Content Include="Content\Images\wine\ochoa_calendas_tinto.png" />
+    <Content Include="Content\Images\wine\ochoa_tempranillo_crianza.png" />
     <Content Include="Content\Images\wine\opus_one_2014.png" />
     <Content Include="Content\Images\wine\roger_belland_puligny-montrachet_1er_cru_les_champs_gains.png" />
     <Content Include="Content\Images\wine\roger_belland_croits_batard_montrachet_grand_cru.png" />
@@ -401,6 +403,7 @@
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Admin\CreateProduct.cshtml" />
     <Content Include="Views\Admin\EditProduct.cshtml" />
+    <Content Include="Views\Admin\CreateBrand.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Register\" />

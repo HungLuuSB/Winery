@@ -112,7 +112,10 @@
                                 <div class="user-form-field ProductImage">
                                     <label class="user-form-label" for="ProductImage">Image</label>
                                     <div class="user-form-control">
-                                        <input type="file" id="ProductImage" name="ProductImage" value />
+                                        <input type="file" id="ProductImage" name="ProductImage" accept="image/*" formenctype="multipart/form-data" />
+                                        <div class="user-form-image-preview" id="user-form-image-preview">
+                                            <img class="preview-image" id="image-preview" alt="Uploaded Image"/>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -132,4 +135,21 @@
     </main>
 </div>
 <script>
+    const imageInput = document.getElementById('ProductImage');
+    const previewDiv = document.getElementById('user-form-image-preview');
+    const previewImg = document.getElementById('image-preview');
+
+    imageInput.addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+
+                previewImg.src = e.target.result;
+                previewImg.style.display = 'block';
+                previewDiv.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+    });
 </script>

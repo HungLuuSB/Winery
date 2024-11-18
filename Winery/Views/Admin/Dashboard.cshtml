@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Dashboard";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var message = ViewBag.Message as string;
     var currentUser = Session["user"] as User;
     var registeredUsers = ViewData["registeredUsers"] as IEnumerable<User>;
     var products = ViewData["products"] as IEnumerable<Product>;
@@ -138,7 +139,7 @@
                             </div>
                         </div>
                         <div class="box-actions">
-
+                            <a class="action" href="@Url.Action("CreateBrand", "Admin")">Create</a>
                         </div>
                     </div>
                 </div>
