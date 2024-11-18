@@ -9,9 +9,8 @@ namespace Winery.Services
     public static class PermissionService
     {
         private static WineryEntities2 db = new WineryEntities2();
-        private static User _currentUser = UserSessionService.CurrentUser;
 
-        public static bool UserHasPermission(int permissionID)
+        public static bool UserHasPermission(User _currentUser, int permissionID)
         {
             if (UserSessionService.IsUserLoggedIn() == false)
                 return false;
@@ -26,7 +25,7 @@ namespace Winery.Services
                 return false;
             return true;
         }
-        public static bool UserHasPermission(string permissionName)
+        public static bool UserHasPermission(User _currentUser, string permissionName)
         {
             if (UserSessionService.IsUserLoggedIn() == false)
                 return false;

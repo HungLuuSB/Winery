@@ -14,7 +14,7 @@ namespace Winery.Controllers
         // GET: Access
         public ActionResult Index()
         {
-            if (UserSessionService.CurrentUser == null)
+            if (Session["user"] == null)
             {
                 return View();
             }
@@ -25,7 +25,7 @@ namespace Winery.Controllers
         }
         public ActionResult Register()
         {
-            if (UserSessionService.IsUserLoggedIn() == false)
+            if (Session["user"] == null)
             {
                 return View();
             }

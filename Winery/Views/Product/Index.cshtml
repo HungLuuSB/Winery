@@ -12,6 +12,12 @@
         ViewBag.Title = $"World of Wines | Winery";
     }
     Layout = "~/Views/Shared/_Layout.cshtml";
+    IEnumerable<Product> listBrandIDs = null;
+    if (Model != null)
+    {
+        listBrandIDs = Model.DistinctBy(x => x.Brand);
+    }
+
 }
 <link href="~/Content/product-index-styles.css" rel="stylesheet" type="text/css">
 <link href="~/Content/home-index-styles.css" rel="stylesheet" >
@@ -173,12 +179,29 @@
             <div class="content">
                 <div class="content-wrapper">
                     <div class="content-section left">
-                        <div class="filter-box">
-                            <div class="field title">
-                                <h5>TITLE</h5>
-                            </div>
-                            <div class="field values">
-                                <h6>VALUES</h6>
+                        <div class="filterList">
+                            <div class="filter filterBrand" id="filterBrand">
+                                <div class="filterLabel" onclick="toggleFilterOptions(this)">
+                                    Brand
+                                </div>
+                                <div class="filterOptions">
+
+                                    @{
+                                        if (listBrandIDs != null)
+                                        {
+                                            foreach (var option in listBrandIDs)
+                                            {
+                                                <div class="filterOption">
+
+                                                    <label for="BrandID@(option.Brand.BrandId)">
+                                                        <input type="checkbox" name="filteredProfessor" class="filter-checkbox" data-filter="professor" id="ProfessorName@(option.Brand.BrandId)" value="@option.Brand.BrandId" />
+                                                        @option.Brand.BrandName
+                                                    </label>
+                                                </div>
+                                            }
+                                        }
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -272,3 +295,9 @@
     
 </div>
 
+<script>
+    function toggleFilterOptions(labelElement) {
+        const options = labelElement.nextElementSibling; 
+        options.classList.toggle('active');
+    }
+</script>

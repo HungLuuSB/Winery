@@ -23,7 +23,7 @@ namespace Winery.Controllers
         }
         // GET: Product
         [HttpGet]
-        public ActionResult Index(int? style, string SortOption)
+        public ActionResult Index(int? style, string SortOption, List<string> filteredBrandID)
         {
             IQueryable<Product> product;
             string option;

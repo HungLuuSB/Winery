@@ -195,6 +195,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BrandService.cs" />
+    <Compile Include="Services\LinqExtensions.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\CategoryUtilityService.cs" />
     <Compile Include="Services\PermissionService.cs" />
@@ -267,13 +268,16 @@
     <Content Include="Content\Images\winery-footer-img.png" />
     <Content Include="Content\Images\wine\argüeso_1822_amontillado.png" />
     <Content Include="Content\Images\wine\argüeso_manzanilla_san_león.png" />
+    <Content Include="Content\Images\wine\armand_de_brignac_ace_of_spades_brut_gold_magnum.png" />
     <Content Include="Content\Images\wine\artemis_karamolegos_mystirio.png" />
     <Content Include="Content\Images\wine\avantis_estate_falcon%27s_hill_rosé.png" />
+    <Content Include="Content\Images\wine\cálem_40yr_tawny_port.png" />
     <Content Include="Content\Images\wine\cálem_colheita_1961.png" />
     <Content Include="Content\Images\wine\château_de_chausse_côtes_de_provence_rosé.png" />
     <Content Include="Content\Images\wine\château_de_chausse_côtes_de_provence_rosé_magnum.png" />
     <Content Include="Content\Images\wine\château_de_beaucastel_roussanne_vieilles_vignes_châteauneuf-du-pape_blanc_2015.png" />
     <Content Include="Content\Images\wine\chateau_musar.png" />
+    <Content Include="Content\Images\wine\cálem_port_decanter_gift_pack.png" />
     <Content Include="Content\Images\wine\dom_pérignon_2005_jeroboam_champagne.png" />
     <Content Include="Content\Images\wine\dom_ruinart_rosé_2007.png" />
     <Content Include="Content\Images\wine\dugladze_qvevri_kisi_2020.png" />
@@ -284,6 +288,7 @@
     <Content Include="Content\Images\wine\la_rioja_alta_904_gran_reserva_2015.png" />
     <Content Include="Content\Images\wine\leflaive_puligny_montrachet_1er_cru_clavoillon_18.png" />
     <Content Include="Content\Images\wine\louis_roederer_cristal_2002_mathusalem_vintage_champagne.png" />
+    <Content Include="Content\Images\wine\louis_roederer_cristal_vinothèque_rosé_2000.png" />
     <Content Include="Content\Images\wine\nyetimber_classic_cuvee_2010_magnum.png" />
     <Content Include="Content\Images\wine\ochoa_calendas_tinto.png" />
     <Content Include="Content\Images\wine\opus_one_2014.png" />

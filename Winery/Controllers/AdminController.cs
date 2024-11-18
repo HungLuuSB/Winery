@@ -25,7 +25,7 @@ namespace Winery.Controllers
             var currentUser = Session["user"] as User;
             if (currentUser == null)
                 return RedirectToAction("Index", "Action");
-            if (!PermissionService.UserHasPermission(2))
+            if (!PermissionService.UserHasPermission(currentUser, 2))
                 new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             ViewData["registeredUsers"] = db.User.Include(p => p.UserPermission).ToList();
             ViewData["products"] = db.Product.Include(p => p.Category)

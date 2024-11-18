@@ -39,7 +39,7 @@
                                 Total registered users: @registeredUsers.Count() <br />
                             </p>
                             <div class="list-block">
-                                <table class="table-list">
+                                <table class="table-list" id="table-user">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -114,7 +114,7 @@
                                 Total brands: @brands.Count() <br />
                             </p>
                             <div class="list-block">
-                                <table class="table-list">
+                                <table class="table-list" id="table-brand">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -144,8 +144,6 @@
                 </div>
             </div>
 
-
-
             <div class="block dashboard-product">
                 <div class="block-title">
                     <strong>PRODUCTS</strong>
@@ -162,7 +160,7 @@
                                 <strong>Profit:</strong> £@(OrderService.GetProfit().ToString("N2")) <br />
                             </p>
                             <div class="list-block">
-                                <table class="table-list">
+                                <table class="table-list" id="table-product">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -185,7 +183,7 @@
                                     <tbody>
                                         @foreach (var item in products)
                                         {
-                                            <tr>
+                                            <tr class="data-row">
                                                 <td class="table-list-col id">@item.ProductID</td>
                                                 <td class="table-list-col item">
                                                     <a>
@@ -217,6 +215,62 @@
                                                 </td>
                                             </tr>
                                          }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="box-actions">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="block dashboard-order">
+                <div class="block-title">
+                    <strong>ORDERS</strong>
+                </div>
+                <div class="block-content">
+                    <div class="box box-information">
+                        <strong class="box-title">
+                            Orders Analysis
+                        </strong>
+                        <div class="box-content">
+                            <p>
+                                <strong>Total orders:</strong> @orders.Count() <br />
+                            </p>
+                            <div class="list-block">
+                                <table class="table-list" id="table-order">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th style="text-align:left;">Customer</th>
+                                            <th>Date - Time</th>
+                                            <th>Address</th>
+                                            <th>Total</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in orders)
+                                        {
+                                            <tr>
+                                                <td class="table-list-col id">@item.OrderID</td>
+                                                <td class="table-list-col name">
+                                                    @{ 
+                                                        var _user = registeredUsers.First(x => x.UserID == item.UserID);
+                                                        string fullname = _user.LastName + " " + _user.MiddleName + " " + _user.FirstName;
+                                                        @:@fullname
+                                                    }
+                                                </td>
+                                                <td class="table-list-col date-time">@item.OdrderDate</td>
+                                                <td class="table-list-col address">@(item.City), @(item.Province), @(item.Address)</td>
+                                                <td class="table-list-col total">£@item.Total.ToString("N2")</td>
+                                                <td class="table-list-col total">
+                                                    <a class="action" href="@Url.Action("Details", "OrderDetails", new { id = item.OrderID })">Details</a>
+                                                </td>
+                                            </tr>
+                                        }
                                     </tbody>
                                 </table>
                             </div>

@@ -24,7 +24,8 @@ namespace Winery.Controllers
         // GET: User/Details/5
         public ActionResult Details(int? id)
         {
-            if (UserSessionService.IsUserLoggedIn())
+            var currentUser = Session["user"] as User;
+            if (currentUser != null)
             {
                 if (id == null)
                 {
@@ -32,7 +33,7 @@ namespace Winery.Controllers
                 }
                 else
                 {
-                    if (id == UserSessionService.CurrentUser.UserID)
+                    if (id == currentUser.UserID)
                     {
                         ViewData["Address"] = db.Address.FirstOrDefault(x => x.UserID == id);
                         User user = db.User.Find(id);
@@ -40,7 +41,7 @@ namespace Winery.Controllers
                     }
                     else
                     {
-                        if (PermissionService.UserHasPermission(2))
+                        if (PermissionService.UserHasPermission(currentUser, 2))
                         {
                             User user = db.User.Find(id);
                             return View(user);
