@@ -271,6 +271,7 @@
     <Content Include="Content\Images\wine\armand_de_brignac_ace_of_spades_brut_gold_magnum.png" />
     <Content Include="Content\Images\wine\artemis_karamolegos_mystirio.png" />
     <Content Include="Content\Images\wine\avantis_estate_falcon%27s_hill_rosé.png" />
+    <Content Include="Content\Images\wine\cantarutti_lambrato.png" />
     <Content Include="Content\Images\wine\cálem_40yr_tawny_port.png" />
     <Content Include="Content\Images\wine\cálem_colheita_1961.png" />
     <Content Include="Content\Images\wine\château_de_chausse_côtes_de_provence_rosé.png" />
@@ -398,6 +399,8 @@
     <Content Include="Views\Admin\Dashboard.cshtml" />
     <Content Include="Views\Admin\GetDashboardActions.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Admin\CreateProduct.cshtml" />
+    <Content Include="Views\Admin\EditProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Register\" />

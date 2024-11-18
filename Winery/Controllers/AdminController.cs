@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -35,6 +36,106 @@ namespace Winery.Controllers
                                          .Include(p => p.Category).ToList();
             ViewData["orders"] = db.Order.Include(p => p.OrderDetails).ToList();
             return View();
+        }
+
+        public ActionResult CreateProduct()
+        {
+            ViewData["Brands"] = db.Brand.Include(x => x.Category).ToList();
+            ViewData["Categories"] = db.Category.Include(x => x.Brand).ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateProduct(string ProductName, string ProductDesc, int ProductYearAging, float ProductABV,
+            float ProductPrice, int ProductCapacity, string ProductOrigin, int ProductCategoryID, int ProductBrandID, int ProductStock, HttpPostedFileBase ProductImage)
+        {
+            try
+            {
+                Product product = new Product();
+                product.ProductName = ProductName;
+                product.ProductDesc = ProductDesc;
+                product.ProductYearAging = ProductYearAging;
+                product.ProductABV = ProductABV;
+                product.ProductPrice = ProductPrice;
+                product.ProductCapacity = ProductCapacity;
+                product.ProductOrigin = ProductOrigin;
+                product.ProductCategoryID = ProductCategoryID;
+                product.ProductBrandID = ProductBrandID;
+
+                db.Product.Add(product);
+                db.SaveChanges();
+
+                Inventory inventory = new Inventory();
+                inventory.ProductID = product.ProductID;
+                inventory.Quantity = ProductStock;
+
+                db.Inventory.Add(inventory);
+                db.SaveChanges();
+
+                if (ProductImage != null && ProductImage.ContentLength > 0)
+                {
+                    var fileName = ProductUtilityService.ParseItemNameIntoPNGFileName(ProductName);
+                    var filePath = Path.Combine(Server.MapPath("~/Content/images/wine/"), fileName);
+                    ProductImage.SaveAs(filePath);
+                }
+
+                return RedirectToAction("Dashboard", "Admin");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Dashboard", "Admin");
+            }
+        }
+
+        public ActionResult EditProduct(int id)
+        {
+            ViewData["Brands"] = db.Brand.Include(x => x.Category).ToList();
+            ViewData["Categories"] = db.Category.Include(x => x.Brand).ToList();
+            var product = db.Product.Find(id);
+            if (product == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            return View(product);
+        }
+
+        [HttpPost]
+        public ActionResult EditProduct(int ProductID, string ProductName, string ProductDesc, int ProductYearAging, float ProductABV,
+            float ProductPrice, int ProductCapacity, string ProductOrigin, int ProductCategoryID, int ProductBrandID, float ProductSalePrice, int ProductStock)
+        {
+            var product = db.Product.Find(ProductID);
+            var inventory = product.Inventory;
+            if (ModelState.IsValid)
+            {
+                product.ProductName = ProductName;
+                product.ProductDesc = ProductDesc;
+                product.ProductYearAging = ProductYearAging;
+                product.ProductABV = ProductABV;
+                product.ProductPrice = ProductPrice;
+                product.ProductCapacity = ProductCapacity;
+                product.ProductOrigin = ProductOrigin;
+                product.ProductCategoryID = ProductCategoryID;
+                product.ProductBrandID = ProductBrandID;
+
+                if (product.ProductOnSale == false)
+                {
+                    if (ProductSalePrice != null && ProductSalePrice > 0)
+                    {
+                        product.ProductOnSale = true;
+                        product.ProductPrice = ProductSalePrice;
+                    }
+                    else
+                    {
+                        product.ProductOnSale = false;
+                    }
+                }
+                
+
+                inventory.Quantity = ProductStock;
+
+                db.Entry(product).State = EntityState.Modified;
+                db.Entry(inventory).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            return RedirectToAction("Dashboard", "Admin");
         }
     }
 }

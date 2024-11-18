@@ -1,0 +1,135 @@
+﻿@model Winery.Models.Product
+@using Winery.Models
+@{
+    ViewBag.Title = "Create New Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var currentUser = Session["user"] as User;
+    var brands = ViewData["Brands"] as IEnumerable<Brand>;
+    var categories = ViewData["Categories"] as IEnumerable<Category>;
+}
+
+@functions{
+
+}
+
+<link rel="stylesheet" href="~/Content/admin-dashboard-styles.css">
+<div class="page-wrapper">
+    <main class="page-content" id="maincontent">
+        <div class="sidebar sidebar-main">
+            @Html.Action("GetUserActions", "User", new { id = currentUser.UserID })
+        </div>
+        <div class="board">
+            <div class="page-title-wrapper">
+                <h1 class="page-title" id="page-title-heading">
+                    IMPORT NEW PRODUCT
+                </h1>
+            </div>
+            <div class="block dashboard-info">
+                <div class="block-title">
+                    <strong>Product</strong>
+                    <span class="block-subtitle">This will create a new product</span>
+                </div>
+                <div class="block-content">
+                    <div class="box box-information">
+                        @using (Html.BeginForm("CreateProduct", "Admin", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <strong class="box-title">
+                                Product Information
+
+                            </strong>
+                            <div class="box-content">
+                                <div class="user-form-field ProductName">
+                                    <label class="user-form-label" for="ProductName">Name</label>
+                                    <div class="user-form-control">
+                                        <input id="ProductName" name="ProductName" value />
+                                    </div>
+                                </div>
+                                <div class="user-form-field ProductDesc">
+                                    <label class="user-form-label" for="ProductDesc">Description</label>
+                                    <div class="user-form-control">
+                                        <input id="ProductDesc" name="ProductDesc" value />
+                                    </div>
+                                </div>
+                                <div class="user-form-field ProductYearAging">
+                                    <label class="user-form-label" for="ProductYearAging">Year Aging</label>
+                                    <div class="user-form-control">
+                                        <input id="ProductYearAging" name="ProductYearAging" value />
+                                    </div>
+                                </div>
+                                <div class="user-form-field ProductABV">
+                                    <label class="user-form-label" for="ProductABV">Alcohol by volume(%)</label>
+                                    <div class="user-form-control">
+                                        <input id="ProductABV" name="ProductABV" value />
+                                    </div>
+                                </div>
+                                <div class="user-form-field ProductPrice">
+                                    <label class="user-form-label" for="ProductPrice">Price(£)</label>
+                                    <div class="user-form-control">
+                                        <input id="ProductPrice" name="ProductPrice" value />
+                                    </div>
+                                </div>
+                                <div class="user-form-field ProductCapacity">
+                                    <label class="user-form-label" for="ProductCapacity">Capacity(CL)</label>
+                                    <div class="user-form-control">
+                                        <input id="ProductCapacity" name="ProductCapacity" value />
+                                    </div>
+                                </div>
+                                <div class="user-form-field ProductOrigin">
+                                    <label class="user-form-label" for="ProductOrigin">Origin</label>
+                                    <div class="user-form-control">
+                                        <input id="ProductOrigin" name="ProductOrigin" value />
+                                    </div>
+                                </div>
+                                <div class="user-form-field ProductCategoryID">
+                                    <label class="user-form-label" for="ProductCategoryID">Category</label>
+                                    <div class="user-form-control">
+                                        <select id="ProductCategoryID" name="ProductCategoryID" onchange="updateBrands()">
+                                            @foreach (var category in categories)
+                                            {
+                                                <option value="@category.CategoryID">@category.CategoryName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="user-form-field ProductBrandID">
+                                    <label class="user-form-label" for="ProductBrandID">Brand</label>
+                                    <div class="user-form-control">
+                                        <select id="ProductBrandID" name="ProductBrandID">
+                                            @foreach (var brand in brands)
+                                            {
+                                                <option value="@brand.BrandId">@brand.BrandName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="user-form-field ProductStock">
+                                    <label class="user-form-label" for="ProductStock">Stock</label>
+                                    <div class="user-form-control">
+                                        <input id="ProductStock" name="ProductStock" value />
+                                    </div>
+                                </div>
+                                <div class="user-form-field ProductImage">
+                                    <label class="user-form-label" for="ProductImage">Image</label>
+                                    <div class="user-form-control">
+                                        <input type="file" id="ProductImage" name="ProductImage" value />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-actions">
+
+                            </div>
+                            <div class="box-actions-submit">
+                                <button type="submit" class="user-edit-save-button" value="Create">
+                                    CREATE
+                                </button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script>
+</script>

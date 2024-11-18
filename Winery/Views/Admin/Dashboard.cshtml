@@ -210,7 +210,7 @@
                                                 <td class="table-list-col origin">@item.ProductYearAging</td>
                                                 <td class="table-list-col abv">@ProductUtilityService.GetProductPurchased(item.ProductID)</td>
                                                 <td class="table-list-col actions">
-                                                    <a class="action" href="@Url.Action("Edit", "Product", new { id = item.ProductID })">Edit</a>
+                                                    <a class="action" href="@Url.Action("EditProduct", "Admin", new { id = item.ProductID })">Edit</a>
                                                     <a class="action" href="@Url.Action("Delete", "Product", new { id = item.ProductID })">Delete</a>
                                                 </td>
                                             </tr>
@@ -220,7 +220,7 @@
                             </div>
                         </div>
                         <div class="box-actions">
-
+                            <a class="action" href="@Url.Action("CreateProduct", "Admin")">Create</a>
                         </div>
                     </div>
                 </div>
