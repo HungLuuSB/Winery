@@ -361,5 +361,4 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/Winery/App_Data/Winery.mdf
-/Winery/App_Data/Winery_log.ldf
+/Winery/App_Data
