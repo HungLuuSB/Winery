@@ -204,10 +204,6 @@
     <Compile Include="Ultilities\WineryUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Winery.mdf" />
-    <Content Include="App_Data\Winery_log.ldf">
-      <DependentUpon>Winery.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\access-register-style.css" />
     <Content Include="Content\access-login-styles.css" />
     <Content Include="Content\admin-dashboard-styles.css" />
