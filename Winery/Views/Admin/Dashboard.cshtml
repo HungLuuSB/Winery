@@ -112,7 +112,8 @@
                         </strong>
                         <div class="box-content">
                             <p>
-                                Total brands: @brands.Count() <br />
+                                <strong>Total brands:</strong> @brands.Count()
+                                <a class="action inline-action" href="@Url.Action("CreateBrand", "Admin")">Create New Brand</a>
                             </p>
                             <div class="list-block">
                                 <table class="table-list" id="table-brand">
@@ -139,7 +140,7 @@
                             </div>
                         </div>
                         <div class="box-actions">
-                            <a class="action" href="@Url.Action("CreateBrand", "Admin")">Create</a>
+
                         </div>
                     </div>
                 </div>
@@ -158,7 +159,8 @@
                             <p>
                                 <strong>Total products:</strong> @products.Count() <br />
                                 <strong>Total purchases:</strong> @ProductUtilityService.GetAllProductPurchased() <br />
-                                <strong>Profit:</strong> £@(OrderService.GetProfit().ToString("N2")) <br />
+                                <strong>Profit:</strong> £@(OrderService.GetProfit().ToString("N2"))
+                                <a class="action inline-action" href="@Url.Action("CreateProduct", "Admin")">Create New Product</a>
                             </p>
                             <div class="list-block">
                                 <table class="table-list" id="table-product">
@@ -219,9 +221,14 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <div class="chart-block sales-chart">
+                                <div class="chart" id="sales-chart">
+                                    <img src="@Url.Action("GetSalesChart", "Admin")" />
+                                </div>
+                            </div>
                         </div>
                         <div class="box-actions">
-                            <a class="action" href="@Url.Action("CreateProduct", "Admin")">Create</a>
+
                         </div>
                     </div>
                 </div>

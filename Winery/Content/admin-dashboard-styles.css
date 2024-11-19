@@ -76,6 +76,9 @@
     color: #000 !important;
     font-size: 12px;
 }
+.action.inline-action {
+    float: right;
+}
 
 .list-block {
     width: 100%;

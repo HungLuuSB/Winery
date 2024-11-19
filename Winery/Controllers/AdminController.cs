@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using Winery.Models;
 using Winery.Services;
@@ -161,6 +162,33 @@ namespace Winery.Controllers
             }
 
             return RedirectToAction("Dashboard", "Admin");
+        }
+
+        public ActionResult GetSalesChart()
+        {
+            var productSold = new List<Product>();
+            foreach (var product in db.Product.ToList())
+            {
+                if (ProductUtilityService.GetProductPurchased(product.ProductID) > 0)
+                    productSold.Add(product);
+            }
+            var productName = new List<string>();
+            foreach (var product in productSold)
+            {
+                productName.Add(product.ProductName);
+            }
+            var productSale = new List<int>();
+            foreach (var product in productSold)
+            {
+                productSale.Add(ProductUtilityService.GetProductPurchased(product.ProductID));
+            }
+            var chart = new Chart(700, 500)
+                .AddTitle("Product sales")
+                .AddSeries(
+                    name: "Product",
+                    xValue: productName,
+                    yValues: productSale).GetBytes("png");
+            return File(chart, "image/png");
         }
     }
 }

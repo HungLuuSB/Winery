@@ -70,7 +70,7 @@ namespace Winery.Controllers
                     db.SaveChanges();
                 }
                 cart.ClearCart();
-                return RedirectToAction("Index", "OrderDetails", new { orderID = order.OrderID });
+                return RedirectToAction("Details", "OrderDetails", new { orderID = order.OrderID });
             }
             return RedirectToAction("ShowCart", "ShoppingCart");
         }
